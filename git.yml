@@ -1,0 +1,6 @@
+---
+
+- name: install
+  apt:
+    name: git
+

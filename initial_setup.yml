@@ -1,0 +1,10 @@
+---
+
+- name: Update
+  apt:
+    update_cache: true
+    upgrade: dist
+    force_apt_get: true
+
+- name: Set up directory structure
+  

@@ -1,0 +1,17 @@
+---
+
+- name: neofetch
+  apt:
+    name: neofetch
+
+- name: tree
+  apt:
+    name: tree
+
+- name: cowsay
+  apt:
+    name: cowsay
+
+- name: curl
+  apt:
+    name: curl

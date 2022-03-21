@@ -1,0 +1,14 @@
+---
+
+- hosts: localhost
+  become: true
+  tasks:
+
+    - name: Initial setup 
+    include_tasks: initial_setup.yml 
+
+    - name: Git
+    include_tasks: git.yml
+
+    - name: Misc
+    include_tasks: misc.yml
