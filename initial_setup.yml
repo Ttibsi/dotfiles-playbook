@@ -6,5 +6,21 @@
     upgrade: dist
     force_apt_get: true
 
-- name: Set up directory structure
+- name: Remove unneeded folders
+  file:
+    path: "{{ item }}"
+    state: absent
+  loop:
+    - Documents
+    - Music
+    - Pictures
+    - Public
+    - Templates
+    - Videos
+
+- name: Create Workspace folder
+  file:
+    path: Workspace
+    state: directory
+    mode: '0755'
   
