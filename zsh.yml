@@ -1,0 +1,14 @@
+---
+
+- name: Install zsh
+  apt:
+    name: zsh
+
+- name: Download ohmyzsh
+  get_url:
+    dest: /tmp/zsh-install.sh
+    mode: 0755
+    url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+
+- name: Execute zsh-install.sh
+  shell: /tmp/zsh-install.sh
