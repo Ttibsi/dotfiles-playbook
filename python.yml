@@ -1,0 +1,17 @@
+---
+
+- name: Add deadsnakes ppa
+  apt_repository:
+    repo: ppa:deadsnakes/ppa
+
+- name: Install py3.10
+  apt:
+    name: python3.10
+
+- name: Install pip 
+  apt:
+    name: python3-pip
+
+- name: Install pre-commit
+  pip:
+    name: pre-commit

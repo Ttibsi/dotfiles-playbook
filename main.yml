@@ -16,5 +16,8 @@
     - name: Configure i3wm
     include_tasks: i3.yml
 
+    - name: Install Python3 env
+    include_tasks: python.yml
+
     - name: Neovim
     include_tasks: nvim.yml
