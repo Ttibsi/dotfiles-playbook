@@ -1,0 +1,21 @@
+---
+
+- name: Install Discord
+  apt:
+    deb: 'https://dl.discordapp.net/apps/linux/{{ discord_version }}/discord-{{ discord_version }}.deb'
+
+#- name: Install onlyoffice
+#  apt:
+#    deb: https://download.onlyoffice.com/install/desktop/editors/linux/onlyoffice-desktopeditors_amd64.deb
+
+#- name: Install Alacritty
+#- name: Install Notion
+#- name: Install Blender
+#- name: Install bitwarden
+
+# Not on Snap
+#- name: Install geekbench
+#- name: Install cinebench
+#- name: Install ublock
+
+
