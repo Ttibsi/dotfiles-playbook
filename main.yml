@@ -4,6 +4,9 @@
   become: true
   tasks:
 
+    - name: Ansible requirements
+      shell: ansible-galaxy collection install community.general
+
     - name: Initial setup 
     include_tasks: initial_setup.yml 
 
@@ -24,3 +27,6 @@
 
     - name: Neovim
     include_tasks: nvim.yml
+
+    - name: Final Steps
+    include_tasks: final.yml

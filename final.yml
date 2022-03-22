@@ -1,0 +1,7 @@
+---
+
+- name: User manual entry:
+  debug:
+    msg: "{{ item }}"
+  loop:
+    - "Create Git SSH key for Github connection"
