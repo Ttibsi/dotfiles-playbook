@@ -1,17 +1,19 @@
 ---
 
-- name: neofetch
+- name: Neofetch
   apt:
     name: neofetch
 
-- name: tree
+- name: Tree
   apt:
     name: tree
 
-- name: cowsay
+- name: Cowsay
   apt:
     name: cowsay
 
-- name: curl
+- name: Curl
   apt:
     name: curl
+
+- name: Bottom

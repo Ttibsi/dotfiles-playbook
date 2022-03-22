@@ -7,8 +7,8 @@
     - name: Initial setup 
     include_tasks: initial_setup.yml 
 
-    - name: Git
+    - name: Configure git 
     include_tasks: git.yml
 
-    - name: Misc
+    - name: Install misc tools
     include_tasks: misc.yml
