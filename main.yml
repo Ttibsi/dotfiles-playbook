@@ -12,3 +12,9 @@
 
     - name: Install misc tools
     include_tasks: misc.yml
+
+    - name: Configure i3wm
+    include_tasks: i3.yml
+
+    - name: Neovim
+    include_tasks: nvim.yml
