@@ -1,0 +1,11 @@
+---
+
+- name: Install Discord
+  apt:
+    deb: 'https://dl.discordapp.net/apps/linux/{{ discord_version }}/discord-{{ discord_version }}.deb'
+
+- name: Install onlyoffice
+  apt:
+    deb: https://download.onlyoffice.com/install/desktop/editors/linux/onlyoffice-desktopeditors_amd64.deb
+
+

@@ -2,8 +2,10 @@
 
 - hosts: localhost
   become: true
-  tasks:
+  vars:
+    discord_version: 0.0.17j
 
+  tasks:
     - name: Ansible requirements
       shell: ansible-galaxy collection install community.general
 
@@ -27,6 +29,9 @@
 
     - name: Neovim
     include_tasks: nvim.yml
+
+    - name: Applications
+    include_tasks: apps.yml
 
     - name: Final Steps
     include_tasks: final.yml
