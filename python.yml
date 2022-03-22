@@ -15,3 +15,14 @@
 - name: Install pre-commit
   pip:
     name: pre-commit
+
+- name: Download ghstat
+  git:
+    repo: https://github.com/Ttibsi/gh-stats
+    dest: "{{ ansible_user_dir }}/tmp/gh-stats"
+  environment:
+    GIT_TERMINAL_PROMPT: 0 
+
+- name: Install ghstat
+  pip:
+    name: "{{ ansible_user_dir }}/tmp/gh-stats"
