@@ -11,16 +11,16 @@
     path: "{{ item }}"
     state: absent
   loop:
-    - Documents
-    - Music
-    - Pictures
-    - Public
-    - Templates
-    - Videos
+    - "$HOME/Documents"
+    - "$HOME/Music"
+    - "$HOME/Pictures"
+    - "$HOME/Public"
+    - "$HOME/Templates"
+    - "$HOME/Videos"
 
 - name: Create Workspace folder
   file:
-    path: Workspace
+    path: "$HOME/Workspace"
     state: directory
     mode: '0755'
   
