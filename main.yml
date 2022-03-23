@@ -2,17 +2,8 @@
 
 - hosts: localhost
   become: true
-  tasks:
-    - name: Ansible requirements
-      shell: ansible-galaxy collection install community.general
-
-- hosts: localhost
-  become: true
   vars:
     discord_version: 0.0.17
-
-  collections:
-    - community.general
 
   # Disable these two lines for normal output after cowsay installs 
   environment:
