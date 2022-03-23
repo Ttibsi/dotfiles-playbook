@@ -30,6 +30,11 @@
     name: blender
     classic: yes
 
+- name: Install VLC
+  community.general.snap:
+    name: VLC
+    classic: yes
+
 # Not available on Snap
 - name: Download geekbench
   get_url:
