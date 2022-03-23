@@ -1,9 +1,35 @@
 ---
 
-- name: Add nvim ppa
-  apt_repository:
-    repo: ppa:neovim-ppa/stable
+- name: Install dependencies
+  ansible.builtin.package:
+    name:
+      - base-devel
+      - cmake
+      - curl
+      - ninja
+      - tree-sitter
+      - unzip
+    state: latest
+
+- name: Clone repo
+  git:
+    clone: yes
+    dest: "{{ ansible_user_dir }}/tmp/nvim"
+    force: yes
+    repo: https://github.com/neovim/neovim.git
+    single_branch: yes
+    update: yes
+  register: clone
+
+- name: Build nvim
+  make:
+    chdir: "{{ ansible_user_dir }}/tmp/nvim"
+    params:
+      CMAKE_BUILD_TYPE: RelWithDebInfo
 
 - name: Install nvim
-  apt:
-    name: neovim
+  make:
+    chdir: "{{ ansible_user_dir }}/tmp/nvim"
+    target: install
+
+
