@@ -6,9 +6,9 @@
 
 - name: Download ohmyzsh
   get_url:
-    dest: "{{ ansible_user_dir }}/tmp/zsh-install.sh"
+    dest: "{{ ansible_env.HOME }}/tmp/zsh-install.sh"
     mode: 0755
     url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 
 - name: Execute zsh-install.sh
-  shell: "{{ ansible_user_dir }}/tmp/zsh-install.sh"
+  shell: "{{ ansible_env.HOME}}/tmp/zsh-install.sh"

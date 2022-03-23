@@ -5,3 +5,5 @@
     msg: "{{ item }}"
   loop:
     - "Create Git SSH key for Github connection"
+    - "Double check that Alacritty uses zsh and GNOME terminal defaults to bash"
+    - "It's recommended that the machine get rebooted after running this Playbook"

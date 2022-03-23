@@ -14,7 +14,7 @@
 - name: Clone repo
   git:
     clone: yes
-    dest: "{{ ansible_user_dir }}/tmp/nvim"
+    dest: "{{ ansible_env.HOME }}/tmp/nvim"
     force: yes
     repo: https://github.com/neovim/neovim.git
     single_branch: yes
@@ -23,13 +23,13 @@
 
 - name: Build nvim
   make:
-    chdir: "{{ ansible_user_dir }}/tmp/nvim"
+    chdir: "{{ ansible_env.HOME }}/tmp/nvim"
     params:
       CMAKE_BUILD_TYPE: RelWithDebInfo
 
 - name: Install nvim
   make:
-    chdir: "{{ ansible_user_dir }}/tmp/nvim"
+    chdir: "{{ ansible_env.HOME }}/tmp/nvim"
     target: install
 
 

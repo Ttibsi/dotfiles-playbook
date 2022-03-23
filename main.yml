@@ -2,36 +2,46 @@
 
 - hosts: localhost
   become: true
-  vars:
-    discord_version: 0.0.17
-
   tasks:
     - name: Ansible requirements
       shell: ansible-galaxy collection install community.general
 
+- hosts: localhost
+  become: true
+  vars:
+    discord_version: 0.0.17
+
+  collections:
+    - community.general
+
+  # Disable these two lines for normal output after cowsay installs 
+  environment:
+    ANSIBLE_NOCOWS: random
+
+  tasks:
     - name: Initial setup 
-    include_tasks: initial_setup.yml 
+      include_tasks: tasks/initial_setup.yml 
 
     - name: Configure git 
-    include_tasks: git.yml
+      include_tasks: tasks/git.yml
 
     - name: Install misc tools
-    include_tasks: misc.yml
+      include_tasks: tasks/misc.yml
 
     - name: Configure zsh shell
-    include_tasks: zsh.yml
+      include_tasks: tasks/zsh.yml
 
     - name: Configure i3wm
-    include_tasks: i3.yml
+      include_tasks: tasks/i3.yml
 
     - name: Install Python3 env
-    include_tasks: python.yml
+      include_tasks: tasks/python.yml
 
-    - name: Neovim
-    include_tasks: nvim.yml
+    - name: Configure Neovim
+      include_tasks: tasks/nvim.yml
 
-    - name: Applications
-    include_tasks: apps.yml
+    - name: Install Desktop Applications
+      include_tasks: tasks/apps.yml
 
     - name: Final Steps
-    include_tasks: final.yml
+      include_tasks: tasks/final.yml
