@@ -35,7 +35,7 @@
   get_url:
     url: https://cdn.geekbench.com/Geekbench-5.4.4-Linux.tar.gz
     dest: "{{ ansible_env.HOME }}/tmp/geekbench"
-    moder: 0755
+    mode: 0755
 
 - name: Install geekbench
   unarchive:

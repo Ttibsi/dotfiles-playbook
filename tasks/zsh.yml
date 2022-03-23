@@ -12,3 +12,53 @@
 
 - name: Execute zsh-install.sh
   shell: "{{ ansible_env.HOME}}/tmp/zsh-install.sh"
+
+# Distribute zsh template here
+- name: Distribute zshrc 
+  copy:
+    src: "templates/zsh-shell/.zshrc" 
+    dest: "{{ ansible_env.HOME }}"
+
+- name: Distribute OMZ
+  copy:
+    src: /templates/zsh-shell/.oh-my-zsh/
+    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom"
+
+- name: Download p10k
+  git:
+    clone: yes
+    repo: https://github.com/romkatv/powerlevel10k.git
+    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/themes/powerlevel10k"
+    single_branch: yes
+    force: yes
+  register: clone
+   
+- name: Clone zsh-autosuggestions
+  ansible.builtin.git:
+    clone: yes
+    depth: 1
+    dest: "{{ ansible_user_dir }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+    repo: https://github.com/zsh-users/zsh-autosuggestions
+    single_branch: yes
+    update: yes
+    version: master
+
+- name: Clone zsh-completions
+  ansible.builtin.git:
+    clone: yes
+    depth: 1
+    dest: "{{ ansible_user_dir }}/.oh-my-zsh/custom/plugins/zsh-completions"
+    repo: https://github.com/zsh-users/zsh-completions
+    single_branch: yes
+    update: yes
+    version: master
+
+- name: Clone zsh-syntax-highlighting
+  ansible.builtin.git:
+    clone: yes
+    depth: 1
+    dest: "{{ ansible_user_dir }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+    repo: https://github.com/zsh-users/zsh-syntax-highlighting
+    single_branch: yes
+    update: yes
+    version: master
