@@ -32,6 +32,12 @@
     single_branch: yes
     force: yes
   register: clone
+
+- name: Distribute p10k config
+  copy:
+    src: /templates/zsh-shell/.p10k.zsh
+    dest: "{{ ansible_env.HOME }}"
+
    
 - name: Clone zsh-autosuggestions
   ansible.builtin.git:
