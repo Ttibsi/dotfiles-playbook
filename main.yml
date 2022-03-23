@@ -3,7 +3,7 @@
 - hosts: localhost
   become: true
   vars:
-    discord_version: 0.0.17j
+    discord_version: 0.0.17
 
   tasks:
     - name: Ansible requirements

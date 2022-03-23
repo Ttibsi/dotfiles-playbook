@@ -1,21 +1,48 @@
 ---
 
 - name: Install Discord
-  apt:
-    deb: 'https://dl.discordapp.net/apps/linux/{{ discord_version }}/discord-{{ discord_version }}.deb'
+  community.general.snap:
+    name: discord
+    classic: yes
 
-#- name: Install onlyoffice
-#  apt:
-#    deb: https://download.onlyoffice.com/install/desktop/editors/linux/onlyoffice-desktopeditors_amd64.deb
+- name: Install Alacritty
+  community.general.snap:
+    name: alacritty
+    classic: yes
 
-#- name: Install Alacritty
-#- name: Install Notion
-#- name: Install Blender
-#- name: Install bitwarden
+- name: Install Notion
+  community.general.snap:
+    name: notion-snap
+    classic: yes
+
+- name: Install Blender
+  community.general.snap:
+    name: blender
+    classic: yes
+
+- name: Install Bitwarden
+  community.general.snap:
+    name: bitwarden
+    classic: yes
+
+- name: Install Blender
+  community.general.snap:
+    name: blender
+    classic: yes
+
+# Not available on Snap
+- name: Download geekbench
+  get_url:
+    url: https://cdn.geekbench.com/Geekbench-5.4.4-Linux.tar.gz
+    dest: "{{ ansible_user_dir }}/tmp/geekbench"
+    moder: 0755
+
+- name: Install geekbench
+  unarchive:
+    src: "{{ ansible_user_dir }}/tmp/geekbench"
+    dest: "{{ ansible_user_dir }}/Downloads/geekbench"
 
 # Not on Snap
-#- name: Install geekbench
-#- name: Install cinebench
 #- name: Install ublock
 
 
