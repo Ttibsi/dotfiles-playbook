@@ -11,27 +11,27 @@
     path: "{{ item }}"
     state: absent
   loop:
-    - "{{ ansible_env.HOME }}/Documents"
-    - "{{ ansible_env.HOME }}/Music"
-    - "{{ ansible_env.HOME }}/Pictures"
-    - "{{ ansible_env.HOME }}/Public"
-    - "{{ ansible_env.HOME }}/Templates"
-    - "{{ ansible_env.HOME }}/Videos"
+    - "$HOME/Documents"
+    - "$HOME/Music"
+    - "$HOME/Pictures"
+    - "$HOME/Public"
+    - "$HOME/Templates"
+    - "$HOME/Videos"
 
 - name: Create Workspace folder
   file:
-    path: "{{ ansible_env.HOME }}/Workspace"
+    path: "$HOME/Workspace"
     state: directory
     mode: '0755'
   
 - name: Download Iosevka font
   get_url:
     url: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Iosevka.zip
-    dest: "{{ ansible_env.HOME }}/tmp/Iosevka"
+    dest: "/tmp/Iosevka"
 
 - name: Install Iosevka font
   unarchive:
-    src: "{{ ansible_env.HOME }}/tmp/Iosevka"
+    src: "/tmp/Iosevka"
     dest: /usr/share/fonts
 
 - name: reload fonts

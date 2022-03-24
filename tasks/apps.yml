@@ -25,9 +25,9 @@
     name: bitwarden
     classic: yes
 
-- name: Install Blender
+- name: Install Libreoffice
   community.general.snap:
-    name: blender
+    name: libreoffice
     classic: yes
 
 - name: Install VLC
@@ -46,6 +46,10 @@
   unarchive:
     src: "{{ ansible_env.HOME }}/tmp/geekbench"
     dest: "{{ ansible_env.HOME }}/Downloads/geekbench"
+
+- name: Install Cheese
+  apt:
+    name: cheese
 
 # Not on Snap
 #- name: Install ublock
