@@ -1,6 +1,7 @@
 ---
 
 - hosts: localhost
+  become: yes
   vars:
     discord_version: 0.0.17
 
