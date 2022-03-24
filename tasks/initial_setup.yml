@@ -11,16 +11,16 @@
     path: "{{ item }}"
     state: absent
   loop:
-    - "$HOME/Documents"
-    - "$HOME/Music"
-    - "$HOME/Pictures"
-    - "$HOME/Public"
-    - "$HOME/Templates"
-    - "$HOME/Videos"
+    - "{{ ansible_env.HOME }}/Documents/"
+    - "{{ ansible_env.HOME }}/Music/"
+    - "{{ ansible_env.HOME }}/Pictures/"
+    - "{{ ansible_env.HOME }}/Public/"
+    - "{{ ansible_env.HOME }}/Templates/"
+    - "{{ ansible_env.HOME }}/Videos/"
 
 - name: Create Workspace folder
   file:
-    path: "$HOME/Workspace"
+    path: "{{ ansible_env.HOME }}/Workspace"
     state: directory
     mode: '0755'
   

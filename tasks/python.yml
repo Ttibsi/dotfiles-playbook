@@ -15,11 +15,11 @@
 - name: Download get-pip script
   get_url:
     url: 
-    dest: "{{ ansible_env.HOME }}/tmp/get-pip.py"
+    dest: "/tmp/get-pip.py"
     mode: 0755
 
 - name: Install pip3.10
-  command: python3.10 "{{ ansible_env.HOME }}/tmp/get-pip.py"
+  command: python3.10 "/tmp/get-pip.py"
 
 - name: Install pre-commit
   pip:
@@ -28,7 +28,7 @@
 - name: Download ghstat
   git:
     repo: https://github.com/Ttibsi/gh-stats
-    dest: "{{ ansible_env.HOME }}/tmp/gh-stats"
+    dest: "/tmp/gh-stats"
   environment:
     GIT_TERMINAL_PROMPT: 0 
 
