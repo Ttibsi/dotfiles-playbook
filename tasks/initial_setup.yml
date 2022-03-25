@@ -1,9 +1,5 @@
 ---
 
-- name: ansible env
-  debug
-    msg: "{{ ansible_env.HOME }}"
-
 - name: Update
   apt:
     update_cache: true
@@ -13,7 +9,7 @@
 - name: Remove unneeded folders
   file:
     state: absent
-    path: "{{ ansible_env.HOME }}/{{ item }}"
+    path: "{{ home_dir }}/{{ item }}"
   with_items:
     - "Documents"
     - "Music"
@@ -25,7 +21,7 @@
 - name: Create Workspace folder
   file:
     state: directory
-    path: "{{ ansible_env.HOME }}/Workspace"
+    path: "{{ home_dir }}/Workspace"
     mode: '0755'
   
 - name: Download Iosevka font

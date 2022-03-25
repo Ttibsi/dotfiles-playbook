@@ -33,4 +33,4 @@
     GIT_TERMINAL_PROMPT: 0 
 
 - name: Install ghstat
-  command: "python3.10 -m pip install {{ ansible_env.HOME }}/tmp/gh-stats" 
+  command: "python3.10 -m pip install /tmp/gh-stats" 

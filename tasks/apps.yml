@@ -39,13 +39,13 @@
 - name: Download geekbench
   get_url:
     url: https://cdn.geekbench.com/Geekbench-5.4.4-Linux.tar.gz
-    dest: "{{ ansible_env.HOME }}/tmp/geekbench"
+    dest: "/tmp/geekbench"
     mode: 0755
 
 - name: Install geekbench
   unarchive:
-    src: "{{ ansible_env.HOME }}/tmp/geekbench"
-    dest: "{{ ansible_env.HOME }}/Downloads/geekbench"
+    src: "/tmp/geekbench"
+    dest: "{{ home_dir }}/Downloads/geekbench"
 
 - name: Install Cheese
   apt:

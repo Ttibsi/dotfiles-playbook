@@ -3,6 +3,7 @@
 - hosts: localhost
   become: yes
   vars:
+    home_dir: "{{ lookup('env', 'HOME') }}"
     discord_version: 0.0.17
 
   # Disable these two lines for normal output after cowsay installs 
@@ -10,10 +11,6 @@
     ANSIBLE_NOCOWS: 1 
 
   tasks:
-    - name: ansible env
-      debug:
-        msg: "{{ ansible_env.HOME }}"
-
     - name: Initial setup 
       include_tasks: tasks/initial_setup.yml 
 

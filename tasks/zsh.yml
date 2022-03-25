@@ -17,18 +17,18 @@
 - name: Distribute zshrc 
   copy:
     src: "templates/zsh-shell/.zshrc" 
-    dest: "{{ ansible_env.HOME }}"
+    dest: "{{ home_dir }}"
 
 - name: Distribute OMZ
   copy:
     src: /templates/zsh-shell/.oh-my-zsh/
-    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom"
+    dest: "{{ home_dir }}/.oh-my-zsh/custom"
 
 - name: Download p10k
   git:
     clone: yes
     repo: https://github.com/romkatv/powerlevel10k.git
-    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/themes/powerlevel10k"
+    dest: "{{ home_dir }}/.oh-my-zsh/themes/powerlevel10k"
     single_branch: yes
     force: yes
   register: clone
@@ -36,14 +36,14 @@
 - name: Distribute p10k config
   copy:
     src: /templates/zsh-shell/.p10k.zsh
-    dest: "{{ ansible_env.HOME }}"
+    dest: "{{ home_dir }}"
 
    
 - name: Clone zsh-autosuggestions
   ansible.builtin.git:
     clone: yes
     depth: 1
-    dest: "{{ ansible_user_dir }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+    dest: "{{ home_dir }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
     repo: https://github.com/zsh-users/zsh-autosuggestions
     single_branch: yes
     update: yes
@@ -53,7 +53,7 @@
   ansible.builtin.git:
     clone: yes
     depth: 1
-    dest: "{{ ansible_user_dir }}/.oh-my-zsh/custom/plugins/zsh-completions"
+    dest: "{{ home_dir }}/.oh-my-zsh/custom/plugins/zsh-completions"
     repo: https://github.com/zsh-users/zsh-completions
     single_branch: yes
     update: yes
@@ -63,7 +63,7 @@
   ansible.builtin.git:
     clone: yes
     depth: 1
-    dest: "{{ ansible_user_dir }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+    dest: "{{ home_dir }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
     repo: https://github.com/zsh-users/zsh-syntax-highlighting
     single_branch: yes
     update: yes
