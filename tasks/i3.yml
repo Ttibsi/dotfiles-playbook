@@ -3,3 +3,16 @@
 - name: Install i3
   apt:
     name: i3
+
+# Transfer i3 config
+
+# Install polybar (not available on ubuntu Trusty)
+#- name: polybar
+#  apt:
+#    name: polybar
+
+- name: rofi searchbar
+  apt:
+    name: rofi
+
+# Transfer rofi config and theme file
