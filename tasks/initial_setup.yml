@@ -23,16 +23,23 @@
     state: directory
     path: "{{ home_dir }}/Workspace"
     mode: '0755'
+
+- name: Check for Iosevka presence
+  stat:
+    path: "/tmp/Iosevka"
+  register: p 
   
 - name: Download Iosevka font
   get_url:
     url: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Iosevka.zip
     dest: "/tmp/Iosevka"
+  when: not p.stat.exists
 
 - name: Install Iosevka font
   unarchive:
     src: "/tmp/Iosevka"
     dest: /usr/share/fonts
+  when: not p.stat.exists
 
 - name: reload fonts
   command: fc-cache -f -v
