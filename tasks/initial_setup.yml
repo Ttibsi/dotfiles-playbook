@@ -1,5 +1,9 @@
 ---
 
+- name: ansible env
+  debug
+    msg: "{{ ansible_env.HOME }}"
+
 - name: Update
   apt:
     update_cache: true

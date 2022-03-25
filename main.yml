@@ -10,6 +10,10 @@
     ANSIBLE_NOCOWS: 1 
 
   tasks:
+    - name: ansible env
+      debug:
+        msg: "{{ ansible_env.HOME }}"
+
     - name: Initial setup 
       include_tasks: tasks/initial_setup.yml 
 
