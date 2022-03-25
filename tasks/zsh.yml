@@ -35,10 +35,10 @@
     force: yes
   register: clone
 
-#- name: Distribute p10k config
-#  copy:
-#    src: templates/zsh-shell/.p10k.zsh
-#    dest: "{{ home_dir }}"
+- name: Distribute p10k config
+  copy:
+    src: templates/zsh-shell/.p10k.zsh
+    dest: "{{ home_dir }}"
 
    
 - name: Clone zsh-autosuggestions
