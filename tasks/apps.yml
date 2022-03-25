@@ -36,7 +36,7 @@
 
 - name: Install VLC
   community.general.snap:
-    name: VLC
+    name: vlc 
     classic: yes
 
 # Not available on Snap
