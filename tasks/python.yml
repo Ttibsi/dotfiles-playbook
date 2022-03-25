@@ -12,9 +12,13 @@
   apt:
     name: python3.10
 
+- name: Install py3.10-distutils
+  apt:
+    name: python3.10-distutils 
+
 - name: Download get-pip script
   get_url:
-    url: 
+    url: https://bootstrap.pypa.io/get-pip.py 
     dest: "/tmp/get-pip.py"
     mode: 0755
 

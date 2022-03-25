@@ -1,23 +1,8 @@
 ---
 
-- name: Install Discord
-  community.general.snap:
-    name: discord
-    classic: yes
-
 - name: Install Alacritty
   community.general.snap:
     name: alacritty
-    classic: yes
-
-- name: Install Notion
-  community.general.snap:
-    name: notion-snap
-    classic: yes
-
-- name: Install Blender
-  community.general.snap:
-    name: blender
     classic: yes
 
 - name: Install Bitwarden
@@ -25,9 +10,28 @@
     name: bitwarden
     classic: yes
 
+- name: Install Blender
+  community.general.snap:
+    name: blender
+    classic: yes
+
+- name: Install Cheese
+  apt:
+    name: cheese
+
+- name: Install Discord
+  community.general.snap:
+    name: discord
+    classic: yes
+
 - name: Install Libreoffice
   community.general.snap:
     name: libreoffice
+    classic: yes
+
+- name: Install Notion
+  community.general.snap:
+    name: notion-snap
     classic: yes
 
 - name: Install VLC
@@ -46,10 +50,6 @@
   unarchive:
     src: "/tmp/geekbench"
     dest: "{{ home_dir }}/Downloads/geekbench"
-
-- name: Install Cheese
-  apt:
-    name: cheese
 
 # Not on Snap
 #- name: Install ublock
