@@ -38,4 +38,4 @@
     chdir: "/tmp/nvim"
     target: install
 
-
+# move templates/nvim to .config/nvim
