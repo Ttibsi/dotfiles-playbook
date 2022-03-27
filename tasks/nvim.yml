@@ -43,4 +43,4 @@
     url: https://github.com/savq/paq-nvim.git
     dest: "{{ home_dir }}//nvim/site/pack/paqs/start/paq-nvim"
 
-# move templates/nvim to .config/nvim
+#TODO: move templates/nvim to .config/nvim

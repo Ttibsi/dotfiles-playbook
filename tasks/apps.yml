@@ -1,11 +1,14 @@
 ---
+#TODO: Replace snap with appimage installs
+#TODO: Manually build firefox
+#TODO: Install ublock or an adblock of some kind
 
 - name: Install Alacritty
   community.general.snap:
     name: alacritty
     classic: yes
 
-# Move alacritty.yml
+#TODO Move alacritty.yml
 
 - name: Install Bitwarden
   community.general.snap:
@@ -53,7 +56,5 @@
     src: "/tmp/geekbench"
     dest: "{{ home_dir }}/Downloads/geekbench"
 
-# Not on Snap
-#- name: Install ublock
 
 

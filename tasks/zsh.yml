@@ -14,7 +14,6 @@
   shell: /tmp/zsh-install.sh
   become: false
 
-# Distribute zsh template here
 - name: Distribute zshrc 
   copy:
     src: "templates/zsh-shell/.zshrc" 
@@ -40,7 +39,7 @@
     src: templates/zsh-shell/.p10k.zsh
     dest: "{{ home_dir }}"
 
-   
+#TODO: Uncomment zsh plugins from .zshrc   
 - name: Clone zsh-autosuggestions
   ansible.builtin.git:
     clone: yes

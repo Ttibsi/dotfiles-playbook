@@ -15,3 +15,5 @@
     name: user.email
     scope: global
     value: 'ashisbitt@icloud.com'
+
+# TODO: gh-cli?

@@ -36,5 +36,6 @@
   environment:
     GIT_TERMINAL_PROMPT: 0 
 
+#TODO: test and get working ghstat
 - name: Install ghstat
   command: "python3.10 -m pip install /tmp/gh-stats" 
