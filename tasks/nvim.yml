@@ -43,4 +43,8 @@
     url: https://github.com/savq/paq-nvim.git
     dest: "{{ home_dir }}//nvim/site/pack/paqs/start/paq-nvim"
 
+- name: Install gcc compiler
+  apt:
+    name: gcc
+
 #TODO: move templates/nvim to .config/nvim

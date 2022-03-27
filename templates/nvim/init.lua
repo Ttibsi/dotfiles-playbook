@@ -43,7 +43,18 @@ end
 
 -- Import files for plugin configs
 local function call_plugins()
+    require "paq" {
+        "savq/paq-nvim";
+        "neovim/nvim-lspconfig";
+        {"nvim-treesitter/nvim-treesitter", run=TSUpdate};
+        "lukas-reineke/indent-blankline.nvim";
+        "nvim-lualine/lualine.nvim";
+    }
+
     --require 'lua.lspconfig'.init()
+    require 'lua.treesitter_config'.init()
+    require 'lua/indent_blankline_config'.init()
+    --require 'lua/lualine_config'.init()
 end
 
 local function init()
