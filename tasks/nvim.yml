@@ -38,4 +38,9 @@
     chdir: "/tmp/nvim"
     target: install
 
+- name: Install paq lua plugin manager
+  get_url: 
+    url: https://github.com/savq/paq-nvim.git
+    dest: "{{ home_dir }}//nvim/site/pack/paqs/start/paq-nvim"
+
 # move templates/nvim to .config/nvim

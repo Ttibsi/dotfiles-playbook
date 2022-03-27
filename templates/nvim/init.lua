@@ -43,7 +43,7 @@ end
 
 -- Import files for plugin configs
 local function call_plugins()
-
+    --require 'lua.lspconfig'.init()
 end
 
 local function init()
