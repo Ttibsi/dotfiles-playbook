@@ -1,0 +1,16 @@
+font:
+  normal:
+    family: DroidSansMono Nerd Font Mono
+    size: 12
+
+tabspaces: 4
+
+window:
+  dimensions:
+    columns: 80
+    lines: 40
+
+scrolling:
+  history: 1000
+  auto_scroll: true
+

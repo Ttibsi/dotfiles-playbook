@@ -5,6 +5,8 @@
     name: alacritty
     classic: yes
 
+# Move alacritty.yml
+
 - name: Install Bitwarden
   community.general.snap:
     name: bitwarden
