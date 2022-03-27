@@ -43,8 +43,10 @@
     url: https://github.com/savq/paq-nvim.git
     dest: "{{ home_dir }}//nvim/site/pack/paqs/start/paq-nvim"
 
-- name: Install gcc compiler
+- name: Install gcc compiler for treesitter
   apt:
-    name: gcc
+    name: 
+      - gcc
+      - build-essential
 
 #TODO: move templates/nvim to .config/nvim
