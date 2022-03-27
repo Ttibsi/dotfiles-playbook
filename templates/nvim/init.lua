@@ -1,4 +1,4 @@
--- vim config started 16/Oct/2021  
+-- vim config started 16/Oct/2021
 -- converted to lua starting 26/Mar/2022 with Framework laptop purchase at nvim 0.6.1
 
 -- Only for basic "set x" vim commands
@@ -13,23 +13,23 @@ local function basic_config()
 	number = true,
 	ruler = true,
 	cursorline = true,
-	colorcolumn = '80', 
-	colorcolumn = '88', 
+	colorcolumn = '80',
+	colorcolumn = '88',
     }
 
     for key, value in pairs(settings) do
         vim.o[key] = value
     end
 	
-    -- not in vim.o 
+    -- not in vim.o
     vim.cmd('set encoding=utf-8')
-    vim.cmd('set nocompatible') 
-    vim.cmd('set nowrap') 
+    vim.cmd('set nocompatible')
+    vim.cmd('set nowrap')
     vim.cmd('set tabstop=4')
     vim.cmd('set shiftwidth=4')
 end
 
--- Set basic commands 
+-- Set basic commands
 local function custom_commands()
     vim.cmd('command! W w')
     vim.cmd('command! Q q')
@@ -45,7 +45,7 @@ end
 local function call_plugins()
     require "paq" {
         "savq/paq-nvim";
-        "neovim/nvim-lspconfig";
+        --"neovim/nvim-lspconfig";
         {"nvim-treesitter/nvim-treesitter", run=TSUpdate};
         "lukas-reineke/indent-blankline.nvim";
         "nvim-lualine/lualine.nvim";
@@ -54,7 +54,7 @@ local function call_plugins()
     --require 'lua.lspconfig'.init()
     require 'lua.treesitter_config'.init()
     require 'lua/indent_blankline_config'.init()
-    --require 'lua/lualine_config'.init()
+    require 'lua/lualine_config'.init()
 end
 
 local function init()

@@ -26,13 +26,13 @@
 
 - name: Check for font presence
   stat:
-    path: "/usr/share/fonts/Droid Sans Mono Nerd Font Complete.otf"
+    path: "{{ home_dir }}/.local/share/fonts/Droid Sans Mono Nerd Font Complete.otf"
   register: p 
   
 - name: Download DroidSansMono font
   get_url:
     url: "https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete%20Mono.otf" 
-    dest: /usr/share/fonts
+    dest: "{{ home_dir }}/.local/share/fonts"
   when: not p.stat.exists
 
 - name: reload fonts
