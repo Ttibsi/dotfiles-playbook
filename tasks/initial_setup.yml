@@ -24,20 +24,14 @@
     path: "{{ home_dir }}/Workspace"
     mode: '0755'
 
-- name: Check for Iosevka presence
+- name: Check for font presence
   stat:
-    path: "/tmp/Iosevka"
+    path: "/usr/share/fonts/Droid Sans Mono Nerd Font Complete.otf"
   register: p 
   
-- name: Download Iosevka font
+- name: Download DroidSansMono font
   get_url:
-    url: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Iosevka.zip
-    dest: "/tmp/Iosevka"
-  when: not p.stat.exists
-
-- name: Install Iosevka font
-  unarchive:
-    src: "/tmp/Iosevka"
+    url: "https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete%20Mono.otf" 
     dest: /usr/share/fonts
   when: not p.stat.exists
 
