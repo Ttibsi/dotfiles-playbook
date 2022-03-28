@@ -43,7 +43,7 @@
 - name: Download Framework fingerprint reader script
   get_url:
     url: bit.ly/FP_Reader
-    dest: /tmp/FP_Reader.sh
+    dest: "{{ home_dir }}/Downloads/FP_Reader.sh"
 
-- name: Install Framework fingerprint reader
-  command: sh /tmp/FP_Reader.sh
+#- name: Install Framework fingerprint reader
+#  command: sh "{{ home_dir }}/Downloads/FP_Reader.sh"

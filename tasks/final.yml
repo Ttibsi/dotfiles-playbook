@@ -5,13 +5,11 @@
     autoremove: yes
 
 #TODO: replace all instanced of /tmp with ~/Downloads?
-- name: Empty /tmp
-  file:
-    path: /tmp
-    state: "{{ item }}"
-  with_items:
-    - absent
-    - directory
+#- name: Clean up downloads 
+#  file:
+#    path: "{{ home_dir }}/Downloads/{{ item }}" 
+#    state: absent 
+#  with_items:
 
 - name: User manual entry
   debug:

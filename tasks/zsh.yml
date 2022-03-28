@@ -6,12 +6,12 @@
 
 - name: Download ohmyzsh
   get_url:
-    dest: /tmp/zsh-install.sh
+    dest: "{{ home_dir }}/Downloads/zsh-install.sh"
     mode: '0755'
     url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 
 - name: Execute zsh-install.sh
-  shell: /tmp/zsh-install.sh
+  shell: sh "{{ home_dir }}/Downloads/zsh-install.sh"
   become: false
 
 - name: Distribute zshrc 

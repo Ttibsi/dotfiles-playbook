@@ -52,12 +52,12 @@
 - name: Download geekbench
   get_url:
     url: https://cdn.geekbench.com/Geekbench-5.4.4-Linux.tar.gz
-    dest: "/tmp/geekbench"
+    dest: "{{ home_dir }}/Downloads/geekbench"
     mode: 0755
 
 - name: Install geekbench
   unarchive:
-    src: "/tmp/geekbench"
+    src: "{{ home_dir }}/Downloads/geekbench"
     dest: "{{ home_dir }}/Downloads/geekbench"
 
 

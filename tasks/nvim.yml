@@ -20,7 +20,7 @@
 - name: Clone repo
   git:
     clone: yes
-    dest: "/tmp/nvim"
+    dest: "{{ home_dir }}/Downloads/nvim"
     force: yes
     repo: https://github.com/neovim/neovim.git
     single_branch: yes
@@ -29,13 +29,13 @@
 
 - name: Build nvim
   make:
-    chdir: "/tmp/nvim"
+    chdir: "{{home_dir }}/Downloads/nvim"
     params:
       CMAKE_BUILD_TYPE: RelWithDebInfo
 
 - name: Install nvim
   make:
-    chdir: "/tmp/nvim"
+    chdir: "{{ home_dir }}/Downloads/nvim"
     target: install
 
 - name: Install paq lua plugin manager
