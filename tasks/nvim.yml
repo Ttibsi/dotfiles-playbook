@@ -49,4 +49,8 @@
       - gcc
       - build-essential
 
-#TODO: move templates/nvim to .config/nvim
+- name: Distribute nvim config
+  copy:
+    src: templates/nvim/
+    dest:  "{{ home_dir }}/.config/nvim/"
+  remote_src: yes

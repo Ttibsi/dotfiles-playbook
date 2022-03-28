@@ -8,7 +8,11 @@
     name: alacritty
     classic: yes
 
-#TODO Move alacritty.yml
+- name: Distribute alacritty config
+  copy:
+    src: templates/alacritty-config/.alacritty.yml
+    dest: "{{ home_dir }}/.alacritty.yml"
+  remote_src: yes
 
 - name: Install Bitwarden
   community.general.snap:

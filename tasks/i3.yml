@@ -11,6 +11,8 @@
 #  apt:
 #    name: polybar
 
+#TODO: set up polybar
+
 - name: Install light
   apt:
     name: light
