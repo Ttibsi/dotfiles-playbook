@@ -12,17 +12,19 @@ local function init()
       red    = '#ff5189',
       violet = '#d183e8',
       grey   = '#303030',
+      lightgrey = '#cccccc',
     }
 
     local bubbles_theme = {
       normal = {
-        a = { fg = colors.black, bg = colors.violet },
+        a = { fg = colors.black, bg = colors.lightgrey },
         b = { fg = colors.white, bg = colors.grey },
         c = { fg = colors.black, bg = colors.black },
       },
 
       insert = { a = { fg = colors.black, bg = colors.blue } },
       visual = { a = { fg = colors.black, bg = colors.cyan } },
+      command = { a = { fg = colors.black, bg = colors.red } },
       replace = { a = { fg = colors.black, bg = colors.red } },
 
       inactive = {

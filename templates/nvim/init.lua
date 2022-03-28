@@ -52,9 +52,9 @@ local function call_plugins()
     }
 
     --require 'lua.lspconfig'.init()
-    require 'lua.treesitter_config'.init()
-    require 'lua/indent_blankline_config'.init()
-    require 'lua/lualine_config'.init()
+    require 'treesitter_config'.init()
+    require 'indent_blankline_config'.init()
+    require 'lualine_config'.init()
 end
 
 local function init()
