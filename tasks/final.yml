@@ -4,7 +4,6 @@
   apt:
     autoremove: yes
 
-#TODO: replace all instanced of /tmp with ~/Downloads?
 #- name: Clean up downloads 
 #  file:
 #    path: "{{ home_dir }}/Downloads/{{ item }}" 

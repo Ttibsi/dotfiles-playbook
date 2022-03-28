@@ -1,7 +1,6 @@
 ---
 #TODO: Manually build firefox
 #TODO: Install ublock or an adblock of some kind
-#TODO: add virtualbox
 
 - name: Install Alacritty
   community.general.snap:
@@ -42,6 +41,13 @@
   community.general.snap:
     name: notion-snap
     classic: yes
+
+- name: Install virtualbox
+  apt:
+    name: virtualbox
+
+- name: Install virtualbox extention pack
+  command: sudo DEBIAN_FRONTEND=noninteractive apt install -y virtualbox-ext-pack
 
 - name: Install VLC
   community.general.flatpak:

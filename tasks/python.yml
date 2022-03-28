@@ -38,3 +38,6 @@
 
 - name: Install ghstat
   command: "python3.10 -m pip install {{ home_dir }}/Workspace/gh-stats" 
+
+- name: Build firefox
+  include_tasks: firefox.yml
