@@ -39,9 +39,10 @@
     target: install
 
 - name: Install paq lua plugin manager
-  get_url: 
-    url: https://github.com/savq/paq-nvim.git
-    dest: "{{ home_dir }}//nvim/site/pack/paqs/start/paq-nvim"
+  git:
+    repo: https://github.com/savq/paq-nvim.git
+    dest: "{{ home_dir}}/.local/share/nvim/site/pack/paqs/start/paq-nvim"
+    version: master
 
 - name: Install gcc compiler for treesitter
   apt:
@@ -53,4 +54,3 @@
   copy:
     src: templates/nvim/
     dest:  "{{ home_dir }}/.config/nvim/"
-  remote_src: yes

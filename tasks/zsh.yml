@@ -10,9 +10,15 @@
     mode: '0755'
     url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 
+- name: Check for zsh
+  stat:
+    dir: "{{ home_dir }}/.oh-my-zsh"
+  register: zsh_exist
+
 - name: Execute zsh-install.sh
   shell: sh "{{ home_dir }}/Downloads/zsh-install.sh"
   become: false
+  when: not zsh_exist.stat.exists
 
 - name: Distribute zshrc 
   copy:
@@ -23,7 +29,7 @@
   copy:
     src: templates/zsh-shell/.oh-my-zsh/
     dest: "{{ home_dir }}/.oh-my-zsh/custom"
-  remote_src: yes
+  when: not zsh_exist.stat.exists
 
 - name: Download p10k
   git:

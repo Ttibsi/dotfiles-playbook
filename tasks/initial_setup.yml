@@ -24,20 +24,13 @@
     path: "{{ home_dir }}/Workspace"
     mode: '0755'
 
-- name: Check for font presence
-  stat:
-    path: "{{ home_dir }}/.local/share/fonts/Droid Sans Mono Nerd Font Complete.otf"
-  register: p 
-  
 - name: Download DroidSansMono font
   get_url:
-    src: "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf"
+    url: "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf"
     dest: "{{ home_dir }}/.local/share/fonts"
-  when: not p.stat.exists
 
 - name: reload fonts
   command: fc-cache -f -v
-  when: not p.stat.exists
 
   # Only relevant for framework laptop
 - name: Download Framework fingerprint reader script

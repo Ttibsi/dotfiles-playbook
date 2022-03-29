@@ -10,7 +10,6 @@
   copy:
     src: templates/alacritty-config/.alacritty.yml
     dest: "{{ home_dir }}/.alacritty.yml"
-  remote_src: yes
 
 - name: Install Bitwarden
   community.general.flatpak:

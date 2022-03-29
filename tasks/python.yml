@@ -29,13 +29,14 @@
   pip:
     name: pre-commit
 
-- name: Download ghstat
+- name: Download ghstats
   git:
     repo: https://github.com/Ttibsi/gh-stats
     dest: "{{ home_dir }}/Workspace/gh-stats"
   environment:
     GIT_TERMINAL_PROMPT: 0 
 
-- name: Install ghstat
-  command: "python3.10 -m pip install {{ home_dir }}/Workspace/gh-stats" 
+#TODO: Get ghstats actually setup properly
+#- name: Install ghstats
+#  command: "python3.10 -m pip install {{ home_dir }}/Workspace/gh-stats" 
 
