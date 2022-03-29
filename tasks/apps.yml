@@ -1,5 +1,4 @@
 ---
-#TODO: Install ublock or an adblock of some kind
 
 - name: Install Alacritty
   community.general.snap:
@@ -11,15 +10,14 @@
     src: templates/alacritty-config/.alacritty.yml
     dest: "{{ home_dir }}/.alacritty.yml"
 
-- name: Install Bitwarden
-  community.general.flatpak:
-    name: bitwarden
-    classic: yes
+- name: Install Bitwarden for firefox
+  firefox_addon:
+    url: https://addons.mozilla.org/en-GB/firefox/addon/bitwarden-password-manager/
+    state: present
 
 - name: Install Blender
   community.general.flatpak:
     name: blender
-    classic: yes
 
 - name: Install Cheese
   apt:
@@ -28,17 +26,20 @@
 - name: Install Discord
   community.general.flatpak:
     name: discord
-    classic: yes
 
 - name: Install Libreoffice
   community.general.flatpak:
     name: libreoffice
-    classic: yes
 
 - name: Install Notion
   community.general.snap:
     name: notion-snap
     classic: yes
+
+- name: Install uBlock for firefox
+  firefox_addon:
+    url: https://addons.mozilla.org/en-GB/firefox/addon/ublock-origin
+    state: present
 
 - name: Install virtualbox
   apt:
@@ -50,7 +51,6 @@
 - name: Install VLC
   community.general.flatpak:
     name: vlc 
-    classic: yes
 
 - name: Download geekbench
   get_url:

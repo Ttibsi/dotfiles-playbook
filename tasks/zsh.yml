@@ -12,7 +12,7 @@
 
 - name: Check for zsh
   stat:
-    dir: "{{ home_dir }}/.oh-my-zsh"
+    path: "{{ home_dir }}/.oh-my-zsh"
   register: zsh_exist
 
 - name: Execute zsh-install.sh
