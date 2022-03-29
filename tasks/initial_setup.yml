@@ -31,7 +31,7 @@
   
 - name: Download DroidSansMono font
   get_url:
-    url: "https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete%20Mono.otf" 
+    src: "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf"
     dest: "{{ home_dir }}/.local/share/fonts"
   when: not p.stat.exists
 
@@ -42,7 +42,7 @@
   # Only relevant for framework laptop
 - name: Download Framework fingerprint reader script
   get_url:
-    url: bit.ly/FP_Reader
+    url: "http://elevatedsystems.tech/media/scripts/FP_Reader_install.sh"
     dest: "{{ home_dir }}/Downloads/FP_Reader.sh"
 
 #- name: Install Framework fingerprint reader
