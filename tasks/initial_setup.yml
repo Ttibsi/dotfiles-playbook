@@ -27,7 +27,7 @@
 - name: Download DroidSansMono font
   get_url:
     url: "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf"
-    dest: "{{ home_dir }}/.local/share/fonts"
+    dest: "{{ home_dir }}/.local/share/fonts/Droid Sans Mono Nerd Font Complete.otf"
 
 - name: reload fonts
   command: fc-cache -f -v

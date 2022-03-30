@@ -25,6 +25,7 @@
     repo: https://github.com/neovim/neovim.git
     single_branch: yes
     update: yes
+    version: "{{ nvim_version }}"
   register: clone
 
 - name: Build nvim
@@ -33,10 +34,13 @@
     params:
       CMAKE_BUILD_TYPE: RelWithDebInfo
 
+# This installs to /usr/local/bin/
 - name: Install nvim
   make:
     chdir: "{{ home_dir }}/Downloads/nvim"
     target: install
+
+#TODO: figure out why nvim plugins aren't working
 
 - name: Install paq lua plugin manager
   git:

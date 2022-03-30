@@ -14,5 +14,5 @@ Entire folder gets moved to `~/.config/nvim`
  - .oh-my-zsh/custom goes to `~/.oh-my-zsh/custom`
 
 ### Firefox
-policies.json to `/etc/firefox/policies`
+policies.json to `/usr/lib/firefox/policies.json`
 
