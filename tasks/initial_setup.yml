@@ -18,11 +18,14 @@
     - "Templates"
     - "Videos"
 
-- name: Create Workspace folder
+- name: Create Workspace and fonts folders
   file:
     state: directory
-    path: "{{ home_dir }}/Workspace"
+    path: "{{ home_dir }}/{{ item }}"
     mode: '0755'
+  with_items:
+    - "Workspace"
+    - ".local/share/fonts"
 
 - name: Download DroidSansMono font
   get_url:
