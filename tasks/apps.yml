@@ -1,40 +1,24 @@
 ---
 
-- name: Install Alacritty
+- name: Install Snap packages 
   community.general.snap:
-    name: alacritty
+    name: 
+        - alacritty
+        - blender
+        - discord
+        - libreoffice
+        - notion-snap
+        - vlc 
     classic: yes
-
-- name: Distribute alacritty config
-  copy:
-    src: templates/alacritty-config/.alacritty.yml
-    dest: "{{ home_dir }}/.alacritty.yml"
 
 #- name: Install Bitwarden for firefox
 #  firefox_addon:
 #    url: https://addons.mozilla.org/en-GB/firefox/addon/bitwarden-password-manager/
 #    state: present
 
-- name: Install Blender
-  community.general.flatpak:
-    name: blender
-
 - name: Install Cheese
   apt:
     name: cheese
-
-- name: Install Discord
-  community.general.flatpak:
-    name: discord
-
-- name: Install Libreoffice
-  community.general.flatpak:
-    name: libreoffice
-
-- name: Install Notion
-  community.general.snap:
-    name: notion-snap
-    classic: yes
 
 #- name: Install uBlock for firefox
 #  firefox_addon:
@@ -48,10 +32,6 @@
 - name: Install virtualbox extention pack
   command: sudo DEBIAN_FRONTEND=noninteractive apt install -y virtualbox-ext-pack
 
-- name: Install VLC
-  community.general.flatpak:
-    name: vlc 
-
 - name: Download geekbench
   get_url:
     url: https://cdn.geekbench.com/Geekbench-5.4.4-Linux.tar.gz
@@ -63,5 +43,7 @@
     src: "{{ home_dir }}/Downloads/geekbench"
     dest: "{{ home_dir }}/Downloads/geekbench"
 
-
-
+- name: Distribute alacritty config
+  copy:
+    src: templates/alacritty-config/.alacritty.yml
+    dest: "{{ home_dir }}/.alacritty.yml"
