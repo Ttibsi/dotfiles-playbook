@@ -2,14 +2,16 @@
 
 - name: Install Snap packages 
   community.general.snap:
-    name: 
-        - alacritty
-        - blender
-        - discord
-        - libreoffice
-        - notion-snap
-        - vlc 
+    name: "{{ item }}" 
     classic: yes
+  with_items:
+      - alacritty
+      - blender
+      - discord
+      - libreoffice
+      - notion-snap
+      - vlc 
+
 
 - name: Install Cheese
   apt:
@@ -19,8 +21,8 @@
   apt:
     name: virtualbox
 
-- name: Install virtualbox extention pack
-  command: sudo DEBIAN_FRONTEND=noninteractive apt install -y virtualbox-ext-pack
+#- name: Install virtualbox extention pack
+#command: sudo DEBIAN_FRONTEND=noninteractive apt install -y virtualbox-ext-pack
 
 - name: Download geekbench
   get_url:
