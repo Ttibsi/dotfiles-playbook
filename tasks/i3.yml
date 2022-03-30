@@ -5,13 +5,12 @@
     name: i3
 
 #TODO: Transfer i3 config
+#TODO: Set up polybar and install 
 
 # Install polybar (not available on ubuntu Trusty)
 #- name: polybar
 #  apt:
 #    name: polybar
-
-#TODO: set up polybar
 
 - name: Install light
   apt:

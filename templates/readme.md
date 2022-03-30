@@ -13,3 +13,6 @@ Entire folder gets moved to `~/.config/nvim`
  - p10k to `~/.p10k.zsh`
  - .oh-my-zsh/custom goes to `~/.oh-my-zsh/custom`
 
+### Firefox
+policies.json to `/etc/firefox/policies`
+

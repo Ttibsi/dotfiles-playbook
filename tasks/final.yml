@@ -4,18 +4,19 @@
   apt:
     autoremove: yes
 
-#- name: Clean up downloads 
-#  file:
-#    path: "{{ home_dir }}/Downloads/{{ item }}" 
-#    state: absent 
-#  with_items:
+- name: Clean up downloads 
+  file:
+    path: "{{ home_dir }}/Downloads" 
+    state: "{{ item }}" 
+  with_items:
+    - absent
+    - directory
 
 - name: User manual entry
   debug:
     msg: "{{ item }}"
   loop:
     - "Create Git SSH key for Github connection"
-    - "Double check that Alacritty uses zsh and GNOME terminal defaults to bash"
     - "Configure fingerprint reader"
     - ":PaqInstall in nvim"
     - "It's recommended that the machine get rebooted after running this Playbook"

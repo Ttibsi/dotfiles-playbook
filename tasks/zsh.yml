@@ -45,7 +45,6 @@
     src: templates/zsh-shell/.p10k.zsh
     dest: "{{ home_dir }}"
 
-#TODO: Uncomment zsh plugins from .zshrc   
 - name: Clone zsh-autosuggestions
   ansible.builtin.git:
     clone: yes

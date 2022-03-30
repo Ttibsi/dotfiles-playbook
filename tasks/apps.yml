@@ -11,19 +11,9 @@
         - vlc 
     classic: yes
 
-#- name: Install Bitwarden for firefox
-#  firefox_addon:
-#    url: https://addons.mozilla.org/en-GB/firefox/addon/bitwarden-password-manager/
-#    state: present
-
 - name: Install Cheese
   apt:
     name: cheese
-
-#- name: Install uBlock for firefox
-#  firefox_addon:
-#    url: https://addons.mozilla.org/en-GB/firefox/addon/ublock-origin
-#    state: present
 
 - name: Install virtualbox
   apt:
@@ -35,13 +25,13 @@
 - name: Download geekbench
   get_url:
     url: https://cdn.geekbench.com/Geekbench-5.4.4-Linux.tar.gz
-    dest: "{{ home_dir }}/Downloads/geekbench"
+    dest: "{{ home_dir }}/Downloads"
     mode: 0755
 
 - name: Install geekbench
   unarchive:
-    src: "{{ home_dir }}/Downloads/geekbench"
-    dest: "{{ home_dir }}/Downloads/geekbench"
+    src: "{{ home_dir }}/Downloads/Geekbench-5.4.4-Linux.tar.gz"
+    dest: "{{ home_dir }}/Downloads"
 
 - name: Distribute alacritty config
   copy:
