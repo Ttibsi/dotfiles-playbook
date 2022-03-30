@@ -5,7 +5,7 @@
   vars:
     home_dir: "{{ lookup('env', 'HOME') }}"
     discord_version: 0.0.17
-    nvim_version: 0.6.1
+    nvim_version: v0.6.1 
 
   tasks:
     - name: Initial setup 

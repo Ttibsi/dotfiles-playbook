@@ -33,12 +33,14 @@
     chdir: "{{home_dir }}/Downloads/nvim"
     params:
       CMAKE_BUILD_TYPE: RelWithDebInfo
+  when: clone.changed
 
 # This installs to /usr/local/bin/
 - name: Install nvim
   make:
     chdir: "{{ home_dir }}/Downloads/nvim"
     target: install
+  when: clone.changed
 
 #TODO: figure out why nvim plugins aren't working
 
