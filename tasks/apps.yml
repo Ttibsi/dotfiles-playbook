@@ -10,10 +10,10 @@
     src: templates/alacritty-config/.alacritty.yml
     dest: "{{ home_dir }}/.alacritty.yml"
 
-- name: Install Bitwarden for firefox
-  firefox_addon:
-    url: https://addons.mozilla.org/en-GB/firefox/addon/bitwarden-password-manager/
-    state: present
+#- name: Install Bitwarden for firefox
+#  firefox_addon:
+#    url: https://addons.mozilla.org/en-GB/firefox/addon/bitwarden-password-manager/
+#    state: present
 
 - name: Install Blender
   community.general.flatpak:
@@ -36,10 +36,10 @@
     name: notion-snap
     classic: yes
 
-- name: Install uBlock for firefox
-  firefox_addon:
-    url: https://addons.mozilla.org/en-GB/firefox/addon/ublock-origin
-    state: present
+#- name: Install uBlock for firefox
+#  firefox_addon:
+#    url: https://addons.mozilla.org/en-GB/firefox/addon/ublock-origin
+#    state: present
 
 - name: Install virtualbox
   apt:
