@@ -5,18 +5,13 @@
     name: git
 
 - name: Set git username
-  community.general.git_config:
-    name: user.name
-    scope: global
-    value: 'Ttibsi'
+  command: "git config --global user.name {{ git_user }}"
 
 - name: Set git email
-  community.general.git_config:
-    name: user.email
-    scope: global
-    value: 'ashisbitt@icloud.com'
+  command: "git config --global user.name {{ git_email }}"
 
 # TODO: gh-cli?
+# TODO: core.editor = nvim
 
 # Tests
 # cat $HOME/.gitconfig
