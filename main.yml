@@ -14,3 +14,6 @@
 
     - name: Misc terminal tools 
       include_tasks: tasks/misc.yml
+
+    - name: Set up zsh shell 
+      include_tasks: tasks/zsh.yml
