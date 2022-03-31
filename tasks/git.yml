@@ -1,0 +1,22 @@
+---
+
+- name: install
+  apt:
+    name: git
+
+- name: Set git username
+  community.general.git_config:
+    name: user.name
+    scope: global
+    value: 'Ttibsi'
+
+- name: Set git email
+  community.general.git_config:
+    name: user.email
+    scope: global
+    value: 'ashisbitt@icloud.com'
+
+# TODO: gh-cli?
+
+# Tests
+# cat $HOME/.gitconfig

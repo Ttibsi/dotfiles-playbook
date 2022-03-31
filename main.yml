@@ -8,3 +8,6 @@
   tasks:
     - name: Initial setup 
       include_tasks: tasks/initial_setup.yml
+
+    - name: git config 
+      include_tasks: tasks/git.yml
