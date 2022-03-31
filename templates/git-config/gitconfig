@@ -1,0 +1,5 @@
+[user]
+    name = ttibsi
+    email = ashisbitt@icloud.com
+[core]
+    editor = nvim

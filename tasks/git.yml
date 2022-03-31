@@ -4,11 +4,10 @@
   apt:
     name: git
 
-- name: Set git username
-  command: "git config --global user.name {{ git_user }}"
-
-- name: Set git email
-  command: "git config --global user.name {{ git_email }}"
+- name: Move git config
+  copy:
+    src: templates/git-config/gitconfig
+    dest: "{{ home_dir }}/.gitconfig"
 
 # TODO: gh-cli?
 # TODO: core.editor = nvim
