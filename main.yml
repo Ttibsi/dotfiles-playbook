@@ -6,6 +6,5 @@
     home_dir: "{{ lookup('env', 'HOME') }}"
 
   tasks:
-    - name: home directory
-      debug: 
-        msg: "{{home_dir}}"
+    - name: Initial setup 
+      include_tasks: tasks/initial_setup.yml
