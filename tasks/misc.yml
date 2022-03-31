@@ -1,0 +1,28 @@
+---
+
+- name: Neofetch
+  apt:
+    name: neofetch
+
+- name: Tree
+  apt:
+    name: tree
+
+- name: Cowsay
+  apt:
+    name: cowsay
+
+- name: Curl
+  apt:
+    name: curl
+
+- name: Bottom 
+  apt:
+    deb: https://github.com/ClementTsang/bottom/releases/download/0.6.8/bottom_0.6.8_amd64.deb
+
+- name: Video codecs
+  command: sudo DEBIAN_FRONTEND=noninteractive apt install -y ubuntu-restricted-extras
+
+- name: unzip
+  apt:
+    name: unzip

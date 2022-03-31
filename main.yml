@@ -13,3 +13,6 @@
 
     - name: git config 
       include_tasks: tasks/git.yml
+
+    - name: Misc terminal tools 
+      include_tasks: tasks/misc.yml
