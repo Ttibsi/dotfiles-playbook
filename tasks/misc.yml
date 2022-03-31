@@ -26,3 +26,6 @@
 - name: unzip
   apt:
     name: unzip
+
+# Tests
+# Run neofetch, cowsay, btm
