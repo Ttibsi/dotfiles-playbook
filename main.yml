@@ -4,8 +4,6 @@
   become: yes
   vars:
     home_dir: "{{ lookup('env', 'HOME') }}"
-    git_user: Ttibsi
-    git_email: ashisbitt@icloud.com
 
   tasks:
     - name: Initial setup 
