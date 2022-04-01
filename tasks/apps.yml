@@ -1,11 +1,4 @@
 ---
-      - alacritty # build
-      - blender # build
-      - notion-snap # https://notion-enhancer.github.io/documentation/concepts#how-notion-repackaged
-      - vlc # build 
-
-
-
 
 - name: Install alacritty
   include_tasks: build_alacritty.yml
