@@ -47,6 +47,9 @@
   become: yes
 
 - name: Install notion
+  apt:
+    deb: "https://github.com/notion-enhancer/notion-repackaged/releases/download/v2.0.18-1/notion-app_2.0.18-1_arm64.deb"
+  become: yes
 
 - name: Install virtualbox
   apt:

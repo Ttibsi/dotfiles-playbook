@@ -1,0 +1,37 @@
+---
+
+- name: Clone repo
+  git:
+    repo: https://github.com/alacritty/alacritty.git
+    dest: "{{ home_dir }}/Downloads/alacritty"
+    version: "{{ alacritty_version }}"
+    clone: yes
+    force: yes
+    update: yes
+
+- name: Download rust 
+  get_url:
+    url: https://sh.rustup.rs
+    dest: "{{ home_dir }}/Downloads/rustup.rs"
+    mode: 755
+
+- name: Install rust
+  command: sh "{{ home_dir }}/Downloads/rustup.rs"
+
+- name: Update rust
+  command: rustup override set stable && rustup update stable
+
+- name: Install dependancies
+  apt:
+    name:
+      - cmake 
+      - pkg-config 
+      - libfreetype6-dev 
+      - libfontconfig1-dev 
+      - libxcb-xfixes0-dev 
+      - libxkbcommon-dev 
+      - python3
+  become: yes
+
+- name: Build alacritty
+  command: cargo build --release "{{ home_dir }}/Downloads/alacritty"

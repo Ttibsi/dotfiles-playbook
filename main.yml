@@ -4,7 +4,10 @@
   vars:
     discord_version: 0.0.17
     home_dir: "{{ lookup('env', 'HOME') }}"
+
+    # These are git tags
     nvim_version: v0.6.1
+    alacritty_version: v0.10.1
 
   tasks:
     - name: Initial setup 

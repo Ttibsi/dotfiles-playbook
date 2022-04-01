@@ -11,8 +11,9 @@
     src: templates/firefox/policies.json
     dest: "{{ home_dir }}/snap/firefox/distribution/policies.json"
 
-- name: apt autoremove
+- name: apt clean and remove
   apt:
+    autoclean: yes
     autoremove: yes
   become: yes
 

@@ -1,0 +1,28 @@
+---
+
+- name: Install dependancies
+  apt:
+    - build-essential 
+    - git 
+    - subversion 
+    - cmake 
+    - libx11-dev 
+    - libxxf86vm-dev 
+    - libxcursor-dev 
+    - libxi-dev 
+    - libxrandr-dev 
+    - libxinerama-dev 
+    - libglew-dev
+  become: yes
+
+- name: Clone repo
+  git:
+    clone: yes
+    force: yes
+    update: yes
+    src: https://git.blender.org/blender.git
+    dest: "{{ home_dir }}/Downloads/blender"
+
+- name: Build blender
+  make:
+    chdir: "{{ home_dir }}/Downloads/blender"

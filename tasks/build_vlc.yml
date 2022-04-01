@@ -1,0 +1,12 @@
+---
+
+- name: Clone repo
+  git:
+    clone: yes
+    dest: "{{ home_dir }}/Downloads/vlc"
+    force: yes
+    repo: git://git.videolan.org/vlc.git
+    update: yes
+
+- name: Bootstrap
+  command: sh "{{ home_dir }}/Downloads/vlc/bootstrap"
