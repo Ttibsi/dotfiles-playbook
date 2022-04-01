@@ -1,14 +1,20 @@
 ---
 
+- name: Create firefox distribution directory
+  file:
+    path: "{{ home_dir }}/snap/firefox/distribution/"
+    state: directory
+
 #TODO: move firefox policies
 - name: Distribute firefox policy
   copy:
     src: templates/firefox/policies.json
-    dest: /usr/lib/firefox/distribution/policies.json
+    dest: "{{ home_dir }}/snap/firefox/distribution/policies.json"
 
 - name: apt autoremove
   apt:
     autoremove: yes
+  become: yes
 
 - name: Clean up downloads 
   file:

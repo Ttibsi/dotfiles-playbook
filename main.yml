@@ -2,6 +2,7 @@
 
 - hosts: localhost
   vars:
+    discord_version: 0.0.17
     home_dir: "{{ lookup('env', 'HOME') }}"
     nvim_version: v0.6.1
 
