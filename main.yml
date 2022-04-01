@@ -4,6 +4,7 @@
   become: yes
   vars:
     home_dir: "{{ lookup('env', 'HOME') }}"
+    nvim_version: v0.6.1
 
   tasks:
     - name: Initial setup 
