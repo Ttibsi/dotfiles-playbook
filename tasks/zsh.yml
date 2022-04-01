@@ -3,6 +3,7 @@
 - name: Install zsh
   apt:
     name: zsh
+  become: yes
 
 - name: Check for omz 
   stat:

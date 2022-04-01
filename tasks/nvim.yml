@@ -3,6 +3,9 @@
 - name: Install dependencies
   apt:
     name:
+      - "{{ item }}"
+    state: latest
+    with_items:
       - ninja-build
       - gettext
       - libtool
@@ -15,7 +18,7 @@
       - unzip
       - curl
       - doxygen
-    state: latest
+  become: yes
 
 - name: Clone repo
   git:
@@ -40,29 +43,41 @@
     chdir: "{{ home_dir }}/Downloads/nvim"
     target: install
   when: clone.changed
+  become: yes
 
-- name: Install paq package manager
-  git:
-    clone: yes
-    repo: https://github.com/savq/paq-nvim.git
-    dest: "{{ home_dir }}/.local/share/nvim/site/pack/paqs/start/paq-nvim/"
-    force: yes
-    update: yes
+- name: Set config folder rights
+  file:
+    path: "{{ home_dir }}/.config/nvim"
+    mode: "0755"
+    state: directory
+
+#- name: Install paq package manager
+# git:
+#   clone: yes
+#   repo: https://github.com/savq/paq-nvim.git
+#   dest: "{{ home_dir }}/.local/share/nvim/site/pack/paqs/start/paq-nvim/"
+#   force: yes
+#   update: yes
 
 - name: Install plugin dependencies
   apt:
-    name: "{ item }}"
+    name: "{{ item }}"
   with_items:
     - gcc
     - build_essential
+  become: yes
 
 - name: Distribute config files
   copy:
     src: templates/nvim/
     dest: "{{ home_dir }}/.config/nvim/"
 
+- name: Install paq package manager and plugins with bootstrap script
+  command: nvim --headless -u NONE -c 'lua require("{{ home_dir }}/.config/nvim/lua/bootstrap").bootstrap_paq()'
+
 # Tests
 # Open nvim and verify version
 # Verify paq install by navigating to it's location
 # Verify files have been copied to `~/.config/nvim`
-# Run :PaqInstall and check if plugins can be installed
+# Open nvim and run :PaqSync
+# Uncomment init.lua plugin configs one at a time 
