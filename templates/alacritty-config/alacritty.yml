@@ -1,0 +1,16 @@
+
+font:
+  size: 8.0
+  family: Liga SFMono Nerd Font
+  #fc-list | grep Droid | cut -f2 -d:
+
+tabspaces: 4
+
+window:
+  dimensions:
+    columns: 80
+    lines: 40
+
+scrolling:
+  history: 1000
+  auto_scroll: true

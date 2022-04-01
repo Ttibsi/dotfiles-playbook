@@ -9,14 +9,20 @@
     - name: Initial setup 
       include_tasks: tasks/initial_setup.yml
 
-    - name: git config 
+    - name: Configure Git 
       include_tasks: tasks/git.yml
 
     - name: Misc terminal tools 
       include_tasks: tasks/misc.yml
 
-    - name: Set up zsh shell 
+    - name: Set up ZSH shell 
       include_tasks: tasks/zsh.yml
 
     - name: Set up Neovim 
       include_tasks: tasks/nvim.yml
+
+    - name: Install desktop apps
+      include_tasks: tasks/apps.yml
+
+    - name: Final Cleanup
+      include_tasks: tasks/final.yml

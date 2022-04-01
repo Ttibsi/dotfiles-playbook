@@ -1,0 +1,42 @@
+---
+
+- name: Install Snap packages 
+  community.general.snap:
+    name: "{{ item }}" 
+    classic: yes
+  with_items:
+      - alacritty
+      - blender
+      - discord
+      - libreoffice
+      - notion-snap
+      - vlc 
+
+
+- name: Install Cheese
+  apt:
+    name: cheese
+
+- name: Install virtualbox
+  apt:
+    name: virtualbox
+
+- name: Download geekbench
+  get_url:
+    url: https://cdn.geekbench.com/Geekbench-5.4.4-Linux.tar.gz
+    dest: "{{ home_dir }}/Downloads"
+    mode: 0755
+
+- name: Install geekbench
+  unarchive:
+    src: "{{ home_dir }}/Downloads/Geekbench-5.4.4-Linux.tar.gz"
+    dest: "{{ home_dir }}/Downloads"
+
+- name: Distribute alacritty config
+  copy:
+    src: templates/alacritty-config/alacritty.yml
+    dest: "{{ home_dir }}/.alacritty.yml"
+
+# Tests
+# Launch a series of applications 
+# Check ~/.alacritty.yml exists
