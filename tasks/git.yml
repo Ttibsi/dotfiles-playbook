@@ -3,6 +3,7 @@
 - name: install
   apt:
     name: git
+  become: yes
 
 - name: Move git config
   copy:

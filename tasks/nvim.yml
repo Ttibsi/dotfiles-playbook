@@ -1,0 +1,86 @@
+---
+
+- name: Install dependencies
+  apt:
+    name:
+      - ninja-build
+      - gettext
+      - libtool
+      - libtool-bin
+      - autoconf
+      - automake
+      - cmake
+      - g++
+      - pkg-config
+      - unzip
+      - curl
+      - doxygen
+    state: latest
+  become: yes
+
+- name: Clone repo
+  git:
+    clone: yes
+    dest: "{{ home_dir }}/Downloads/nvim"
+    force: yes
+    repo: https://github.com/neovim/neovim.git
+    update: yes
+    version: "{{ nvim_version }}"
+  register: clone
+
+- name: Build nvim
+  make:
+    chdir: "{{home_dir }}/Downloads/nvim"
+    params:
+      CMAKE_BUILD_TYPE: RelWithDebInfo
+  when: clone.changed
+
+# This installs to /usr/local/bin/
+- name: Install nvim
+  make:
+    chdir: "{{ home_dir }}/Downloads/nvim"
+    target: install
+  when: clone.changed
+  become: yes
+
+- name: Set config folder rights
+  file:
+    path: "{{ home_dir }}/.config/nvim"
+    mode: "0755"
+    state: directory
+
+- name: Install paq package manager
+  git:
+    clone: yes
+    repo: https://github.com/savq/paq-nvim.git
+    dest: "{{ home_dir }}/.local/share/nvim/site/pack/paqs/start/paq-nvim/"
+    force: yes
+    update: yes
+
+- name: Install plugin dependencies
+  apt:
+    name: 
+      # gcc for Treesitter
+      - gcc
+      - build-essential
+  become: yes
+
+- name: Distribute init.lua 
+  copy:
+    src: templates/nvim/init.lua
+    dest: "{{ home_dir }}/.config/nvim/init.lua"
+
+- name: Distribute lua configs
+  copy:
+    src: templates/nvim/lua/
+    dest: "{{ home_dir }}/.config/nvim/lua/"
+
+- name: Install nvim plugins 
+  command: nvim --headless -c 'PaqInstall' +q
+
+# Tests
+# Open nvim and verify version
+# Verify paq install by navigating to it's location
+# Verify files have been copied to `~/.config/nvim`
+# Open nvim and run :PaqSync
+# Uncomment init.lua plugin configs one at a time 
