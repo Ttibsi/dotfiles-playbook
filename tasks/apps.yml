@@ -11,15 +11,18 @@
       - libreoffice
       - notion-snap
       - vlc 
+  become: yes
 
 
 - name: Install Cheese
   apt:
     name: cheese
+  become: yes
 
 - name: Install virtualbox
   apt:
     name: virtualbox
+  become: yes
 
 - name: Download geekbench
   get_url:
