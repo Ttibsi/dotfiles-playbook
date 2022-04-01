@@ -9,11 +9,14 @@
     - name: Initial setup 
       include_tasks: tasks/initial_setup.yml
 
-    - name: git config 
-      include_tasks: tasks/git.yml
-
-    - name: Misc terminal tools 
-      include_tasks: tasks/misc.yml
-
-    - name: Set up zsh shell 
-      include_tasks: tasks/zsh.yml
+#    - name: git config 
+#      include_tasks: tasks/git.yml
+#
+#    - name: Misc terminal tools 
+#      include_tasks: tasks/misc.yml
+#
+#    - name: Set up zsh shell 
+#      include_tasks: tasks/zsh.yml
+#
+#    - name: Set up i3wn
+#      include_tasks: tasks/i3.yml
