@@ -40,3 +40,29 @@
     chdir: "{{ home_dir }}/Downloads/nvim"
     target: install
   when: clone.changed
+
+- name: Install paq package manager
+  git:
+    clone: yes
+    repo: https://github.com/savq/paq-nvim.git
+    dest: "{{ home_dir }}/.local/share/nvim/site/pack/paqs/start/paq-nvim/"
+    force: yes
+    update: yes
+
+- name: Install plugin dependencies
+  apt:
+    name: "{ item }}"
+  with_items:
+    - gcc
+    - build_essential
+
+- name: Distribute config files
+  copy:
+    src: templates/nvim/
+    dest: "{{ home_dir }}/.config/nvim/"
+
+# Tests
+# Open nvim and verify version
+# Verify paq install by navigating to it's location
+# Verify files have been copied to `~/.config/nvim`
+# Run :PaqInstall and check if plugins can be installed
