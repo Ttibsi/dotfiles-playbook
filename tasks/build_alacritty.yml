@@ -5,5 +5,16 @@
     name: cargo
   become: yes
 
+- name: Install dependancies
+  apt:
+    name:
+      - cmake 
+      - pkg-config 
+      - libfreetype6-dev 
+      - libfontconfig1-dev 
+      - libxcb-xfixes0-dev 
+      - python3
+  become: yes
+
 - name: Install Alacritty
   command: cargo install alacritty 
