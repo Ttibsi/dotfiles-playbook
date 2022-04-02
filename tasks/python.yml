@@ -1,0 +1,40 @@
+---
+
+- name: Add deadsnakes ppa
+  apt_repository:
+    repo: ppa:deadsnakes/ppa
+  become: yes
+
+- name: Install pip 
+  apt:
+    name: python3-pip
+  become: yes
+
+- name: Install py3.10
+  apt:
+    name: python3.10
+  become: yes
+
+- name: Install py3.10-distutils
+  apt:
+    name: python3.10-distutils 
+  become: yes
+
+- name: Download get-pip script
+  get_url:
+    url: https://bootstrap.pypa.io/get-pip.py 
+    dest: "{{ home_dir }}/Downloads/get-pip.py"
+    mode: 0755
+
+- name: Install pip3.10
+  command: python3.10 "{{ home_dir }}/Downloads/get-pip.py"
+
+- name: Install pre-commit
+  pip:
+    name: pre-commit
+
+#TODO: ghstats Install
+
+# Tests
+# python3.10 --version
+# pre-commit --version
