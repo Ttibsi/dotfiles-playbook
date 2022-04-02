@@ -2,17 +2,18 @@
 
 - name: Install dependancies
   apt:
-    - build-essential 
-    - git 
-    - subversion 
-    - cmake 
-    - libx11-dev 
-    - libxxf86vm-dev 
-    - libxcursor-dev 
-    - libxi-dev 
-    - libxrandr-dev 
-    - libxinerama-dev 
-    - libglew-dev
+    name:
+      - build-essential 
+      - git 
+      - subversion 
+      - cmake 
+      - libx11-dev 
+      - libxxf86vm-dev 
+      - libxcursor-dev 
+      - libxi-dev 
+      - libxrandr-dev 
+      - libxinerama-dev 
+      - libglew-dev
   become: yes
 
 - name: Clone repo
