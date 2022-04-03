@@ -34,6 +34,11 @@
     src: "{{ home_dir }}/Downloads/Geekbench-5.4.4-Linux.tar.gz"
     dest: "{{ home_dir }}/Downloads"
 
+- name: Install gnome-boxes
+  apt:
+    name: gnome-boxes
+  become: yes
+
 - name: Install libreoffice
   apt:
     name: libreoffice
@@ -42,11 +47,6 @@
 - name: Install notion
   apt:
     deb: "https://github.com/notion-enhancer/notion-repackaged/releases/download/v2.0.18-1/notion-app_2.0.18-1_arm64.deb"
-  become: yes
-
-- name: Install virtualbox
-  apt:
-    name: virtualbox
   become: yes
 
 - name: Install vlc
