@@ -20,4 +20,6 @@
   command: cargo install alacritty 
 
 - name: Add Alacritty to PATH
-  command: export PATH="$HOME/.cargo/bin:$PATH"
+  copy:
+    dest: "{{ home_dir }}/.zshrc"
+    content: "export PATH+=$HOME/.cargo/bin"
