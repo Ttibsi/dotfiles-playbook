@@ -33,6 +33,10 @@
 - name: Bootstrap
   command: sh "{{ home_dir }}/Downloads/vlc/bootstrap"
 
+- name: Allow deb-src sources
+  command: sed -i~orig -e 's/# deb-src/deb-src/' /etc/apt/sources.list   
+  become: yes
+
 - name: Install third-party libraries
   apt:
     state: build-dep
@@ -42,5 +46,3 @@
 - name: Build vlc
   make:
     chdir: "{{ home_dir }}/Downloads/vlc"
-    target: install
-  become: yes
