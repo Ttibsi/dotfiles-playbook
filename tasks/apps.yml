@@ -31,8 +31,9 @@
   unarchive:
     src: "{{ home_dir }}/Downloads/Geekbench-{{geekbench_version}}-Linux.tar.gz"
     dest: "/usr/bin/"
-    include:
-      - geekbench5
+    exclude:
+      - geekbench.plar
+      - geekbench_x86_64
   become: yes
 
 - name: Install gnome-boxes
