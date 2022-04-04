@@ -16,14 +16,26 @@
       - libglew-dev
   become: yes
 
-- name: Clone repo
+# Source: https://github.com/chrisbrake/ansible/blob/master/blender.yml
+- name: Get blender source
   git:
-    clone: yes
-    force: yes
-    update: yes
-    repo: https://git.blender.org/blender.git
-    dest: "{{ home_dir }}/Downloads/blender/"
+    repo: 'git://git.blender.org/blender.git'
+    dest: '{{ home_dir }}/Downloads/blender'
 
-- name: Build blender
+- name: Run the build
   make:
-    chdir: "{{ home_dir }}/Downloads/blender/"
+    target: '{{ item }}'
+    chdir: '{{ home_dir }}/Downloads/blender'
+  with_items:
+    - update
+    - lite
+
+- name: Install blender
+  make:
+    target: install
+    chdir: '{{ home_dir }}/Downloads/blender'
+    params:
+      CMAKE_INSTALL_PREFIX: /opt/blender
+      WITH_INSTALL_PORTABLE: OFF
+      WITH_BUILDINFO: OFF
+      WITH_GAMEENGINE: OFF
