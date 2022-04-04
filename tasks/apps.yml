@@ -22,14 +22,15 @@
 
 - name: Download geekbench
   get_url:
-    url: https://cdn.geekbench.com/Geekbench-5.4.4-Linux.tar.gz
-    dest: "{{ home_dir }}/Downloads"
+    url: "https://cdn.geekbench.com/Geekbench-{{geekbench_version}}-Linux.tar.gz"
+    dest: "{{ home_dir }}/Downloads/Geekbench-{{geekbench_version}}-Linux.tar.gz"
+
     mode: 0755
 
 - name: Install geekbench
   unarchive:
-    src: "{{ home_dir }}/Downloads/Geekbench-5.4.4-Linux.tar.gz"
-    dest: "{{ home_dir }}/Downloads"
+    src: "{{ home_dir }}/Downloads/Geekbench-{{geekbench_version}}-Linux.tar.gz"
+    dest: "{{ home_dir }}/Downloads/"
 
 - name: Install gnome-boxes
   apt:

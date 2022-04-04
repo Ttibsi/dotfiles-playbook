@@ -3,6 +3,7 @@
 - hosts: localhost
   vars:
     discord_version: 0.0.17
+    geekbench_version: 5.4.4
     home_dir: "{{ lookup('env', 'HOME') }}"
 
     # These are git tags
