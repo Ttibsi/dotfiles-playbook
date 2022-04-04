@@ -8,9 +8,6 @@
     src: templates/alacritty-config/alacritty.yml
     dest: "{{ home_dir }}/.alacritty.yml"
 
-- name: Install blender
-  include_tasks: build_blender.yml
-
 - name: Install Cheese
   apt:
     name: cheese
