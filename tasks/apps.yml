@@ -13,6 +13,7 @@
     name: cheese
   become: yes
 
+#/usr/share/discord/
 - name: Install discord
   apt:
     deb: 'https://dl.discordapp.net/apps/linux/{{ discord_version }}/discord-{{ discord_version }}.deb'
@@ -30,7 +31,7 @@
 - name: Install geekbench
   unarchive:
     src: "{{ home_dir }}/Downloads/Geekbench-{{geekbench_version}}-Linux.tar.gz"
-    dest: "/usr/local/bin/"
+    dest: "/usr/share/geekbench/"
 
 - name: Install gnome-boxes
   apt:
@@ -45,7 +46,7 @@
 - name: Install notion
   get_url:
     url: "https://github.com/notion-enhancer/notion-repackaged/releases/download/v2.0.18-1/Notion-2.0.18-1.AppImage"
-    dest: "/usr/local/bin/"
+    dest: "/usr/share/notion/"
   become: yes
 
 - name: Install vlc
