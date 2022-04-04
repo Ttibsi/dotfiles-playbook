@@ -21,9 +21,9 @@
     clone: yes
     force: yes
     update: yes
-    src: https://git.blender.org/blender.git
-    dest: "{{ home_dir }}/Downloads/blender"
+    repo: https://git.blender.org/blender.git
+    dest: "{{ home_dir }}/Downloads/blender/"
 
 - name: Build blender
   make:
-    chdir: "{{ home_dir }}/Downloads/blender"
+    chdir: "{{ home_dir }}/Downloads/blender/"
