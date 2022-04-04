@@ -1,5 +1,20 @@
 ---
 
+- name: Install dependancies
+  apt:
+    name:
+      - git 
+      - g++ 
+      - make 
+      - libtool 
+      - automake 
+      - autopoint 
+      - pkg-config 
+      - flex 
+      - bison 
+      - lua5.2
+  become: yes
+
 - name: Clone repo
   git:
     clone: yes
