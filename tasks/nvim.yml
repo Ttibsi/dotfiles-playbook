@@ -30,7 +30,7 @@
 
 - name: Build nvim
   make:
-    chdir: "{{home_dir }}/Downloads/nvim"
+    chdir: "{{ home_dir }}/Downloads/nvim"
     params:
       CMAKE_BUILD_TYPE: RelWithDebInfo
   when: clone.changed

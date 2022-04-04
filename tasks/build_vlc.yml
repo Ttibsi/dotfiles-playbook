@@ -1,4 +1,5 @@
 ---
+# https://wiki.videolan.org/UnixCompile/#Debian
 
 - name: Install dependancies
   apt:
@@ -13,6 +14,12 @@
       - flex 
       - bison 
       - lua5.2
+      # XCB requirements
+      - libxcb-shm0-dev 
+      - libxcb-xv0-dev 
+      - libxcb-keysyms1-dev 
+      - libxcb-randr0-dev 
+      - libxcb-composite0-dev
   become: yes
 
 - name: Clone repo
@@ -25,3 +32,15 @@
 
 - name: Bootstrap
   command: sh "{{ home_dir }}/Downloads/vlc/bootstrap"
+
+- name: Install third-party libraries
+  apt:
+    state: build-dep
+    name: vlc
+  become: yes
+
+- name: Build vlc
+  make:
+    chdir: "{{ home_dir }}/Downloads/vlc"
+    target: install
+  become: yes
