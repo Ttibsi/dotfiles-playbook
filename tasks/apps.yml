@@ -30,7 +30,7 @@
 - name: Install geekbench
   unarchive:
     src: "{{ home_dir }}/Downloads/Geekbench-{{geekbench_version}}-Linux.tar.gz"
-    dest: "{{ home_dir }}/Downloads/"
+    dest: "/usr/local/bin/"
 
 - name: Install gnome-boxes
   apt:
@@ -43,8 +43,9 @@
   become: yes
 
 - name: Install notion
-  apt:
-    deb: "https://github.com/notion-enhancer/notion-repackaged/releases/download/v2.0.18-1/notion-app_2.0.18-1_arm64.deb"
+  get_url:
+    url: "https://github.com/notion-enhancer/notion-repackaged/releases/download/v2.0.18-1/Notion-2.0.18-1.AppImage"
+    dest: "/usr/local/bin/"
   become: yes
 
 - name: Install vlc
