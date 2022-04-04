@@ -25,13 +25,13 @@
   get_url:
     url: "https://cdn.geekbench.com/Geekbench-{{geekbench_version}}-Linux.tar.gz"
     dest: "{{ home_dir }}/Downloads/Geekbench-{{geekbench_version}}-Linux.tar.gz"
-
     mode: 0755
 
 - name: Install geekbench
   unarchive:
     src: "{{ home_dir }}/Downloads/Geekbench-{{geekbench_version}}-Linux.tar.gz"
-    dest: "/usr/share/geekbench/"
+    dest: "/usr/share/"
+  become: yes
 
 - name: Install gnome-boxes
   apt:
@@ -46,7 +46,7 @@
 - name: Install notion
   get_url:
     url: "https://github.com/notion-enhancer/notion-repackaged/releases/download/v2.0.18-1/Notion-2.0.18-1.AppImage"
-    dest: "/usr/share/notion/"
+    dest: "/usr/share/"
   become: yes
 
 - name: Install vlc
