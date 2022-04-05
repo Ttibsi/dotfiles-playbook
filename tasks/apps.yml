@@ -60,7 +60,9 @@
   become: yes
 
 - name: Install vlc
-  include_tasks: build_vlc.yml
+  apt:
+    name: vlc
+  become: yes
 
 
 # Tests
@@ -68,4 +70,3 @@
 # Launch geekbench and check version
 # Launch discord
 # Launch notion
-# Launch vlc
