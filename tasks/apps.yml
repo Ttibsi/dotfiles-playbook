@@ -1,0 +1,73 @@
+---
+
+- name: Install Alacritty
+  include_tasks: build_alacritty.yml
+
+- name: Distribute Alacritty config
+  copy:
+    src: templates/alacritty-config/alacritty.yml
+    dest: "{{ home_dir }}/.alacritty.yml"
+
+- name: Add appimagelauncher PPA
+  apt_repository:
+    repo: ppa:appimagelauncher-team/stable
+  become: yes
+
+- name: Install appimagelauncher
+  apt:
+    name: appimagelauncher
+  become: yes
+
+- name: Install Cheese
+  apt:
+    name: cheese
+  become: yes
+
+#/usr/share/discord/
+- name: Install Discord
+  apt:
+    deb: 'https://dl.discordapp.net/apps/linux/{{ discord_version }}/discord-{{ discord_version }}.deb'
+  become: yes
+
+#TODO: Build firefox after verifying py3
+
+- name: Download Geekbench
+  get_url:
+    url: "https://cdn.geekbench.com/Geekbench-{{geekbench_version}}-Linux.tar.gz"
+    dest: "{{ home_dir }}/Downloads/Geekbench-{{geekbench_version}}-Linux.tar.gz"
+    mode: 0755
+
+- name: Install Geekbench
+  unarchive:
+    src: "{{ home_dir }}/Downloads/Geekbench-{{geekbench_version}}-Linux.tar.gz"
+    dest: "{{ home_dir }}/Applications/"
+    mode: 0755
+  become: yes
+
+- name: Install gnome-boxes
+  apt:
+    name: gnome-boxes
+  become: yes
+
+- name: Install Libreoffice
+  apt:
+    name: libreoffice
+  become: yes
+
+- name: Install Notion
+  get_url:
+    url: "https://github.com/notion-enhancer/notion-repackaged/releases/download/v2.0.18-1/Notion-2.0.18-1.AppImage"
+    dest: "{{ home_dir }}/Applications/"
+    mode: 0755
+  become: yes
+
+- name: Install VLC 
+  apt:
+    name: vlc
+  become: yes
+
+# Tests
+# Launch alacritty from terminal
+# Launch geekbench and check version
+# Launch discord
+# Launch notion

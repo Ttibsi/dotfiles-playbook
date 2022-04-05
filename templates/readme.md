@@ -1,5 +1,5 @@
 ### gitconfig
-`git-config/gitconfig` >> `$HOME/.gitconfig`
+ - `git-config/gitconfig` >> `$HOME/.gitconfig`
 
 ### zsh-shell
  - zshrc to `$HOME/.zshrc`
@@ -7,4 +7,7 @@
  - .oh-my-zsh/custom goes to `$HOME/.oh-my-zsh/custom`
 
 ### nvim
-- nvim folder goes to `$HOME/.config/nvim`
+ - nvim folder goes to `$HOME/.config/nvim`
+
+### alacritty-config
+ - `alacritty.yml` goes to `$HOME/.alacritty.yml` 

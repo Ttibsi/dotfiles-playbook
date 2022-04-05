@@ -30,7 +30,7 @@
 
 - name: Build nvim
   make:
-    chdir: "{{home_dir }}/Downloads/nvim"
+    chdir: "{{ home_dir }}/Downloads/nvim"
     params:
       CMAKE_BUILD_TYPE: RelWithDebInfo
   when: clone.changed
@@ -75,6 +75,7 @@
     src: templates/nvim/lua/
     dest: "{{ home_dir }}/.config/nvim/lua/"
 
+#TODO: Get nvim native LSP working after py3 installed
 - name: Install nvim plugins 
   command: nvim --headless -c 'PaqInstall' +q
 

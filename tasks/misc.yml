@@ -1,13 +1,8 @@
 ---
 
-- name: Neofetch
+- name: Bottom 
   apt:
-    name: neofetch
-  become: yes
-
-- name: Tree
-  apt:
-    name: tree
+    deb: https://github.com/ClementTsang/bottom/releases/download/0.6.8/bottom_0.6.8_amd64.deb
   become: yes
 
 - name: Cowsay
@@ -20,18 +15,25 @@
     name: curl
   become: yes
 
-- name: Bottom 
+- name: Neofetch
   apt:
-    deb: https://github.com/ClementTsang/bottom/releases/download/0.6.8/bottom_0.6.8_amd64.deb
+    name: neofetch
   become: yes
 
-- name: Video codecs
-  command: sudo DEBIAN_FRONTEND=noninteractive apt install -y ubuntu-restricted-extras
+- name: Tree
+  apt:
+    name: tree
+  become: yes
+
+  become: yes
 
 - name: unzip
   apt:
     name: unzip
   become: yes
+
+- name: Video codecs
+  command: sudo DEBIAN_FRONTEND=noninteractive apt install -y ubuntu-restricted-extras
 
 # Tests
 # Run neofetch, cowsay, btm

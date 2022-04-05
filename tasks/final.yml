@@ -1,0 +1,37 @@
+---
+
+- name: Create firefox distribution directory
+  file:
+    path: "{{ home_dir }}/snap/firefox/distribution/"
+    state: directory
+
+#TODO: move firefox policies
+- name: Distribute firefox policy
+  copy:
+    src: templates/firefox/policies.json
+    dest: "{{ home_dir }}/snap/firefox/distribution/policies.json"
+
+- name: apt clean and remove
+  apt:
+    autoclean: yes
+    autoremove: yes
+  become: yes
+
+- name: Clean up downloads 
+  file:
+    path: "{{ home_dir }}/Downloads" 
+    state: "{{ item }}" 
+  with_items:
+    - absent
+    - directory
+
+- name: User manual entry
+  debug:
+    msg: "{{ item }}"
+  loop:
+    - "Create Git SSH key for Github connection"
+    - "Configure fingerprint reader for Framework"
+    - "It's recommended that the machine get rebooted after running this Playbook"
+
+# Tests
+# Launch firefox to see if theme and plugins are applied 

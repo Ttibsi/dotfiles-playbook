@@ -2,14 +2,19 @@
 
 - hosts: localhost
   vars:
+    discord_version: 0.0.17
+    geekbench_version: 5.4.4
     home_dir: "{{ lookup('env', 'HOME') }}"
+
+    # These are git tags
     nvim_version: v0.6.1
+    alacritty_version: v0.10.1
 
   tasks:
     - name: Initial setup 
       include_tasks: tasks/initial_setup.yml
 
-    - name: git config 
+    - name: Configure Git 
       include_tasks: tasks/git.yml
 
     - name: Misc terminal tools 
@@ -23,3 +28,9 @@
 
     - name: Set up Neovim 
       include_tasks: tasks/nvim.yml
+
+    - name: Install desktop apps
+      include_tasks: tasks/apps.yml
+
+    - name: Final Cleanup
+      include_tasks: tasks/final.yml

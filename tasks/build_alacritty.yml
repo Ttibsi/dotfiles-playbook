@@ -1,0 +1,25 @@
+---
+
+- name: Install cargo
+  apt:
+    name: cargo
+  become: yes
+
+- name: Install dependancies
+  apt:
+    name:
+      - cmake 
+      - pkg-config 
+      - libfreetype6-dev 
+      - libfontconfig1-dev 
+      - libxcb-xfixes0-dev 
+      - python3
+  become: yes
+
+- name: Install Alacritty
+  command: cargo install alacritty 
+
+- name: Add Alacritty to PATH
+  copy:
+    dest: "{{ home_dir }}/.zshrc"
+    content: "export PATH+=$HOME/.cargo/bin"
