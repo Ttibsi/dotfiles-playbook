@@ -30,16 +30,7 @@
 - name: Install Geekbench
   unarchive:
     src: "{{ home_dir }}/Downloads/Geekbench-{{geekbench_version}}-Linux.tar.gz"
-    dest: "/usr/bin/"
-    exclude:
-      - geekbench.plar
-      - geekbench_x86_64
-  become: yes
-
-- name: Move Geekbench to the proper location
-  copy:
-    src: "/usr/bin/Geekbench-5.4.4-Linux/geekbench5"
-    dest: /usr/bin/geekbench5
+    dest: "/usr/share/geekbench"
     mode: 0755
   become: yes
 
