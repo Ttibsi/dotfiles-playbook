@@ -20,7 +20,10 @@
     - name: Misc terminal tools 
       include_tasks: tasks/misc.yml
 
-    - name: Set up ZSH shell 
+    - name: Configure python3
+      include_tasks: tasks/python.yml
+
+    - name: Set up zsh shell 
       include_tasks: tasks/zsh.yml
 
     - name: Set up Neovim 
