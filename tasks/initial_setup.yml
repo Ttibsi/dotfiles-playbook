@@ -25,6 +25,7 @@
     mode: '0755'
   with_items:
     - "Workspace"
+    - "Application"
     - ".local/share/fonts"
 
 - name: Install SFmono
