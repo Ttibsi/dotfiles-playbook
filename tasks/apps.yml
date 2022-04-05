@@ -11,10 +11,12 @@
 - name: Add appimagelauncher PPA
   apt_repository:
     repo: ppa:appimagelauncher-team/stable
+  become: yes
 
 - name: Install appimagelauncher
   apt:
     name: appimagelauncher
+  become: yes
 
 - name: Install Cheese
   apt:
@@ -38,7 +40,7 @@
 - name: Install Geekbench
   unarchive:
     src: "{{ home_dir }}/Downloads/Geekbench-{{geekbench_version}}-Linux.tar.gz"
-    dest: "{{ home_dir }}/Applications/geekbench"
+    dest: "{{ home_dir }}/Applications/"
     mode: 0755
   become: yes
 
@@ -55,7 +57,7 @@
 - name: Install Notion
   get_url:
     url: "https://github.com/notion-enhancer/notion-repackaged/releases/download/v2.0.18-1/Notion-2.0.18-1.AppImage"
-    dest: "{{ home_dir }}/Applications/notion-repackaged.AppImage"
+    dest: "{{ home_dir }}/Applications/"
     mode: 0755
   become: yes
 
@@ -63,7 +65,6 @@
   apt:
     name: vlc
   become: yes
-
 
 # Tests
 # Launch alacritty from terminal
