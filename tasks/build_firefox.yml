@@ -1,37 +1,24 @@
 ---
-
+#TODO: Build from source
 - name: Remove snap Firefox
   community.general.snap:
     name: firefox
     state: absent
   become: yes
 
-- name: Add Flatpak
-  apt:
-    name: flatpak
+- name: Install firefox
+  apt: 
+    name: firefox
   become: yes
 
-- name: Add Flatpak repository
-  community.general.flatpak_remote:
-    name: flathub
-    flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
-    state: present
-  become: yes
-
-- name: Install Flatpak Firefox
-  community.general.flatpak:
-    name: org.mozilla.firefox
-  become: yes
-
-#TODO: move config distribution here
 - name: Create firefox distribution directory
   file:
     path: "/etc/firefox/distribution/"
     state: directory
   become: true
 
-#TODO: move firefox policies
 - name: Distribute firefox policy
   copy:
     src: templates/firefox/policies.json
     dest: "/etc/firefox/distribution/policies.json"
+  become: true
