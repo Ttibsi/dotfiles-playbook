@@ -24,3 +24,14 @@
   become: yes
 
 #TODO: move config distribution here
+- name: Create firefox distribution directory
+  file:
+    path: "/etc/firefox/distribution/"
+    state: directory
+  become: true
+
+#TODO: move firefox policies
+- name: Distribute firefox policy
+  copy:
+    src: templates/firefox/policies.json
+    dest: "/etc/firefox/distribution/policies.json"
