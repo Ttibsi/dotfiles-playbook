@@ -1,3 +1,25 @@
 ---
 
-# https://packages.debian.org/sid/firefox
+- name: Remove snap Firefox
+  community.general.snap:
+    name: firefox
+    state: absent
+  become: yes
+
+- name: Add Flatpak
+  apt:
+    name: Flatpak
+  become: yes
+
+- name: Add Flatpak repository
+  community.general.flatpak:
+    name: https://flathub.org/repo/flathub.flatpakrepo
+    state: present
+  become: yes
+
+- name: Install Flatpak Firefox
+  community.general.flatpak:
+    name: org.mozilla.firefox
+  become: yes
+
+#TODO: move config distribution here
