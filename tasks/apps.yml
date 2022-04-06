@@ -29,7 +29,6 @@
     deb: 'https://dl.discordapp.net/apps/linux/{{ discord_version }}/discord-{{ discord_version }}.deb'
   become: yes
 
-#TODO: Build firefox 
 - name: Install firefox
   include_tasks: build_firefox.yml
 
