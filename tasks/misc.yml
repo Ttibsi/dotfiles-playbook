@@ -25,8 +25,6 @@
     name: tree
   become: yes
 
-  become: yes
-
 - name: unzip
   apt:
     name: unzip
