@@ -8,12 +8,13 @@
 
 - name: Add Flatpak
   apt:
-    name: Flatpak
+    name: flatpak
   become: yes
 
 - name: Add Flatpak repository
-  community.general.flatpak:
-    name: https://flathub.org/repo/flathub.flatpakrepo
+  community.general.flatpak_remote:
+    name: flathub
+    flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
     state: present
   become: yes
 
