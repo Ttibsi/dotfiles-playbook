@@ -20,6 +20,16 @@
     name: neofetch
   become: yes
 
+- name: Powertop
+  apt:
+    name: powertop
+  become: yes
+
+- name: TLP
+  apt:
+    name: tlp
+  become: yes
+
 - name: Tree
   apt:
     name: tree
