@@ -1,16 +1,7 @@
 ---
 
 - name: Download Alacritty
-  get_url:
-    src: https://github.com/alacritty/alacritty/archive/refs/tags/v0.10.1.tar.gz
-    dest: "{{ home_dir }}/Downloads/Alacritty-0.10.1.tar.gz"
-
-- name: Install Alacritty
-  unarchive: 
-    src: "{{ home_dir }}/Downloads/Alacritty-0.10.1.tar.gz"
-    dest: "{{ home_dir }}/Applications/"
-    mode: 0755
-  become: yes
+  include_tasks: build_alacritty.yml
 
 - name: Add appimagelauncher PPA
   apt_repository:
