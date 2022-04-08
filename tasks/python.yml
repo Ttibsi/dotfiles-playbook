@@ -5,40 +5,49 @@
     repo: ppa:deadsnakes/ppa
   become: yes
 
-- name: Install pip 
-  apt:
-    name: python3-pip
-  become: yes
+# https://youtu.be/O390_abzo08
+- name: curl virtualenv
+  get_url:
+    url: https://bootstrap.pypa.io/virtualenv.pyz
+    dest: "{{ home_dir }}/Downloads/virtualenv.pyz"
 
-    #- name: Install py3.10
-    #  apt:
-    #    name: python3.10
-    #  become: yes
-    #
-    #- name: Install py3.10-distutils
-    #  apt:
-    #    name: python3.10-distutils 
-    #  become: yes
+- name: Install virtualenv script 
+  script:
+    cmd: "{{ home_dir }}/Downloads/virtualenv.pyz {{ home_dir }}/opt/venv"
+    executable: python3
 
-#- name: Download get-pip script
-#  get_url:
-#    url: https://bootstrap.pypa.io/get-pip.py 
-#    dest: "{{ home_dir }}/Downloads/get-pip.py"
-#    mode: 0755
-#
-#- name: Install pip
-#  command: python3 "{{ home_dir }}/Downloads/get-pip.py"
+- name: Create venv
+  script:
+    cmd: "{{ home_dir }}/opt/venv/bin/pip install virtualenv"
+    executable: python3
 
-- name: Install pre-commit
-  pip:
-    name: pre-commit
-  become: yes
+- name: Create symlink
+  file:
+    src: "{{ home_dir }}/opt/venv/bin/virtualenv" 
+    dest: "{{ home_dir }}/bin/virtualenv"
+    state: link
 
-#TODO: ghstats Install
 - name: Install gh-stats
   pip:
     name: git+https://github.com/ttibsi/gh-stats
-  become: yes
+    virtualenv: "{{ home_dir }}/opt/venv"
+
+- name: Symlink gh-stats
+  file:
+    src: "{{ home_dir }}/opt/venv/gh-stats"
+    dest: "{{ home_dir }}/bin/gh_stats"
+    state: link
+
+- name: Install pyright 
+  pip:
+    name: pyright 
+    virtualenv: "{{ home_dir }}/opt/venv"
+
+- name: Symlink pyright 
+  file:
+    src: "{{ home_dir }}/opt/venv/pyright"
+    dest: "{{ home_dir }}/bin/pyright"
+    state: link
 
 # Tests
 # python3.10 --version

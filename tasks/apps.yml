@@ -5,6 +5,11 @@
     deb: https://github.com/barnumbirr/alacritty-debian/releases/download/v0.10.1-1/alacritty_0.10.1-1_amd64_bullseye.deb
   become: yes
 
+- name: Move config file
+  copy:
+    src: templates/alacritty-config/alacritty.yml
+    dest: "{{ home_dir }}/.alacritty.yml"
+
 - name: Add appimagelauncher PPA
   apt_repository:
     repo: ppa:appimagelauncher-team/stable
