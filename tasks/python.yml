@@ -24,7 +24,7 @@
 - name: Create symlink
   file:
     src: "{{ home_dir }}/opt/venv/bin/virtualenv" 
-    dest: "{{ home_dir }}/bin/virtualenv"
+    dest: "/bin/virtualenv"
     state: link
 
 - name: Install gh-stats
@@ -34,8 +34,8 @@
 
 - name: Symlink gh-stats
   file:
-    src: "{{ home_dir }}/opt/venv/gh-stats"
-    dest: "{{ home_dir }}/bin/gh_stats"
+    src: "{{ home_dir }}/opt/venv/bin/ghstats"
+    dest: "/bin/ghstats"
     state: link
 
 - name: Install pyright 
@@ -45,8 +45,8 @@
 
 - name: Symlink pyright 
   file:
-    src: "{{ home_dir }}/opt/venv/pyright"
-    dest: "{{ home_dir }}/bin/pyright"
+    src: "{{ home_dir }}/opt/venv/bin/pyright"
+    dest: "/bin/pyright"
     state: link
 
 # Tests
