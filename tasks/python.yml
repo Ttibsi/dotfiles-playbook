@@ -34,6 +34,9 @@
     name: pre-commit
 
 #TODO: ghstats Install
+- name: Install gh-stats
+  pip:
+    name: https://github.com/ttibsi/gh-stats.git
 
 # Tests
 # python3.10 --version
