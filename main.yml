@@ -8,7 +8,6 @@
 
     # These are git tags
     nvim_version: v0.6.1
-    alacritty_version: v0.10.1
 
   tasks:
     - name: Initial setup 
@@ -20,7 +19,6 @@
     - name: Misc terminal tools 
       include_tasks: tasks/misc.yml
 
-        #TODO: Add ghstats and remove py310 install/deadsnakes
     - name: Configure python3
       include_tasks: tasks/python.yml
 
