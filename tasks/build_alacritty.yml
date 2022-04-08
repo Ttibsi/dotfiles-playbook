@@ -17,9 +17,15 @@
   become: yes
 
 - name: Install Alacritty
-  command: cargo install alacritty 
+  community.general.cargo:
+    name: alacritty
 
 - name: Add cargo to PATH
-  copy:
+  lineinfile:
     dest: "{{ home_dir }}/.zshrc"
-    content: "export PATH+=$HOME/.cargo/bin"
+    line: "export PATH+=$HOME/.cargo/bin"
+
+- name: Distribute Alacritty config
+  copy:
+    src: templates/alacritty-config/alacritty.yml
+    dest: "{{ home_dir }}/.alacritty.yml"

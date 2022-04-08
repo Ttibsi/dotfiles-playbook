@@ -3,11 +3,6 @@
 - name: Install Alacritty
   include_tasks: build_alacritty.yml
 
-- name: Distribute Alacritty config
-  copy:
-    src: templates/alacritty-config/alacritty.yml
-    dest: "{{ home_dir }}/.alacritty.yml"
-
 - name: Add appimagelauncher PPA
   apt_repository:
     repo: ppa:appimagelauncher-team/stable
