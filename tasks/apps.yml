@@ -1,7 +1,9 @@
 ---
 
 - name: Download Alacritty
-  include_tasks: build_alacritty.yml
+  apt:
+    deb: https://github.com/barnumbirr/alacritty-debian/releases/download/v0.10.1-1/alacritty_0.10.1-1_amd64_bullseye.deb
+  become: yes
 
 - name: Add appimagelauncher PPA
   apt_repository:

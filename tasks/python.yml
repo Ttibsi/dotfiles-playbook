@@ -32,11 +32,13 @@
 - name: Install pre-commit
   pip:
     name: pre-commit
+  become: yes
 
 #TODO: ghstats Install
 - name: Install gh-stats
   pip:
     name: git+https://github.com/ttibsi/gh-stats
+  become: yes
 
 # Tests
 # python3.10 --version
