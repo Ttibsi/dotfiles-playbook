@@ -38,17 +38,6 @@
     dest: "/bin/ghstats"
     state: link
 
-- name: Install pyright 
-  pip:
-    name: pyright 
-    virtualenv: "{{ home_dir }}/opt/venv"
-
-- name: Symlink pyright 
-  file:
-    src: "{{ home_dir }}/opt/venv/bin/pyright"
-    dest: "/bin/pyright"
-    state: link
-
 # Tests
 # python3.10 --version
 # pre-commit --version
