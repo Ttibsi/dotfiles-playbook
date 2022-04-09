@@ -45,13 +45,13 @@ end
 local function call_plugins()
     require "paq" {
         "savq/paq-nvim";
-        --"neovim/nvim-lspconfig";
+        "neovim/nvim-lspconfig";
         {"nvim-treesitter/nvim-treesitter", run=TSUpdate};
         "lukas-reineke/indent-blankline.nvim";
         "nvim-lualine/lualine.nvim";
     }
 
-    --require 'lua.lspconfig'.init()
+    require 'lsp_config'.init()
     require 'treesitter_config'.init()
     require 'indent_blankline_config'.init()
     require 'lualine_config'.init()

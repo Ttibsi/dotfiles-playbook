@@ -1,11 +1,14 @@
 ---
 
-- name: Add deadsnakes ppa
-  apt_repository:
-    repo: ppa:deadsnakes/ppa
-  become: yes
+#- name: Add deadsnakes ppa
+#  apt_repository:
+#    repo: ppa:deadsnakes/ppa
+#  become: yes
 
-# https://youtu.be/O390_abzo08
+# Anthony Explains 79
+# TLDR I'm not installing a global/system version of pip
+# Each project has it's own venv
+# Global installs are symlinks
 - name: curl virtualenv
   get_url:
     url: https://bootstrap.pypa.io/virtualenv.pyz

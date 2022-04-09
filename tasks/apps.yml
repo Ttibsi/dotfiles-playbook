@@ -10,15 +10,15 @@
     src: templates/alacritty-config/alacritty.yml
     dest: "{{ home_dir }}/.alacritty.yml"
 
-- name: Add appimagelauncher PPA
-  apt_repository:
-    repo: ppa:appimagelauncher-team/stable
-  become: yes
-
-- name: Install appimagelauncher
-  apt:
-    name: appimagelauncher
-  become: yes
+#- name: Add appimagelauncher PPA
+#  apt_repository:
+#    repo: ppa:appimagelauncher-team/stable
+#  become: yes
+#
+#- name: Install appimagelauncher
+#  apt:
+#    name: appimagelauncher
+#  become: yes
 
 - name: Install Cheese
   apt:
