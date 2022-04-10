@@ -14,7 +14,7 @@
     url: https://bootstrap.pypa.io/virtualenv.pyz
     dest: "{{ home_dir }}/Downloads/virtualenv.pyz"
 
-- name: Install virtualenv script 
+- name: Install virtualenv script
   script:
     cmd: "{{ home_dir }}/Downloads/virtualenv.pyz {{ home_dir }}/opt/venv"
     executable: python3
@@ -22,13 +22,13 @@
 - name: Create venv
   script:
     cmd: "{{ home_dir }}/opt/venv/bin/pip install virtualenv"
-    executable: python3
 
 - name: Create symlink
   file:
-    src: "{{ home_dir }}/opt/venv/bin/virtualenv" 
+    src: "{{ home_dir }}/opt/venv/bin/virtualenv"
     dest: "/bin/virtualenv"
     state: link
+  become: true
 
 - name: Install gh-stats
   pip:
@@ -40,6 +40,7 @@
     src: "{{ home_dir }}/opt/venv/bin/ghstats"
     dest: "/bin/ghstats"
     state: link
+  become: true
 
 # Tests
 # python3.10 --version

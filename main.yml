@@ -10,22 +10,22 @@
     nvim_version: v0.6.1
 
   tasks:
-    - name: Initial setup 
+    - name: Initial setup
       include_tasks: tasks/initial_setup.yml
 
-    - name: Configure Git 
+    - name: Configure Git
       include_tasks: tasks/git.yml
 
-    - name: Misc terminal tools 
+    - name: Misc terminal tools
       include_tasks: tasks/misc.yml
 
     - name: Configure python3
       include_tasks: tasks/python.yml
 
-    - name: Set up zsh shell 
+    - name: Set up zsh shell
       include_tasks: tasks/zsh.yml
 
-    - name: Set up Neovim 
+    - name: Set up Neovim
       include_tasks: tasks/nvim.yml
 
     - name: Install desktop apps
