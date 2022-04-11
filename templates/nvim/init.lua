@@ -15,10 +15,17 @@ local function basic_config()
         cursorline = true,
         colorcolumn = '80',
         colorcolumn = '88',
+
+        -- This is for nvim-cmp
+        completeopt = {
+            "menu",
+            "menuone",
+            "noselect"
+        }
     }
 
     for key, value in pairs(settings) do
-        vim.o[key] = value
+        vim.opt[key] = value
     end
 	
     -- not in vim.o
@@ -29,7 +36,7 @@ local function basic_config()
     vim.cmd('set shiftwidth=4')
 
     -- set leader
-    vim.g.mapleader = ‘\\’
+    vim.g.mapleader = "\"
 end
 
 -- Set basic commands
@@ -49,13 +56,22 @@ end
 local function call_plugins()
     require "paq" {
         "savq/paq-nvim";
+
         "neovim/nvim-lspconfig";
+        "hrsh7th/nvim-cmp";
+        "hrsh7th/cmp-nvim-lsp";
+        "hrsh7th/cmp-buffer";
+        "hrsh7th/cmp-path";
+        "L3MON4D3/LuaSnip";
+        "saadparwaiz1/cmp_luasnip";
+
         {"nvim-treesitter/nvim-treesitter", run=TSUpdate};
         "lukas-reineke/indent-blankline.nvim";
         "nvim-lualine/lualine.nvim";
     }
 
     require 'lsp_config'.init()
+    require 'cmp_config'.init()
     require 'treesitter_config'.init()
     require 'indent_blankline_config'.init()
     require 'lualine_config'.init()
