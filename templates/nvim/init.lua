@@ -68,8 +68,11 @@ local function call_plugins()
         {"nvim-treesitter/nvim-treesitter", run=TSUpdate};
         "lukas-reineke/indent-blankline.nvim";
         "nvim-lualine/lualine.nvim";
+
+        "catppuccin/nvim";
     }
 
+    vim.cmd[[colorscheme catppuccin]]
     require 'lsp_config'.init()
     require 'cmp_config'.init()
     require 'treesitter_config'.init()
