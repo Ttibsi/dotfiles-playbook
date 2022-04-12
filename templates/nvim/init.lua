@@ -36,7 +36,7 @@ local function basic_config()
     vim.cmd('set shiftwidth=4')
 
     -- set leader
-    vim.g.mapleader = "\"
+    vim.g.mapleader = "'"
 end
 
 -- Set basic commands
