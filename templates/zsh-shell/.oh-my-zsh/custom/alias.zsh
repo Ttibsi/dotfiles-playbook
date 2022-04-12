@@ -12,4 +12,4 @@ alias ga.="git add ."
 alias gph="git push origin HEAD"
 
 # Other
-#alias ghstat="python3 -m gh_stats.ghstat"
+alias stats="ghstats -u ttibsi"
