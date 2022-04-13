@@ -63,7 +63,15 @@
       # gcc for Treesitter
       - gcc
       - build-essential
+      # LSPconfig
+      - npm
   become: yes
+
+- name: Install pyright for python LSP
+  community.general.npm:
+    name: pyright
+    global: yes
+  become: true
 
 - name: Distribute init.lua 
   copy:

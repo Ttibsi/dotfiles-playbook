@@ -4,21 +4,28 @@
 -- Only for basic "set x" vim commands
 local function basic_config()
     local settings = {
-	background = dark,
+        background = dark,
 
-	expandtab = true,
-	smartindent = true,
-	scrolloff = 5,
+        expandtab = true,
+        smartindent = true,
+        scrolloff = 5,
 
-	number = true,
-	ruler = true,
-	cursorline = true,
-	colorcolumn = '80',
-	colorcolumn = '88',
+        number = true,
+        ruler = true,
+        cursorline = true,
+        colorcolumn = '80',
+        colorcolumn = '88',
+
+        -- This is for nvim-cmp
+        completeopt = {
+            "menu",
+            "menuone",
+            "noselect"
+        }
     }
 
     for key, value in pairs(settings) do
-        vim.o[key] = value
+        vim.opt[key] = value
     end
 	
     -- not in vim.o
@@ -27,6 +34,9 @@ local function basic_config()
     vim.cmd('set nowrap')
     vim.cmd('set tabstop=4')
     vim.cmd('set shiftwidth=4')
+
+    -- set leader
+    vim.g.mapleader = "'"
 end
 
 -- Set basic commands
@@ -45,13 +55,25 @@ end
 local function call_plugins()
     require "paq" {
         "savq/paq-nvim";
-        --"neovim/nvim-lspconfig";
+
+        "neovim/nvim-lspconfig";
+        "hrsh7th/nvim-cmp";
+        "hrsh7th/cmp-nvim-lsp";
+        "hrsh7th/cmp-buffer";
+        "hrsh7th/cmp-path";
+        "L3MON4D3/LuaSnip";
+        "saadparwaiz1/cmp_luasnip";
+
         {"nvim-treesitter/nvim-treesitter", run=TSUpdate};
         "lukas-reineke/indent-blankline.nvim";
         "nvim-lualine/lualine.nvim";
+
+        "catppuccin/nvim";
     }
 
-    --require 'lua.lspconfig'.init()
+    vim.cmd[[colorscheme catppuccin]]
+    require 'lsp_config'.init()
+    require 'cmp_config'.init()
     require 'treesitter_config'.init()
     require 'indent_blankline_config'.init()
     require 'lualine_config'.init()

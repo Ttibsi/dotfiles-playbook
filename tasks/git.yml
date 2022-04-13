@@ -10,7 +10,5 @@
     src: templates/git-config/gitconfig
     dest: "{{ home_dir }}/.gitconfig"
 
-# TODO: gh-cli?
-
 # Tests
 # cat $HOME/.gitconfig

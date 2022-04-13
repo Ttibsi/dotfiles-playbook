@@ -1,22 +1,24 @@
 ---
 
-- name: Install Alacritty
-  include_tasks: build_alacritty.yml
+- name: Download Alacritty
+  apt:
+    deb: https://github.com/barnumbirr/alacritty-debian/releases/download/v0.10.1-1/alacritty_0.10.1-1_amd64_bullseye.deb
+  become: yes
 
-- name: Distribute Alacritty config
+- name: Move config file
   copy:
     src: templates/alacritty-config/alacritty.yml
     dest: "{{ home_dir }}/.alacritty.yml"
 
-- name: Add appimagelauncher PPA
-  apt_repository:
-    repo: ppa:appimagelauncher-team/stable
-  become: yes
-
-- name: Install appimagelauncher
-  apt:
-    name: appimagelauncher
-  become: yes
+#- name: Add appimagelauncher PPA
+#  apt_repository:
+#    repo: ppa:appimagelauncher-team/stable
+#  become: yes
+#
+#- name: Install appimagelauncher
+#  apt:
+#    name: appimagelauncher
+#  become: yes
 
 - name: Install Cheese
   apt:
@@ -67,6 +69,12 @@
     mode: 0755
   become: yes
 
+#TODO: Re-enable and test on Jammy after main release - does not work on beta due to libssll1.1 not present in Jammy
+#- name: Install rpi-imager
+#  apt:
+#    deb: https://downloads.raspberrypi.org/imager/imager_latest_amd64.deb
+#  become: yes
+#
 - name: Install VLC 
   apt:
     name: vlc

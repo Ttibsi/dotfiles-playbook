@@ -1,39 +1,46 @@
 ---
 
-- name: Add deadsnakes ppa
-  apt_repository:
-    repo: ppa:deadsnakes/ppa
-  become: yes
+#- name: Add deadsnakes ppa
+#  apt_repository:
+#    repo: ppa:deadsnakes/ppa
+#  become: yes
 
-- name: Install pip 
-  apt:
-    name: python3-pip
-  become: yes
-
-- name: Install py3.10
-  apt:
-    name: python3.10
-  become: yes
-
-- name: Install py3.10-distutils
-  apt:
-    name: python3.10-distutils 
-  become: yes
-
-- name: Download get-pip script
+# Anthony Explains 79
+# TLDR I'm not installing a global/system version of pip
+# Each project has it's own venv
+# Global installs are symlinks
+- name: curl virtualenv
   get_url:
-    url: https://bootstrap.pypa.io/get-pip.py 
-    dest: "{{ home_dir }}/Downloads/get-pip.py"
-    mode: 0755
+    url: https://bootstrap.pypa.io/virtualenv.pyz
+    dest: "{{ home_dir }}/Downloads/virtualenv.pyz"
 
-- name: Install pip3.10
-  command: python3.10 "{{ home_dir }}/Downloads/get-pip.py"
+- name: Install virtualenv script
+  script:
+    cmd: "{{ home_dir }}/Downloads/virtualenv.pyz {{ home_dir }}/opt/venv"
+    executable: python3
 
-- name: Install pre-commit
+- name: Create venv
+  script:
+    cmd: "{{ home_dir }}/opt/venv/bin/pip install virtualenv"
+
+- name: Create symlink
+  file:
+    src: "{{ home_dir }}/opt/venv/bin/virtualenv"
+    dest: "/bin/virtualenv"
+    state: link
+  become: true
+
+- name: Install gh-stats
   pip:
-    name: pre-commit
+    name: git+https://github.com/ttibsi/gh-stats
+    virtualenv: "{{ home_dir }}/opt/venv"
 
-#TODO: ghstats Install
+- name: Symlink gh-stats
+  file:
+    src: "{{ home_dir }}/opt/venv/bin/ghstats"
+    dest: "/bin/ghstats"
+    state: link
+  become: true
 
 # Tests
 # python3.10 --version
