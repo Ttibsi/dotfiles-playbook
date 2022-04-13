@@ -81,6 +81,7 @@
   become: yes
 
 # Tests
+# firefox tests
 # Launch alacritty from terminal
 # Launch geekbench and check version
 # Launch discord

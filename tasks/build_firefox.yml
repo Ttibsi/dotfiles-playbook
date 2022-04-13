@@ -11,14 +11,13 @@
     name: firefox
   become: yes
 
-- name: Create firefox distribution directory
-  file:
-    path: "/etc/firefox/distribution/"
-    state: directory
-  become: true
-
 - name: Distribute firefox policy
   copy:
     src: templates/firefox/policies.json
-    dest: "/etc/firefox/distribution/policies.json"
+    dest: "/usr/lib/firefox/distribution/policies.json"
   become: true
+
+# TESTS
+# Check /snap/firefox doesn't exist
+# Launch firefox
+# Verify policies are applied

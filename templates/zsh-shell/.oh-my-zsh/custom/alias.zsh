@@ -1,5 +1,6 @@
 #Terminal 
 alias la="ls -Alh"
+alias which_term="ps -aux | grep `ps -p $$ -o ppid=`"
 
 #Git 
 alias gitgraph="git log --oneline --graph --decorate"
@@ -13,3 +14,4 @@ alias gph="git push origin HEAD"
 
 # Other
 alias stats="ghstats -u ttibsi"
+alias btm="btm --color=nord --battery"

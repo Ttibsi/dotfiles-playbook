@@ -60,3 +60,8 @@
     path: /usr/bin/light
     mode: +s
   become: true
+
+# TESTS
+# relog into i3-gaps
+# Does the wallpaper appear?
+# Can you launch the rofi searchbar

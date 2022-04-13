@@ -16,16 +16,16 @@
 
 - name: Install virtualenv script
   script:
-    cmd: "{{ home_dir }}/Downloads/virtualenv.pyz {{ home_dir }}/opt/venv"
+    cmd: "{{ home_dir }}/Downloads/virtualenv.pyz {{ home_dir }}/.opt/venv"
     executable: python3
 
 - name: Create venv
   script:
-    cmd: "{{ home_dir }}/opt/venv/bin/pip install virtualenv"
+    cmd: "{{ home_dir }}/.opt/venv/bin/pip install virtualenv"
 
 - name: Create symlink
   file:
-    src: "{{ home_dir }}/opt/venv/bin/virtualenv"
+    src: "{{ home_dir }}/.opt/venv/bin/virtualenv"
     dest: "/bin/virtualenv"
     state: link
   become: true
@@ -33,15 +33,14 @@
 - name: Install gh-stats
   pip:
     name: git+https://github.com/ttibsi/gh-stats
-    virtualenv: "{{ home_dir }}/opt/venv"
+    virtualenv: "{{ home_dir }}/.opt/venv"
 
 - name: Symlink gh-stats
   file:
-    src: "{{ home_dir }}/opt/venv/bin/ghstats"
+    src: "{{ home_dir }}/.opt/venv/bin/ghstats"
     dest: "/bin/ghstats"
     state: link
   become: true
 
 # Tests
-# python3.10 --version
-# pre-commit --version
+# ghstats --help

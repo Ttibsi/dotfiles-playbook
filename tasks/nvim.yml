@@ -83,13 +83,11 @@
     src: templates/nvim/lua/
     dest: "{{ home_dir }}/.config/nvim/lua/"
 
-#TODO: Get nvim native LSP working after py3 installed
 - name: Install nvim plugins 
   command: nvim --headless -c 'PaqInstall' +q
 
 # Tests
 # Open nvim and verify version
-# Verify paq install by navigating to it's location
+# Check if treesitter is installing when you first open nvim
+# Verify paq install by running :PaqList
 # Verify files have been copied to `~/.config/nvim`
-# Open nvim and run :PaqSync
-# Uncomment init.lua plugin configs one at a time 

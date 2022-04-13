@@ -1,8 +1,13 @@
+shell:
+  program: /bin/zsh
 
+#fc-list | grep Droid | cut -f2 -d:
 font:
   size: 8.0
-  family: Liga SFMono Nerd Font
-  #fc-list | grep Droid | cut -f2 -d:
+
+  normal:
+    family: Liga SFMono Nerd Font
+    style: regular
 
 tabspaces: 4
 
