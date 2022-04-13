@@ -1,0 +1,62 @@
+---
+
+- name: Download wallpaper
+  get_url:
+    url: "{{ wallpaper_url }}" 
+    dest: "{{ home_dir }}/Workspace/wallpaper.jpg"
+
+# Apparently it's better to overwrite standard i3 to avoid errors
+- name: Install i3
+  apt:
+    name: i3
+  become: yes
+
+- name: Add regolith linux PPA
+  apt_repository:
+    repo: "ppa:regolith-linux/release"
+  become: yes
+
+- name: Install i3-gaps
+  apt:
+    name: i3-gaps
+  become: yes
+
+- name: Distribute i3 config
+  copy:
+    src: templates/i3-config/config
+    dest: "{{ home_dir }}/.config/i3/"
+
+# For managing wallpapers in i3/config
+- name: Install feh
+  apt:
+    name: feh
+  become: yes
+
+- name: Intall Rofi searchbar
+  apt:
+    name: rofi
+  become: yes
+
+- name: Distribute Rofi config
+  copy:
+    src: templates/i3-config/rofi-config/
+    dest: "{{ home_dir }}/.config/rofi"
+
+- name: Install polybar
+  apt:
+    name: polybar
+  become: yes
+
+#- name: Distribute polybar config
+
+# Fpr brightness control
+- name: Install light
+  apt:
+    name: light
+  become: yes
+
+- name: Give light perms to manage screen brightness
+  file:
+    path: /usr/bin/light
+    mode: +s
+  become: true

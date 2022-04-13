@@ -26,6 +26,7 @@
   with_items:
     - "Workspace"
     - "Applications"
+    - ".config/i3"
     - ".local/share/fonts"
 
 - name: Install SFmono

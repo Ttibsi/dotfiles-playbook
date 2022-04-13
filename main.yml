@@ -5,6 +5,7 @@
     discord_version: 0.0.17
     geekbench_version: 5.4.4
     home_dir: "{{ lookup('env', 'HOME') }}"
+    wallpaper_url: https://preview.redd.it/nlseh8bcvfq81.jpg?width=3840&format=pjpg&auto=webp&s=dda5aba0c1e750d717c7fa90a2355aeafc027861
 
     # These are git tags
     nvim_version: v0.6.1
@@ -24,6 +25,9 @@
 
     - name: Set up zsh shell
       include_tasks: tasks/zsh.yml
+
+    - name: Set up i3 window manager
+      include_tasks: tasks/i3.yml
 
     - name: Set up Neovim
       include_tasks: tasks/nvim.yml

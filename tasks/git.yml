@@ -3,6 +3,7 @@
 - name: install
   apt:
     name: git
+    only_upgrade: yes
   become: yes
 
 - name: Move git config
