@@ -44,7 +44,6 @@ local function custom_commands()
     vim.cmd('command! W w')
     vim.cmd('command! Q q')
     vim.cmd('command! Wq wq')
-    --vim.cmd('command! pre-commit <cmd>term pre-commit run --files %<cr>')
 
     -- Nvim 0.7 + 
     --vim.api.nvim_add_user_command('W' 'w')
