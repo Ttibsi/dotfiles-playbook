@@ -8,12 +8,13 @@
 
 - name: luaLSP - Sumneko - Download
   get_url:
-    url: "https://github.com/sumneko/lua-language-server/archive/refs/tags/{{ lua_lsp_version }}.tar.gz"
+    url: "https://github.com/sumneko/lua-language-server/releases/download/{{lua_lsp_version}}/lua-language-server-{{lua_lsp_version}}-linux-x64.tar.gz"
     dest: "{{ home_dir }}/Downloads/lua-language-server.tar.gz"
 
 - name: luaLSP - Sumneko - Install
   unarchive:
     src: "{{ home_dir }}/Downloads/lua-language-server.tar.gz"
-    dest: /bin/lua-language-server
+    dest: "{{ home_dir }}/.local/bin/lua-language-server"
     mode: 0755
-  become: yes
+    creates: yes
+  become: true

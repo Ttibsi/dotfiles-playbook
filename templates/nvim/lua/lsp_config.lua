@@ -51,24 +51,19 @@ local function init()
     })
 
     -- lua
-<<<<<<< HEAD
-    require'lspconfig'.sumneko_lua.setup {
-        on_attach = on_attach,
-        capabilities = capabilities,
-        cmd = require'lspcontainers'.command('sumneko_lua'),
-=======
     require 'lspconfig'.sumneko_lua.setup({
         on_attach = on_attach,
         capabilities = capabilities,
 
->>>>>>> 8ba4a76 (Lua LSP hopefully)
+        cmd = {
+            "lua-language-server/bin/lua-language-server"
+        },
         settings = {
             Lua = {
                 runtime = {
                     -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
                     version = 'LuaJIT',
                     -- Setup your lua path
-<<<<<<< HEAD
                     path = vim.split(package.path, ';')
                 },
                 -- Get the language server to recognize the `vim` global
@@ -80,26 +75,6 @@ local function init()
             },
         },
     }
-=======
-                    path = vim.split(package.path, ';') 
-                },
-                diagnostics = {
-                    -- Get the language server to recognize the `vim` global
-                    globals = {'vim'},
-                },
-                workspace = {
-                    -- Make the server aware of Neovim runtime files
-                    library = vim.api.nvim_get_runtime_file("", true),
-                },
-                  -- Do not send telemetry data containing a randomized but unique identifier
-                telemetry = {
-                    enable = false,
-                },
-            },
-        },
-    })
-
->>>>>>> 8ba4a76 (Lua LSP hopefully)
 end
 
 return {
