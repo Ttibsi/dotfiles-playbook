@@ -47,7 +47,11 @@
     name: polybar
   become: true
 
-#- name: Distribute polybar config
+- name: Distribute polybar config
+  copy:
+    src: templates/i3-config/polybar/
+    dest: "{{ home_dir }}/.config/polybar"
+    mode: +x
 
 # Fpr brightness control
 - name: Install light

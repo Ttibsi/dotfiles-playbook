@@ -67,11 +67,8 @@
       - npm
   become: true
 
-- name: Install pyright for python LSP
-  community.general.npm:
-    name: pyright
-    global: yes
-  become: true
+- name: Install language servers
+  include_tasks: lang_serv.yml
 
 - name: Distribute init.lua
   copy:

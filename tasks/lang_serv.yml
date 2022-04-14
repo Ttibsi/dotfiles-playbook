@@ -1,0 +1,19 @@
+---
+
+- name: PythonLSP - pyright
+  community.general.npm:
+    name: pyright
+    global: yes
+  become: true
+
+- name: luaLSP - Sumneko - Download
+  get_url:
+    url: "https://github.com/sumneko/lua-language-server/archive/refs/tags/{{ lua_lsp_version }}.tar.gz"
+    dest: "{{ home_dir }}/Downloads/lua-language-server.tar.gz"
+
+- name: luaLSP - Sumneko - Install
+  unarchive:
+    src: "{{ home_dir }}/Downloads/lua-language-server.tar.gz"
+    dest: /bin/lua-language-server
+    mode: 0755
+  become: yes
