@@ -16,7 +16,7 @@
       - curl
       - doxygen
     state: latest
-  become: yes
+  become: true
 
 - name: Clone repo
   git:
@@ -41,7 +41,7 @@
     chdir: "{{ home_dir }}/Downloads/nvim"
     target: install
   when: clone.changed
-  become: yes
+  become: true
 
 - name: Set config folder rights
   file:
@@ -65,7 +65,7 @@
       - build-essential
       # LSPconfig
       - npm
-  become: yes
+  become: true
 
 - name: Install pyright for python LSP
   community.general.npm:

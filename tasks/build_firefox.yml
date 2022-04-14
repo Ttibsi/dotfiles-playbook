@@ -4,12 +4,12 @@
   community.general.snap:
     name: firefox
     state: absent
-  become: yes
+  become: true
 
 - name: Install firefox
   apt: 
     name: firefox
-  become: yes
+  become: true
 
 - name: Distribute firefox policy
   copy:

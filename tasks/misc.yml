@@ -3,42 +3,42 @@
 - name: Bottom 
   apt:
     deb: https://github.com/ClementTsang/bottom/releases/download/0.6.8/bottom_0.6.8_amd64.deb
-  become: yes
+  become: true
 
 - name: Cowsay
   apt:
     name: cowsay
-  become: yes
+  become: true
 
 - name: Curl
   apt:
     name: curl
-  become: yes
+  become: true
 
 - name: Neofetch
   apt:
     name: neofetch
-  become: yes
+  become: true
 
 - name: Powertop
   apt:
     name: powertop
-  become: yes
+  become: true
 
 - name: TLP
   apt:
     name: tlp
-  become: yes
+  become: true
 
 - name: Tree
   apt:
     name: tree
-  become: yes
+  become: true
 
 - name: unzip
   apt:
     name: unzip
-  become: yes
+  become: true
 
 - name: Video codecs
   command: sudo DEBIAN_FRONTEND=noninteractive apt install -y ubuntu-restricted-extras

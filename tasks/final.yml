@@ -4,12 +4,12 @@
   apt:
     autoclean: yes
     autoremove: yes
-  become: yes
+  become: true
 
-- name: Clean up downloads 
+- name: Clean up downloads
   file:
-    path: "{{ home_dir }}/Downloads" 
-    state: "{{ item }}" 
+    path: "{{ home_dir }}/Downloads"
+    state: "{{ item }}"
   with_items:
     - absent
     - directory
