@@ -1,4 +1,3 @@
-
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr, opts)
@@ -42,6 +41,8 @@ local function defaults()
 end
 
 local function init()
+    local sumneko_root_path = "$HOME/.opt/lua-language-server"
+    local sumneko_binary = sumneko_rotot_dir .. "/bin/lua-language-server"
     capabilities = defaults()
 
     -- python
@@ -54,6 +55,7 @@ local function init()
     require 'lspconfig'.sumneko_lua.setup({
         on_attach = on_attach,
         capabilities = capabilities,
+        cmd: { sumneko_binary, "-E", sumneko_root_dir .. "/main.lua" },
 
         cmd = {
             "lua-language-server/bin/lua-language-server"
@@ -64,7 +66,7 @@ local function init()
                     -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
                     version = 'LuaJIT',
                     -- Setup your lua path
-                    path = vim.split(package.path, ';')
+                    path = vim.split(package.path, ';') 
                 },
                 -- Get the language server to recognize the `vim` global
                 diagnostics = { globals = {'vim'}, },

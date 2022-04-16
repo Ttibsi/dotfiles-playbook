@@ -28,6 +28,7 @@
     - "Workspace"
     - "Applications"
     - ".config/i3"
+    - ".config/alacritty"
     - ".local/share/fonts"
 
 - name: Install SFmono
