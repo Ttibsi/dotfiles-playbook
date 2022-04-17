@@ -41,8 +41,6 @@ local function defaults()
 end
 
 local function init()
-    local sumneko_root_path = "$HOME/.opt/lua-language-server"
-    local sumneko_binary = sumneko_rotot_dir .. "/bin/lua-language-server"
     capabilities = defaults()
 
     -- python
@@ -52,21 +50,20 @@ local function init()
     })
 
     -- lua
+    local run_path = vim.split(package.path, ';')
+    table.insert(run_path, "lua/?.lua")
+    table.insert(run_path, "lua/?/init.lua")
+
     require 'lspconfig'.sumneko_lua.setup({
         on_attach = on_attach,
         capabilities = capabilities,
-        cmd: { sumneko_binary, "-E", sumneko_root_dir .. "/main.lua" },
-
-        cmd = {
-            "lua-language-server/bin/lua-language-server"
-        },
         settings = {
             Lua = {
                 runtime = {
                     -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
                     version = 'LuaJIT',
                     -- Setup your lua path
-                    path = vim.split(package.path, ';') 
+                    path = run_path
                 },
                 -- Get the language server to recognize the `vim` global
                 diagnostics = { globals = {'vim'}, },
