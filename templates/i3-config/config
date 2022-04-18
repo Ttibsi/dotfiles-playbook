@@ -210,8 +210,8 @@ client.unfocused #333333 #222222 #888888 #292d2e #00b5b5
 
 smart_gaps on
 smart_borders on
-gaps inner 25
-gaps bottom 20
+gaps inner 15
+gaps outer 5
 
 # Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
