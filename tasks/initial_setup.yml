@@ -31,11 +31,11 @@
     - ".config/alacritty"
     - ".local/share/fonts"
 
-- name: Install SFmono
-  git:
-    repo: https://github.com/shaunsingh/SFMono-Nerd-Font-Ligaturized.git
+- name: Install Font
+  get_url:
+    url: https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete%20Mono.otf
     dest: "{{ home_dir }}/.local/share/fonts/"
-
+    
 - name: reload fonts
   command: fc-cache -f -v
 
