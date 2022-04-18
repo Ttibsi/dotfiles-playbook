@@ -6,7 +6,7 @@ font:
   size: 12.0
 
   normal:
-    family: DroidSansMono Nerd Font
+    family: DroidSansMono Nerd Font Mono
     style: regular
 
 tabspaces: 4

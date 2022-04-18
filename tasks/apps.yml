@@ -8,7 +8,7 @@
 - name: Move config file
   copy:
     src: templates/alacritty-config/alacritty.yml
-    dest: "{{ home_dir }}/.config/alacritty/.alacritty.yml"
+    dest: "{{ home_dir }}/.config/alacritty/alacritty.yml"
 
 #TODO: Uncomment once AIL is updated for Jammy
 #- name: Add appimagelauncher PPA

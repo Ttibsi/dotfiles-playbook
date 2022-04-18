@@ -50,9 +50,8 @@ local function init()
     })
 
     -- lua
-    local run_path = vim.split(package.path, ';')
-    table.insert(run_path, "lua/?.lua")
-    table.insert(run_path, "lua/?/init.lua")
+    local sumneko_root_path = vim.fn.expand('$HOME') .. '.opt/lua-language-server'
+    local sumneko_binary = sumneko_root_path .. 'bin/lua-language-server'
 
     require 'lspconfig'.sumneko_lua.setup({
         on_attach = on_attach,
@@ -64,7 +63,7 @@ local function init()
                     -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
                     version = 'LuaJIT',
                     -- Setup your lua path
-                    path = run_path
+                    path = vim.split(package.path, ';') 
                 },
                 -- Get the language server to recognize the `vim` global
                 diagnostics = { globals = {'vim'}, },
@@ -74,7 +73,8 @@ local function init()
                 telemetry = { enable = false, },
             },
         },
-    }
+    })
+
 end
 
 return {
