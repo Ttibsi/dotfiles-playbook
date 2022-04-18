@@ -11,10 +11,18 @@
     name: firefox
   become: true
 
+- name: Create distribution folder
+  file:
+    path: '/etc/firefox/policies'
+    state: directory
+    mode: 0755
+  become: true
+
 - name: Distribute firefox policy
   copy:
     src: templates/firefox/policies.json
-    dest: "/usr/lib/firefox/distribution/policies.json"
+    dest: "/etc/firefox/policies/policies.json"
+  #    dest: "/usr/lib/firefox/distribution/policies.json"
   become: true
 
 # TESTS

@@ -49,6 +49,29 @@ local function init()
         on_attach = on_attach,
         capabilities = capabilities
     })
+
+    -- lua
+    require'lspconfig'.sumneko_lua.setup {
+        on_attach = on_attach,
+        capabilities = capabilities,
+        cmd = require'lspcontainers'.command('sumneko_lua'),
+        settings = {
+            Lua = {
+                runtime = {
+                    -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+                    version = 'LuaJIT',
+                    -- Setup your lua path
+                    path = vim.split(package.path, ';')
+                },
+                -- Get the language server to recognize the `vim` global
+                diagnostics = { globals = {'vim'}, },
+                -- Make the server aware of Neovim runtime files
+                workspace = { library = vim.api.nvim_get_runtime_file("", true), },
+                -- Do not send telemetry data containing a randomized but unique identifier
+                telemetry = { enable = false, },
+            },
+        },
+    }
 end
 
 return {
