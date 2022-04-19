@@ -53,7 +53,7 @@
     dest: "{{ home_dir }}/.config/polybar"
     mode: +x
 
-# Fpr brightness control
+# For brightness control
 - name: Install light
   apt:
     name: light
