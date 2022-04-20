@@ -22,7 +22,6 @@
   copy:
     src: templates/firefox/policies.json
     dest: "/etc/firefox/policies/policies.json"
-  #    dest: "/usr/lib/firefox/distribution/policies.json"
   become: true
 
 # TESTS

@@ -10,6 +10,7 @@
     src: templates/alacritty-config/alacritty.yml
     dest: "{{ home_dir }}/.config/alacritty/.alacritty.yml"
 
+#TODO: Uncomment once AIL is updated for Jammy
 #- name: Add appimagelauncher PPA
 #  apt_repository:
 #    repo: ppa:appimagelauncher-team/stable
@@ -75,7 +76,7 @@
 #    deb: https://downloads.raspberrypi.org/imager/imager_latest_amd64.deb
 #  become: true
 #
-- name: Install VLC 
+- name: Install VLC
   apt:
     name: vlc
   become: true

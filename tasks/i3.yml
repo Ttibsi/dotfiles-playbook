@@ -2,7 +2,7 @@
 
 - name: Download wallpaper
   get_url:
-    url: "{{ wallpaper_url }}" 
+    url: "{{ wallpaper_url }}"
     dest: "{{ home_dir }}/Workspace/wallpaper.jpg"
 
 # Apparently it's better to overwrite standard i3 to avoid errors

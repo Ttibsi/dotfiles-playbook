@@ -73,7 +73,7 @@
     global: yes
   become: true
 
-- name: Distribute init.lua 
+- name: Distribute init.lua
   copy:
     src: templates/nvim/init.lua
     dest: "{{ home_dir }}/.config/nvim/init.lua"
@@ -83,7 +83,7 @@
     src: templates/nvim/lua/
     dest: "{{ home_dir }}/.config/nvim/lua/"
 
-- name: Install nvim plugins 
+- name: Install nvim plugins
   command: nvim --headless -c 'PaqInstall' +q
 
 # Tests
