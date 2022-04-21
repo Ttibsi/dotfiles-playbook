@@ -3,10 +3,10 @@ shell:
 
 #fc-list | grep Droid | cut -f2 -d:
 font:
-  size: 8.0
+  size: 12.0
 
   normal:
-    family: Liga SFMono Nerd Font
+    family: DroidSansMono Nerd Font Mono
     style: regular
 
 tabspaces: 4

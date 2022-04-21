@@ -41,14 +41,10 @@ end
 
 -- Set basic commands
 local function custom_commands()
-    vim.cmd('command! W w')
-    vim.cmd('command! Q q')
-    vim.cmd('command! Wq wq')
-
-    -- Nvim 0.7 + 
-    --vim.api.nvim_add_user_command('W' 'w')
-    --vim.api.nvim_add_user_command('Q' 'q')
-    --vim.api.nvim_add_user_command('Wq' 'wq')
+    -- Nvim 0.7 +
+    vim.api.nvim_create_user_command('W', 'w', {})
+    vim.api.nvim_create_user_command('Q', 'q', {})
+    vim.api.nvim_create_user_command('Wq', 'wq', {})
 end
 
 -- Import files for plugin configs

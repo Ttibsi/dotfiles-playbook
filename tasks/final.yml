@@ -4,12 +4,22 @@
   apt:
     autoclean: yes
     autoremove: yes
-  become: yes
+  become: true
 
-- name: Clean up downloads 
+- name: Remove files from $HOME
   file:
-    path: "{{ home_dir }}/Downloads" 
-    state: "{{ item }}" 
+    path: "{{ home_dir }}/{{item}}"
+    state: absent
+  with_items:
+    - .shell.pre-oh-my-zsh
+    - .sudo_as_admin_successful
+    - .viminfo
+    - .zshrc.pre-oh-my-zsh
+
+- name: Clean up downloads
+  file:
+    path: "{{ home_dir }}/Downloads"
+    state: "{{ item }}"
   with_items:
     - absent
     - directory
@@ -23,4 +33,4 @@
     - "It's recommended that the machine get rebooted after running this Playbook"
 
 # Tests
-# Launch firefox to see if theme and plugins are applied 
+# Launch firefox to see if theme and plugins are applied

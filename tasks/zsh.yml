@@ -3,9 +3,9 @@
 - name: Install zsh
   apt:
     name: zsh
-  become: yes
+  become: true
 
-- name: Check for omz 
+- name: Check for omz
   stat:
     path: "{{ home_dir }}/.oh-my-zsh"
   register: zsh_exist
@@ -23,9 +23,9 @@
   when: not zsh_exist.stat.exists
 
 # This needs to be after omz install or it'll overwrite it - `.zshrc-pre-oh-my-zsh`
-- name: Distribute zshrc 
+- name: Distribute zshrc
   copy:
-    src: "templates/zsh-shell/zshrc" 
+    src: "templates/zsh-shell/zshrc"
     dest: "{{ home_dir }}/.zshrc"
 
 - name: Distribute OMZ

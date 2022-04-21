@@ -16,7 +16,7 @@
       - curl
       - doxygen
     state: latest
-  become: yes
+  become: true
 
 - name: Clone repo
   git:
@@ -41,7 +41,7 @@
     chdir: "{{ home_dir }}/Downloads/nvim"
     target: install
   when: clone.changed
-  become: yes
+  become: true
 
 - name: Set config folder rights
   file:
@@ -65,15 +65,12 @@
       - build-essential
       # LSPconfig
       - npm
-  become: yes
-
-- name: Install pyright for python LSP
-  community.general.npm:
-    name: pyright
-    global: yes
   become: true
 
-- name: Distribute init.lua 
+- name: Install language servers
+  include_tasks: lang_serv.yml
+
+- name: Distribute init.lua
   copy:
     src: templates/nvim/init.lua
     dest: "{{ home_dir }}/.config/nvim/init.lua"
@@ -83,7 +80,7 @@
     src: templates/nvim/lua/
     dest: "{{ home_dir }}/.config/nvim/lua/"
 
-- name: Install nvim plugins 
+- name: Install nvim plugins
   command: nvim --headless -c 'PaqInstall' +q
 
 # Tests

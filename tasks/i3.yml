@@ -2,24 +2,24 @@
 
 - name: Download wallpaper
   get_url:
-    url: "{{ wallpaper_url }}" 
+    url: "{{ wallpaper_url }}"
     dest: "{{ home_dir }}/Workspace/wallpaper.jpg"
 
 # Apparently it's better to overwrite standard i3 to avoid errors
 - name: Install i3
   apt:
     name: i3
-  become: yes
+  become: true
 
 - name: Add regolith linux PPA
   apt_repository:
     repo: "ppa:regolith-linux/release"
-  become: yes
+  become: true
 
 - name: Install i3-gaps
   apt:
     name: i3-gaps
-  become: yes
+  become: true
 
 - name: Distribute i3 config
   copy:
@@ -30,12 +30,12 @@
 - name: Install feh
   apt:
     name: feh
-  become: yes
+  become: true
 
 - name: Intall Rofi searchbar
   apt:
     name: rofi
-  become: yes
+  become: true
 
 - name: Distribute Rofi config
   copy:
@@ -45,15 +45,19 @@
 - name: Install polybar
   apt:
     name: polybar
-  become: yes
+  become: true
 
-#- name: Distribute polybar config
+- name: Distribute polybar config
+  copy:
+    src: templates/i3-config/polybar/
+    dest: "{{ home_dir }}/.config/polybar"
+    mode: +x
 
-# Fpr brightness control
+# For brightness control
 - name: Install light
   apt:
     name: light
-  become: yes
+  become: true
 
 - name: Give light perms to manage screen brightness
   file:

@@ -1,9 +1,9 @@
 ---
 
-#- name: Add deadsnakes ppa
-#  apt_repository:
-#    repo: ppa:deadsnakes/ppa
-#  become: yes
+- name: Add deadsnakes ppa
+  apt_repository:
+    repo: ppa:deadsnakes/ppa
+  become: true
 
 # Anthony Explains 79
 # TLDR I'm not installing a global/system version of pip

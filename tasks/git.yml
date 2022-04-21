@@ -4,7 +4,7 @@
   apt:
     name: git
     only_upgrade: yes
-  become: yes
+  become: true
 
 - name: Move git config
   copy:

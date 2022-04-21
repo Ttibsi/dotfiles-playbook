@@ -1,13 +1,22 @@
-### gitconfig
- - `git-config/gitconfig` >> `$HOME/.gitconfig`
+### alacritty-config
+    - `alacritty.yml` > `$HOME/.config/alacritty/alacritty.yml`
 
-### zsh-shell
- - zshrc to `$HOME/.zshrc`
- - p10k to $HOME/p10k.zsh`
- - .oh-my-zsh/custom goes to `$HOME/.oh-my-zsh/custom`
+### firefox
+    - `policies.json` > `/usr/lib/firefox/distribution/policies.json`
+
+### gitconfig
+ - `gitconfig` > `$HOME/.gitconfig`
+
+### i3-config
+    - `config` > `$HOME/.config/i3/config`
+    - `polybar/` > `$HOME/polybar/`
+    - `rofi-config/` > `$HOME/rofi/`
 
 ### nvim
- - nvim folder goes to `$HOME/.config/nvim`
+    - `init.lua` > `$HOME/.config/nvim/init.lua`
+    - `lua/` > `$HOME/.config/nvim/lua/`
 
-### alacritty-config
- - `alacritty.yml` goes to `$HOME/.alacritty.yml` 
+### zsh-shell
+    - `zshrc` > `$HOME/.zshrc`
+    - `p10k.zsh` > `$HOME/p10k.zsh`
+    - `.oh-my-zsh/custom/` > `$HOME/.oh-my-zsh/custom/`

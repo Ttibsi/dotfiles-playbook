@@ -3,33 +3,34 @@
 - name: Download Alacritty
   apt:
     deb: https://github.com/barnumbirr/alacritty-debian/releases/download/v0.10.1-1/alacritty_0.10.1-1_amd64_bullseye.deb
-  become: yes
+  become: true
 
 - name: Move config file
   copy:
     src: templates/alacritty-config/alacritty.yml
-    dest: "{{ home_dir }}/.alacritty.yml"
+    dest: "{{ home_dir }}/.config/alacritty/alacritty.yml"
 
+#TODO: Uncomment once AIL is updated for Jammy
 #- name: Add appimagelauncher PPA
 #  apt_repository:
 #    repo: ppa:appimagelauncher-team/stable
-#  become: yes
+#  become: true
 #
 #- name: Install appimagelauncher
 #  apt:
 #    name: appimagelauncher
-#  become: yes
+#  become: true
 
 - name: Install Cheese
   apt:
     name: cheese
-  become: yes
+  become: true
 
 #/usr/share/discord/
 - name: Install Discord
   apt:
     deb: 'https://dl.discordapp.net/apps/linux/{{ discord_version }}/discord-{{ discord_version }}.deb'
-  become: yes
+  become: true
 
 - name: Install firefox
   include_tasks: build_firefox.yml
@@ -37,7 +38,7 @@
 - name: Install flameshot
   apt:
     name: flameshot
-  become: yes
+  become: true
 
 - name: Download Geekbench
   get_url:
@@ -50,35 +51,35 @@
     src: "{{ home_dir }}/Downloads/Geekbench-{{geekbench_version}}-Linux.tar.gz"
     dest: "{{ home_dir }}/Applications/"
     mode: 0755
-  become: yes
+  become: true
 
 - name: Install gnome-boxes
   apt:
     name: gnome-boxes
-  become: yes
+  become: true
 
 - name: Install Libreoffice
   apt:
     name: libreoffice
-  become: yes
+  become: true
 
 - name: Install Notion
   get_url:
     url: "https://github.com/notion-enhancer/notion-repackaged/releases/download/v2.0.18-1/Notion-2.0.18-1.AppImage"
     dest: "{{ home_dir }}/Applications/"
     mode: 0755
-  become: yes
+  become: true
 
 #TODO: Re-enable and test on Jammy after main release - does not work on beta due to libssll1.1 not present in Jammy
 #- name: Install rpi-imager
 #  apt:
 #    deb: https://downloads.raspberrypi.org/imager/imager_latest_amd64.deb
-#  become: yes
+#  become: true
 #
-- name: Install VLC 
+- name: Install VLC
   apt:
     name: vlc
-  become: yes
+  become: true
 
 # Tests
 # firefox tests
