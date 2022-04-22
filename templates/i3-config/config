@@ -208,10 +208,11 @@ for_window [class=".*"] border pixel 2
 client.focused #ffffff 285577 #ffffff #2e9ef4 #00ffff
 client.unfocused #333333 #222222 #888888 #292d2e #00b5b5
 
-smart_gaps on
-smart_borders on
-gaps inner 15
-gaps outer 5
+#TODO: Enable when Gaps is supported
+#smart_gaps on
+#smart_borders on
+#gaps inner 15
+#gaps outer 5
 
 # Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh

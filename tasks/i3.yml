@@ -10,16 +10,17 @@
   apt:
     name: i3
   become: true
-
-- name: Add regolith linux PPA
-  apt_repository:
-    repo: "ppa:regolith-linux/release"
-  become: true
-
-- name: Install i3-gaps
-  apt:
-    name: i3-gaps
-  become: true
+#
+#TODO: Enable when gaps is supported
+#- name: Add regolith linux PPA
+#  apt_repository:
+#    repo: "ppa:regolith-linux/release"
+#  become: true
+#
+#- name: Install i3-gaps
+#  apt:
+#    name: i3-gaps
+#  become: true
 
 - name: Distribute i3 config
   copy:
