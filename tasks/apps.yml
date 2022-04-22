@@ -31,8 +31,9 @@
     deb: 'https://dl.discordapp.net/apps/linux/{{ discord_version }}/discord-{{ discord_version }}.deb'
   become: true
 
-- name: Install firefox
-  include_tasks: build_firefox.yml
+# DISABLED FOR NOW AS IT DOESN'T WORK AS INTENDED
+#- name: Install firefox
+#  include_tasks: build_firefox.yml
 
 - name: Install flameshot
   apt:
