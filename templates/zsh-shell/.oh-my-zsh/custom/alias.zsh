@@ -3,8 +3,6 @@ alias la="ls -Alh"
 alias which_term="ps -aux | grep `ps -p $$ -o ppid=`"
 
 #Git 
-alias gitgraph="git log --oneline --graph --decorate"
-alias ghb="gh browse"
 alias gbl="git branch --list"
 alias gss="git status -s"
 alias gst="git status"
