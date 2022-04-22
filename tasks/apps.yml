@@ -10,16 +10,15 @@
     src: templates/alacritty-config/alacritty.yml
     dest: "{{ home_dir }}/.config/alacritty/alacritty.yml"
 
-#TODO: Uncomment once AIL is updated for Jammy
-#- name: Add appimagelauncher PPA
-#  apt_repository:
-#    repo: ppa:appimagelauncher-team/stable
-#  become: true
-#
-#- name: Install appimagelauncher
-#  apt:
-#    name: appimagelauncher
-#  become: true
+- name: Add appimagelauncher PPA
+  apt_repository:
+    repo: ppa:appimagelauncher-team/stable
+  become: true
+
+- name: Install appimagelauncher
+  apt:
+    name: appimagelauncher
+  become: true
 
 - name: Install Cheese
   apt:
