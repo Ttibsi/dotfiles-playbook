@@ -32,8 +32,8 @@
   become: true
 
 # DISABLED FOR NOW AS IT DOESN'T WORK AS INTENDED
-#- name: Install firefox
-#  include_tasks: build_firefox.yml
+- name: Install firefox
+  include_tasks: build_firefox.yml
 
 - name: Install flameshot
   apt:

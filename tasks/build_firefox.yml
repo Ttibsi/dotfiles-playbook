@@ -6,6 +6,11 @@
     state: absent
   become: true
 
+- name: Add mozilla PPA
+  apt_repository:
+    repo: ppa:mozillateam/ppa
+  become: true
+
 - name: Install firefox
   apt: 
     name: firefox
