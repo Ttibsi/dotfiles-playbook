@@ -41,10 +41,14 @@ end
 
 -- Set basic commands
 local function custom_commands()
-    -- Nvim 0.7 +
     vim.api.nvim_create_user_command('W', 'w', {})
     vim.api.nvim_create_user_command('Q', 'q', {})
     vim.api.nvim_create_user_command('Wq', 'wq', {})
+
+    -- Make copy and paste easier
+    -- TODO: Test these commands
+    vim.api.nvim_create_user_command('Copy', "'<, '>y +", {})
+    vim.api.nvim_create_user_command('Paste', 'put', {})
 end
 
 -- Import files for plugin configs
