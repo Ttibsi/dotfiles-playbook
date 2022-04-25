@@ -49,6 +49,17 @@ local function custom_commands()
     -- TODO: Test these commands
     vim.api.nvim_create_user_command('Copy', "'<, '>y +", {})
     vim.api.nvim_create_user_command('Paste', 'put', {})
+
+    keymaps = {
+        -- Tabs
+        "Te" = ":tabedit",
+        "Tn" = ":tabnext",
+        "Tp" = ":tabprevious",
+    }
+
+    for key, val in ipairs(keymaps) do
+        vim.keymap.set('n', key, val, {})
+    end
 end
 
 -- Import files for plugin configs
