@@ -14,7 +14,9 @@ local function basic_config()
         ruler = true,
         cursorline = true,
         colorcolumn = '80',
-        colorcolumn = '88',
+
+        splitbelow = true,
+        splitright = true,
 
         -- This is for nvim-cmp
         completeopt = {
@@ -46,13 +48,13 @@ local function custom_commands()
     vim.api.nvim_create_user_command('Wq', 'wq', {})
 
     -- Copy and paste 
-    vim.api.nvim_set_keymap('v', '<C-c>', ":'<, '>y +<CR>", {})
-    vim.api.nvim_set_keymap('n', '<leader>p', ':put+<CR>', {})
+    vim.keymap.set('v', '<C-c>', ":'<, '>y +<CR>", {})
+    vim.keymap.set('n', '<leader>p', ':put+<CR>', {})
 
     -- tabs
-    vim.api.nvim_set_keymap('n', 'Tt', ':tabnew<CR>', {})
-    vim.api.nvim_set_keymap('n', 'Tn', ':tabnext<CR>', {})
-    vim.api.nvim_set_keymap('n', 'Tp', ':tabprev<CR>', {})
+    vim.keymap.set('n', 'Tt', ':tabnew<CR>', {})
+    vim.keymap.set('n', 'Tn', ':tabnext<CR>', {})
+    vim.keymap.set('n', 'Tp', ':tabprev<CR>', {})
 
     --TODO: Splits
 end
