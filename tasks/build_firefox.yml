@@ -1,5 +1,7 @@
 ---
 #TODO: Build from source
+# https://ubuntuhandbook.org/index.php/2022/04/install-firefox-deb-ubuntu-22-04/
+
 - name: Remove snap Firefox
   community.general.snap:
     name: firefox
@@ -12,8 +14,20 @@
   become: true
 
 - name: Install firefox
-  apt: 
-    name: firefox
+  command: apt install -t 'o=LP-PPA-mozillateam' firefox
+  become: true
+
+- name: Set PPA Priority
+  shell: "echo {{ item }} >> /etc/apt/preferences.d/mozillateamppa"
+  with_items:
+    - Package: firefox*
+    - Pin: release o=LP-PPA-mozillateam
+    - Pin-Priority: 501
+  become: true
+
+- name: Apt update
+  apt:
+    update_cache: true
   become: true
 
 - name: Create distribution folder
