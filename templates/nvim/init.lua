@@ -45,21 +45,16 @@ local function custom_commands()
     vim.api.nvim_create_user_command('Q', 'q', {})
     vim.api.nvim_create_user_command('Wq', 'wq', {})
 
-    -- Make copy and paste easier
-    -- TODO: Test these commands
-    vim.api.nvim_create_user_command('Copy', "'<, '>y +", {})
-    vim.api.nvim_create_user_command('Paste', 'put', {})
+    -- Copy and paste 
+    vim.api.nvim_set_keymap('v', '<C-c>', ":'<, '>y +<CR>", {})
+    vim.api.nvim_set_keymap('n', '<leader>p', ':put+<CR>', {})
 
-    keymaps = {
-        -- Tabs
-        "Te" = ":tabedit",
-        "Tn" = ":tabnext",
-        "Tp" = ":tabprevious",
-    }
+    -- tabs
+    vim.api.nvim_set_keymap('n', 'Tt', ':tabnew<CR>', {})
+    vim.api.nvim_set_keymap('n', 'Tn', ':tabnext<CR>', {})
+    vim.api.nvim_set_keymap('n', 'Tp', ':tabprev<CR>', {})
 
-    for key, val in ipairs(keymaps) do
-        vim.keymap.set('n', key, val, {})
-    end
+    --TODO: Splits
 end
 
 -- Import files for plugin configs
