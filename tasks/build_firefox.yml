@@ -14,15 +14,15 @@
   become: true
 
 - name: Install firefox
-  command: apt install -t 'o=LP-PPA-mozillateam' firefox
+  command: sudo apt install -t 'o=LP-PPA-mozillateam' firefox -y
   become: true
 
 - name: Set PPA Priority
   shell: "echo {{ item }} >> /etc/apt/preferences.d/mozillateamppa"
   with_items:
-    - Package: firefox*
-    - Pin: release o=LP-PPA-mozillateam
-    - Pin-Priority: 501
+    - "Package: firefox*"
+    - "Pin: release o=LP-PPA-mozillateam"
+    - "Pin-Priority: 501"
   become: true
 
 - name: Apt update
