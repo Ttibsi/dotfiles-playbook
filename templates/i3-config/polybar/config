@@ -18,7 +18,7 @@ border-size = 10pt
 separator = |
 separator-foreground = ${colors.foreground}
 
-font-0 = DroidSansMono Nerd Font Mono:style=Book
+font-0 = DroidSansMono Nerd Font Mono:style=Book;2
 
 modules-left = xworkspaces
 modules-center = time date
