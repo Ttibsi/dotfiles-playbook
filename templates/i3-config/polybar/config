@@ -4,7 +4,7 @@ include-file = ~/.config/polybar/colors.ini
 [bar/my_bar]
 width = 100%
 height = 40pt
-radius = 14
+radius = 18
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -14,7 +14,6 @@ line-size = 3pt
 line-color = ${colors.foreground}
 
 border-size = 10pt
-border-color = ${colors.background}
 
 separator = |
 separator-foreground = ${colors.foreground}
