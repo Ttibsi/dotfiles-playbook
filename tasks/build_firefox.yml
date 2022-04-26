@@ -13,10 +13,6 @@
     repo: ppa:mozillateam/ppa
   become: true
 
-- name: Install firefox
-  command: sudo apt install -t 'o=LP-PPA-mozillateam' firefox -y
-  become: true
-
 - name: Set PPA Priority
   shell: "echo {{ item }} >> /etc/apt/preferences.d/mozillateamppa"
   with_items:
@@ -28,6 +24,11 @@
 - name: Apt update
   apt:
     update_cache: true
+  become: true
+
+- name: Install firefox
+  apt:
+    name: firefox
   become: true
 
 - name: Create distribution folder
