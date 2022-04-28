@@ -32,5 +32,3 @@
     - "Configure fingerprint reader for Framework"
     - "It's recommended that the machine get rebooted after running this Playbook"
 
-# Tests
-# Launch firefox to see if theme and plugins are applied
