@@ -1,4 +1,6 @@
 ---
+#TODO: Find better wallpaper?
+#TODO: Alacritty transparency with a compositor
 
 - name: Download wallpaper
   get_url:
