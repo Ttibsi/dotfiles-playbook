@@ -215,3 +215,6 @@ client.unfocused #333333 #282a36 #888888 #292d2e #00b5b5
 
 # Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+# Picom
+exec_always --no-startup-id picom & 

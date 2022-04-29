@@ -1,6 +1,5 @@
 ---
 #TODO: Find better wallpaper?
-#TODO: Alacritty transparency with a compositor
 
 - name: Download wallpaper
   get_url:
@@ -55,6 +54,16 @@
     src: templates/i3-config/polybar/
     dest: "{{ home_dir }}/.config/polybar"
     mode: +x
+
+- name: Install picom
+  apt:
+    name: picom
+  become: true
+
+- name: Distribute picom config
+  copy:
+    src: templates/i3/picom/
+    dest: "{{ home_dir }}/.config/picom"
 
 # For brightness control
 - name: Install light
