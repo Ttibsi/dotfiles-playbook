@@ -28,3 +28,8 @@ echo ----- Installing requirements -----
 ansible-galaxy install -r requirements.yml
 
 ansible-playbook -K main.yml
+
+echo \n\n\nCopying SHH pub key to clipboard
+cat "$SSH_DIR/id_rsa.pub" | xclip -selection c
+echo Add to account here: https://github.com/settings/keys
+
