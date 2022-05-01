@@ -1,6 +1,8 @@
 # dotfiles-playbook
 
-<What is it>
+This is an Ansible playbook to install and configure Debian-based systems using my personal configs. This has been tested on Ubuntu 22.04 and Pop OS 22.04, and should work on Ubuntu 21.10 or 20.04 with a few minor tweaks. 
+
+If you choose to use this playbook, I'd recommend looking through the templates folder and picking and choosing configs you want to emulate yourself, as certain parts are keyed to me (such as the gitconfig) as opposed to running this wholesale. 
 
 <Screenshot here>
 
