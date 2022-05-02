@@ -8,7 +8,8 @@ If you choose to use this playbook, I'd recommend looking through the templates 
 
 ### What's included here
 
-
+This dev environment is mostly built around i3-gaps and polybar, with the latest stable version of neovim built from source using the alacritty terminal. Terminal utilities such as [bottom](https://github.com/ClementTsang/bottom) and neofetch are installed, and the desktop apps such as discord and Notion are installed. The snap version of firefox is removed, instead installing the .deb version from the mozillateam PPA, and plugins are installed using a firefox policy.
+ 
 ### How to Install
 
 
