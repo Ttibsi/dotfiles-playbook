@@ -12,6 +12,16 @@ This dev environment is mostly built around i3-gaps and polybar, with the latest
  
 ### How to Install
 
+ On a fresh install of a supported OS, run the following commands one line at a time:
+ 
+ ```
+ sudo apt install git -y
+ git clone https://github.com/Ttibsi/dotfiles-playbook.git && cd dotfiles-playbook
+ ./dotfiles.sh
+ ```
+ 
+ Currently supported OS's
+ - Ubuntu 22.04
 
 ### Still to add
  - I want to build [Firefox](https://firefox-source-docs.mozilla.org/setup/linux_build.html) [Alacritty](https://github.com/alacritty/alacritty/blob/master/INSTALL.md), and [i3-gaps](https://github.com/Airblader/i3/wiki/Building-from-source) from source, which may make them easier to manage in the future.
@@ -19,15 +29,4 @@ This dev environment is mostly built around i3-gaps and polybar, with the latest
     - Alacritty because I'm currently using a build that someone else has compiled, and I'd rather have my own control over it
     - i3-gaps is only released for Ubuntu by third-party PPAs, and I'd rather build it from scratch than rely on others, the same as above. 
  
-- I want to add a way to specify which ricing theme to use out of multiple, potentially concatenating to various config files using bash scripts run after the playbook in the main dotfiles script
-
-
-
-
-### To Use
-```
-$ sudo add-apt-repository --yes --update ppa:ansible/ansible && sudo apt install --yes git ansible software-properties-common 
-$ git clone https://github.com/Ttibsi/dotfiles-playbook.git 
-$ ansible-galaxy install -r dotfiles-playbook/requirements.yml
-$ ansible-playbook --ask-become-pass dotfiles-playbook/main.yml
-```
+- I want to add a way to specify which ricing theme to use out of multiple, potentially concatenating to various config files using bash scripts run after the playbook in the main dotfiles 
