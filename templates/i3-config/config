@@ -218,3 +218,6 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Picom
 exec_always --no-startup-id picom & 
+
+# Launch on startup
+exec flameshot
