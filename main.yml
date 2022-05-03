@@ -12,29 +12,41 @@
     lua_lsp_version: 3.0.1
 
   tasks:
-    - name: Initial setup
-      include_tasks: tasks/initial_setup.yml
+    - name: Print all available facts
+      ansible.builtin.debug:
+        var: ansible_facts.{{ item }}
+      with_items:
+        - distribution
+        - distribution_file_parsed
+        - distribution_file_path
+        - distribution_file_variety
+        - distribution_major_version
+        - distribution_release
+        - distribution_version
 
-    - name: Configure Git
-      include_tasks: tasks/git.yml
+  #- name: Initial setup
+  #    include_tasks: tasks/initial_setup.yml
 
-    - name: Misc terminal tools
-      include_tasks: tasks/misc.yml
+  #  - name: Configure Git
+  #    include_tasks: tasks/git.yml
 
-    - name: Configure python3
-      include_tasks: tasks/python.yml
+  #  - name: Misc terminal tools
+  #    include_tasks: tasks/misc.yml
 
-    - name: Set up zsh shell
-      include_tasks: tasks/zsh.yml
+  #  - name: Configure python3
+  #    include_tasks: tasks/python.yml
 
-    - name: Set up i3 window manager
-      include_tasks: tasks/i3.yml
+  #  - name: Set up zsh shell
+  #    include_tasks: tasks/zsh.yml
 
-    - name: Set up Neovim
-      include_tasks: tasks/nvim.yml
+  #  - name: Set up i3 window manager
+  #    include_tasks: tasks/i3.yml
 
-    - name: Install desktop apps
-      include_tasks: tasks/apps.yml
+  #  - name: Set up Neovim
+  #    include_tasks: tasks/nvim.yml
 
-    - name: Final Cleanup
-      include_tasks: tasks/final.yml
+  #  - name: Install desktop apps
+  #    include_tasks: tasks/apps.yml
+
+  #  - name: Final Cleanup
+  #    include_tasks: tasks/final.yml
