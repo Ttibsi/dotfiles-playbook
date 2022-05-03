@@ -31,9 +31,11 @@
     deb: 'https://dl.discordapp.net/apps/linux/{{ discord_version }}/discord-{{ discord_version }}.deb'
   become: true
 
-# DISABLED FOR NOW AS IT DOESN'T WORK AS INTENDED
 - name: Install firefox
   include_tasks: build_firefox.yml
+  when: 
+    - ansible_facts['distribution'] == 'Ubuntu' 
+    - ansible_facts['distribution_release'] == 'Jammy'
 
 - name: Install flameshot
   apt:

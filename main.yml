@@ -45,8 +45,8 @@
   #  - name: Set up Neovim
   #    include_tasks: tasks/nvim.yml
 
-  #  - name: Install desktop apps
-  #    include_tasks: tasks/apps.yml
+    - name: Install desktop apps
+      include_tasks: tasks/apps.yml
 
   #  - name: Final Cleanup
   #    include_tasks: tasks/final.yml
