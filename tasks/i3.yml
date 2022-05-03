@@ -62,7 +62,7 @@
 
 - name: Distribute picom config
   copy:
-    src: templates/i3/picom/
+    src: templates/i3-config/picom/
     dest: "{{ home_dir }}/.config/picom"
 
 # For brightness control

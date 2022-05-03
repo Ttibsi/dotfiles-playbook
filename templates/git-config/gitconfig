@@ -5,5 +5,6 @@
     graph = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
     amend = commit --amend
     undo = reset --soft HEAD^   # Unstages the last commit while keeping its changes
+    HEAD = push origin HEAD
 [core]
     editor = nvim
