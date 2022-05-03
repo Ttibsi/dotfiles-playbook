@@ -221,3 +221,4 @@ exec_always --no-startup-id picom &
 
 # Launch on startup
 exec flameshot
+bindsym $mod+p exec flameshot gui
