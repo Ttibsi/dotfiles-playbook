@@ -12,7 +12,7 @@ This dev environment is mostly built around i3-gaps and polybar, with the latest
  
 ### How to Install
 
- On a fresh install of a supported OS, run the following commands one line at a time:
+ On a fresh install of a supported OS - I recommend a minimal installation - run the following commands one line at a time:
  
  ```
  sudo apt install git -y
