@@ -10,13 +10,19 @@ fi
 
 # Check if ansible is installed
 if ! [ -x "$(command -v ansible)" ]; then
-    echo ----- Installing ansible -----
+    echo -e  "\n----- Installing ansible -----"
     sudo apt install ansible -y
+fi
+
+# Check if Cowsay is installed
+if [ -x "$(command -v cowsay)" ]; then
+    echo -e "/n----- Removing cowsay -----"
+    sudo apt remove cowsay -y
 fi
 
 # Generate SSH keys
 if ! [[ -f "$SSH_DIR/authorized_keys" ]]; then
-    echo ----- Generating SSH key -----
+    echo -e "/n----- Generating SSH key -----"
     mkdir -p "$SSH_DIR"
     chmod 700 "$SSH_DIR"
     ssh-keygen -b 4096 -t rsa -f "$SSH_DIR/id_rsa" -N "" -C "$USER@$HOSTNAME"
@@ -24,7 +30,7 @@ if ! [[ -f "$SSH_DIR/authorized_keys" ]]; then
 fi
 
 # Install ansible requirements
-echo ----- Installing requirements -----
+echo -e "\n----- Installing requirements -----"
 ansible-galaxy install -r requirements.yml
 
 ansible-playbook -K main.yml

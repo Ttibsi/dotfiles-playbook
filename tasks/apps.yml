@@ -33,9 +33,7 @@
 
 - name: Install firefox
   include_tasks: build_firefox.yml
-  when: 
-    - ansible_facts['distribution'] == 'Ubuntu' 
-    - ansible_facts['distribution_release'] == 'Jammy'
+  when: (ansible_facts['distribution'] == 'Ubuntu') and (ansible_facts['distribution_release'] == 'jammy')
 
 - name: Install flameshot
   apt:
