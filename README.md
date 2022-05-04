@@ -33,6 +33,6 @@ This dev environment is mostly built around i3-gaps and polybar, with the latest
  - I want to build [Firefox](https://firefox-source-docs.mozilla.org/setup/linux_build.html) [Alacritty](https://github.com/alacritty/alacritty/blob/master/INSTALL.md), and [i3-gaps](https://github.com/Airblader/i3/wiki/Building-from-source) from source, which may make them easier to manage in the future.
     - Firefox because of the recent Snap ccontrovercy around Ubuntu 22.04, installing from source will allow me to use the newer version and just not worry about things like that
     - Alacritty because I'm currently using a build that someone else has compiled, and I'd rather have my own control over it
-    - i3-gaps is only released for Ubuntu by third-party PPAs, and I'd rather build it from scratch than rely on others, the same as above. 
+    - i3-gaps is only released for Ubuntu by a third-party PPA that I'm not familiar with, and I'd rather build it from scratch than rely on others, the same as above. 
  
 - I want to add a way to specify which ricing theme to use out of multiple, potentially concatenating to various config files using bash scripts run after the playbook in the main dotfiles 
