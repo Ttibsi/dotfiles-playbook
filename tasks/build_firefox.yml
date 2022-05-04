@@ -7,11 +7,13 @@
     name: firefox
     state: absent
   become: true
+  when: (ansible_facts['distribution'] == 'Ubuntu') and (ansible_facts['distribution_release'] == 'jammy')
 
 - name: Add mozilla PPA
   apt_repository:
     repo: ppa:mozillateam/ppa
   become: true
+  when: (ansible_facts['distribution'] == 'Ubuntu') and (ansible_facts['distribution_release'] == 'jammy')
 
 - name: Set PPA Priority
   shell: "echo {{ item }} >> /etc/apt/preferences.d/mozillateamppa"
@@ -20,16 +22,19 @@
     - "Pin: release o=LP-PPA-mozillateam"
     - "Pin-Priority: 501"
   become: true
+  when: (ansible_facts['distribution'] == 'Ubuntu') and (ansible_facts['distribution_release'] == 'jammy')
 
 - name: Apt update
   apt:
     update_cache: true
   become: true
+  when: (ansible_facts['distribution'] == 'Ubuntu') and (ansible_facts['distribution_release'] == 'jammy')
 
 - name: Install firefox
   apt:
     name: firefox
   become: true
+  when: (ansible_facts['distribution'] == 'Ubuntu') and (ansible_facts['distribution_release'] == 'jammy')
 
 - name: Create distribution folder
   file:
