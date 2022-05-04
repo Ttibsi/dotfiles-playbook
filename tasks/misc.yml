@@ -43,5 +43,10 @@
 - name: Video codecs
   command: sudo DEBIAN_FRONTEND=noninteractive apt install -y ubuntu-restricted-extras
 
+- name: Xclip
+  apt:
+    name: xclip
+  become: true
+
 # Tests
 # Run neofetch, cowsay, btm

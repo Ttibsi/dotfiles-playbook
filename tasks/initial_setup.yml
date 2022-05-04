@@ -1,10 +1,4 @@
 ---
-- name: Update
-  apt:
-    update_cache: true
-    upgrade: dist
-    force_apt_get: true
-  become: true
 
 - name: Remove unneeded folders
   file:

@@ -31,7 +31,6 @@
     deb: 'https://dl.discordapp.net/apps/linux/{{ discord_version }}/discord-{{ discord_version }}.deb'
   become: true
 
-# DISABLED FOR NOW AS IT DOESN'T WORK AS INTENDED
 - name: Install firefox
   include_tasks: build_firefox.yml
 
@@ -70,11 +69,10 @@
     mode: 0755
   become: true
 
-#TODO: Re-enable and test on Jammy after main release - does not work on beta due to libssll1.1 not present in Jammy
-#- name: Install rpi-imager
-#  apt:
-#    deb: https://downloads.raspberrypi.org/imager/imager_latest_amd64.deb
-#  become: true
+- name: Install rpi-imager
+  apt:
+    name: rpi-imager
+  become: true
 #
 - name: Install VLC
   apt:

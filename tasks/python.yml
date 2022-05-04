@@ -4,6 +4,7 @@
   apt_repository:
     repo: ppa:deadsnakes/ppa
   become: true
+  when: ansible_facts['distribution_release'] == 'jammy'
 
 # Anthony Explains 79
 # TLDR I'm not installing a global/system version of pip
@@ -44,3 +45,4 @@
 
 # Tests
 # ghstats --help
+# virtualenv --version
