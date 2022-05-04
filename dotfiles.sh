@@ -8,6 +8,7 @@ if ! [ -z $1 ]; then
     git checkout -b $1 origin/$1
 fi
 
+sudo dpkg --configure --pending
 sudo apt-get update 
 sudo apt-get upgrade -y
 
@@ -19,7 +20,7 @@ fi
 
 # Check if Cowsay is installed
 if [ -x "$(command -v cowsay)" ]; then
-    echo -e "/n----- Removing cowsay -----"
+    echo -e "\n----- Removing cowsay -----"
     sudo apt remove cowsay -y
 fi
 
