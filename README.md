@@ -8,7 +8,7 @@ If you choose to use this playbook, I'd recommend looking through the templates 
 
 ### What's included here
 
-This dev environment is mostly built around i3-gaps and polybar, with the latest stable version of neovim built from source using the alacritty terminal. Terminal utilities such as [bottom](https://github.com/ClementTsang/bottom) and neofetch are installed, and the desktop apps such as discord and Notion are installed. The snap version of firefox is removed, instead installing the .deb version from the mozillateam PPA, and plugins are installed using a firefox policy.
+This dev environment is mostly built around i3-gaps and polybar, with the latest stable version of neovim built from source using the alacritty terminal. Terminal utilities such as [bottom](https://github.com/ClementTsang/bottom) and neofetch are installed, and the desktop apps such as discord and Notion are installed. The snap version of firefox is removed from Ubuntu, instead installing the .deb version from the mozillateam PPA, and plugins are installed using a firefox policy.
  
 ### How to Install
 
@@ -20,8 +20,14 @@ This dev environment is mostly built around i3-gaps and polybar, with the latest
  ./dotfiles.sh
  ```
  
+ You can also specify a different branch with the dotfiles bash file to switch to. IE `./dotfiles.sh test_branch`
+ 
  Currently supported OS's
- - Ubuntu 22.04
+ - Pop OS 22.04 Jammy
+ - Ubuntu 22.04 Jammy
+ - Ubuntu 21.10 Impish
+ 
+ Note that while these OS's are listed as "supported", things may break in the future and I will not be adjusting to fix things unless I find in the future that I need to.
 
 ### Still to add
  - I want to build [Firefox](https://firefox-source-docs.mozilla.org/setup/linux_build.html) [Alacritty](https://github.com/alacritty/alacritty/blob/master/INSTALL.md), and [i3-gaps](https://github.com/Airblader/i3/wiki/Building-from-source) from source, which may make them easier to manage in the future.
