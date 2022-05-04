@@ -24,10 +24,3 @@
     - absent
     - directory
 
-- name: User manual entry
-  debug:
-    msg: "{{ item }}"
-  loop:
-    - "Configure fingerprint reader for Framework"
-    - "It's recommended that the machine get rebooted after running this Playbook"
-
