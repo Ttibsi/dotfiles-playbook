@@ -87,6 +87,6 @@
 
 # Tests
 # Open nvim and verify version
-# Check if treesitter is installing when you first open nvim
 # Verify paq install by running :PaqList
+# Check if treesitter is installing when you first open nvim
 # Verify files have been copied to `~/.config/nvim`
