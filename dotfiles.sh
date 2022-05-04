@@ -25,7 +25,7 @@ fi
 
 # Generate SSH keys
 if ! [[ -f "$SSH_DIR/authorized_keys" ]]; then
-    echo -e "/n----- Generating SSH key -----"
+    echo -e "\n----- Generating SSH key -----"
     mkdir -p "$SSH_DIR"
     chmod 700 "$SSH_DIR"
     ssh-keygen -b 4096 -t rsa -f "$SSH_DIR/id_rsa" -N "" -C "$USER@$HOSTNAME"
