@@ -79,7 +79,11 @@ local function call_plugins()
         "catppuccin/nvim";
     }
 
+    -- colourscheme
     vim.cmd[[colorscheme catppuccin]]
+    vim.api.nvim_set_hl(0, 'Normal', {})
+    vim.api.nvim_set_hl(0, 'NonText', {})
+
     require 'lsp_config'.init()
     require 'cmp_config'.init()
     require 'treesitter_config'.init()
