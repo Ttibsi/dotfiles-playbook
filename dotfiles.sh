@@ -41,6 +41,9 @@ ansible-playbook -K main.yml
 
 rm -rf $HOME/.ansible
 
+echo -e "\nMounting NAS"
+sudo echo "192.168.0.24/export/PiShare /mnt/PiShare nfs defaults 0 0" >> /etc/fstab
+
 echo -e "\n\nCopying SHH pub key to clipboard"
 cat "$SSH_DIR/id_rsa.pub" | xclip -selection c
 echo Add to account here: https://github.com/settings/keys
