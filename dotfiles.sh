@@ -35,14 +35,14 @@ fi
 
 # Install ansible requirements
 echo -e "\n----- Installing requirements -----"
-ansible-galaxy install -r requirements.yml
+#ansible-galaxy install -r requirements.yml
 
-ansible-playbook -K main.yml
+#ansible-playbook -K main.yml
 
 rm -rf $HOME/.ansible
 
 echo -e "\nMounting NAS"
-sudo echo "192.168.0.24/export/PiShare /mnt/PiShare nfs defaults 0 0" >> /etc/fstab
+echo "192.168.0.24:/export/PiShare /mnt/PiShare nfs defaults 0 0" | sudo tee /etc/fstab -a
 
 echo -e "\n\nCopying SHH pub key to clipboard"
 cat "$SSH_DIR/id_rsa.pub" | xclip -selection c
@@ -50,9 +50,4 @@ echo Add to account here: https://github.com/settings/keys
 
 echo -e "\n---------------\n"
 
-echo -e "Run complete"
-read -p "Type `rbt` to reboot" check
-
-if [ $check == 'rbt' ]; then
-    reboot
-fi
+echo -e "Provision complete"
