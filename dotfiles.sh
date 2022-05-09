@@ -12,6 +12,9 @@ sudo dpkg --configure --pending
 sudo apt-get update 
 sudo apt-get upgrade -y
 
+echo -e "\nShow Percentage in top bar"
+gsettings set org.gnome.desktop.interface show-battery-percentage true
+
 # Check if ansible is installed
 if ! [ -x "$(command -v ansible)" ]; then
     echo -e  "\n----- Installing ansible -----"
