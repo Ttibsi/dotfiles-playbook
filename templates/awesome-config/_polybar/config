@@ -1,0 +1,34 @@
+include-file = ~/.config/polybar/modules.ini
+include-file = ~/.config/polybar/colors.ini
+
+[bar/my_bar]
+width = 100%
+height = 40pt
+radius = 14
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+; Underline
+line-size = 3pt
+line-color = ${colors.foreground}
+
+border-size = 10pt
+border-color = ${colors.background}
+
+separator = |
+separator-foreground = ${colors.foreground}
+
+font-0 = DroidSansMono Nerd Font Mono:style=Book
+
+modules-left = xworkspaces
+modules-center = time date
+modules-right = pulseaudio wlan battery lock logout poweroff
+
+module-margin = 1
+
+padding-left = 2
+padding-right = 2
+
+cursor-click = pointer
+cursor-scroll = ns-resize
