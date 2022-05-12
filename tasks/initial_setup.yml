@@ -24,6 +24,7 @@
     - ".config/i3"
     - ".config/alacritty"
     - ".local/share/fonts"
+    - ".wallpapers"
 
 - name: Install Font
   get_url:
