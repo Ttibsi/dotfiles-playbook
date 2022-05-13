@@ -25,7 +25,7 @@
     name: cheese
   become: true
 
-#/usr/share/discord/
+# /usr/share/discord/
 - name: Install Discord
   apt:
     deb: 'https://dl.discordapp.net/apps/linux/{{ discord_version }}/discord-{{ discord_version }}.deb'

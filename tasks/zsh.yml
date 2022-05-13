@@ -9,7 +9,7 @@
   stat:
     path: "{{ home_dir }}/.oh-my-zsh"
   register: zsh_exist
-  
+
 - name: Download ohmyzsh
   get_url:
     url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
@@ -36,10 +36,10 @@
 
 - name: Download p10k
   git:
-    clone: yes
+    clone: true
     repo: https://github.com/romkatv/powerlevel10k.git
     dest: "{{ home_dir }}/.oh-my-zsh/custom/themes/powerlevel10k/"
-    force: yes
+    force: true
 
 - name: Distribute p10k config
   copy:
@@ -48,29 +48,29 @@
 
 - name: Clone zsh-autosuggestions
   ansible.builtin.git:
-    clone: yes
+    clone: true
     depth: 1
     dest: "{{ home_dir }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
     repo: https://github.com/zsh-users/zsh-autosuggestions
-    update: yes
+    update: true
     version: master
 
 - name: Clone zsh-completions
   ansible.builtin.git:
-    clone: yes
+    clone: true
     depth: 1
     dest: "{{ home_dir }}/.oh-my-zsh/custom/plugins/zsh-completions"
     repo: https://github.com/zsh-users/zsh-completions
-    update: yes
+    update: true
     version: master
 
 - name: Clone zsh-syntax-highlighting
   ansible.builtin.git:
-    clone: yes
+    clone: true
     depth: 1
     dest: "{{ home_dir }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
     repo: https://github.com/zsh-users/zsh-syntax-highlighting
-    update: yes
+    update: true
     version: master
 
 # Tests
