@@ -12,7 +12,7 @@
     name: i3
   become: true
 
-#TODO: Enable when gaps is supported
+# TODO: Enable when gaps is supported
 - name: Add regolith linux PPA
   apt_repository:
     repo: "ppa:regolith-linux/release"

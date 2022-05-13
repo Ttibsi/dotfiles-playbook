@@ -2,8 +2,8 @@
 
 - name: apt clean and remove
   apt:
-    autoclean: yes
-    autoremove: yes
+    autoclean: true
+    autoremove: true
   become: true
 
 - name: Remove files from $HOME
@@ -23,4 +23,3 @@
   with_items:
     - absent
     - directory
-

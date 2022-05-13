@@ -1,5 +1,5 @@
 ---
-#TODO: Build from source
+# TODO: Build from source
 # https://ubuntuhandbook.org/index.php/2022/04/install-firefox-deb-ubuntu-22-04/
 
 - name: Remove snap Firefox

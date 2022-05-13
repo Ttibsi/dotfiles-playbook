@@ -1,30 +1,29 @@
 local function init()
-    require'nvim-treesitter.configs'.setup {
-        ensure_installed = {
-            "bash",
-            "json",
-            "lua",
-            "python",
-            "yaml",
-        },
+	require("nvim-treesitter.configs").setup({
+		ensure_installed = {
+			"bash",
+			"json",
+			"lua",
+			"python",
+			"yaml",
+		},
 
-        sync_install = false,
+		sync_install = false,
 
-        highlight = {
-            enable = true,
-        },
+		highlight = {
+			enable = true,
+		},
 
-        incremental_selection = {
-            enable = true,
-        },
+		incremental_selection = {
+			enable = true,
+		},
 
-        indent = {
-            enable = true
-        },
-    }
+		indent = {
+			enable = true,
+		},
+	})
 end
 
-
 return {
-        init = init,
+	init = init,
 }

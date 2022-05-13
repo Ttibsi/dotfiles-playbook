@@ -12,18 +12,6 @@
     lua_lsp_version: 3.0.1
 
   tasks:
-  #    - name: Print all available facts
-  #      ansible.builtin.debug:
-  #        var: ansible_facts.{{ item }}
-  #      with_items:
-  #        - distribution
-  #        - distribution_file_parsed
-  #        - distribution_file_path
-  #        - distribution_file_variety
-  #        - distribution_major_version
-  #        - distribution_release
-  #        - distribution_version
- 
     - name: Initial setup
       include_tasks: tasks/initial_setup.yml
 
