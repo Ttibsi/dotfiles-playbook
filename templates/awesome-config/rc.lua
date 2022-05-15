@@ -27,7 +27,7 @@ beautiful.init(os.getenv("HOME") .. "/.config/awesome/config/theme.lua")
 require("components.layouts")
 
 -- menu
-require("config.menu")
+require("components.menu")
 
 -- Wibar
 require("components.bar")
