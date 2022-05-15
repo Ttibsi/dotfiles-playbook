@@ -21,7 +21,7 @@ require("awful.hotkeys_popup.keys")
 require("config.error")
 
 -- Initial theme
-beautiful.init(gears.filesystem.get_themes_dir() .. "config/theme.lua")
+beautiful.init(os.getenv("HOME") .. "/.config/awesome/config/theme.lua")
 
 -- layouts
 require("components.layouts")
