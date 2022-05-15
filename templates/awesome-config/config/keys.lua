@@ -1,5 +1,7 @@
 local awful = require("awful")
 local gears = require("gears")
+local hotkeys_popup = require("awful.hotkeys_popup.keys")
+local menubar = require("menubar")
 
 terminal = "alacritty"
 editor = os.getenv("EDITOR") or "nvim"
@@ -271,3 +273,5 @@ clientbuttons = gears.table.join(
 
 -- Set keys
 root.keys(globalkeys)
+
+return keys

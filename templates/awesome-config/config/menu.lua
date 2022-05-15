@@ -1,6 +1,8 @@
+local awful = require("awful")
 local beautiful = require("beautiful")
+local menubar = require("menubar")
+local vars = require("config.keys")
 
--- {{{ Menu
 -- Create a launcher widget and a main menu
 myawesomemenu = {
 	{
@@ -34,4 +36,3 @@ mylauncher = awful.widget.launcher({
 
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
--- }}}
