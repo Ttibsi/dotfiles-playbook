@@ -10,6 +10,7 @@
 -- If LuaRocks is installed, make sure that packages installed through it are
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
+local awful = require("awful")
 local beautiful = require("beautiful")
 local gears = require("gears")
 
@@ -37,3 +38,6 @@ require("config.rules")
 
 -- Signals
 require("config.signals")
+
+-- Startup
+awful.spawn.with_shell("~/.config/awesome/config/startup.sh")
