@@ -41,3 +41,6 @@ require("config.signals")
 
 -- Startup
 awful.spawn.with_shell("~/.config/awesome/config/startup.sh")
+
+-- Set Wallpaper
+require("config.wallpaper")
