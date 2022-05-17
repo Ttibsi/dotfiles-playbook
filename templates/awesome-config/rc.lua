@@ -31,7 +31,7 @@ require("components.layouts")
 require("components.menu")
 
 -- Wibar
-require("components.bar")
+require("components.bar.init")
 
 -- Window rules
 require("config.rules")
