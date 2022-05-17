@@ -83,11 +83,14 @@ local function call_plugins()
 		"lukas-reineke/indent-blankline.nvim",
 		"nvim-lualine/lualine.nvim",
 
-		"catppuccin/nvim",
+		{ "decaycs/decay.nvim", as = "decay" },
 	})
 
 	-- colourscheme
-	vim.cmd([[colorscheme catppuccin]])
+	require("decay").setup({
+		nvim_tree = { contrast = true },
+	})
+
 	vim.api.nvim_set_hl(0, "Normal", {})
 	vim.api.nvim_set_hl(0, "NonText", {})
 
