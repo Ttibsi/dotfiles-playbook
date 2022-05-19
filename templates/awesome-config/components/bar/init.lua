@@ -3,6 +3,9 @@ local beautiful = require("beautiful")
 local gears = require("gears")
 local wibox = require("wibox")
 
+-- Make a clock
+mytextclock = wibox.widget.textclock()
+
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
 	awful.button({}, 1, function(t)
@@ -24,25 +27,6 @@ local taglist_buttons = gears.table.join(
 	end),
 	awful.button({}, 5, function(t)
 		awful.tag.viewprev(t.screen)
-	end)
-)
-
-local tasklist_buttons = gears.table.join(
-	awful.button({}, 1, function(c)
-		if c == client.focus then
-			c.minimized = true
-		else
-			c:emit_signal("request::activate", "tasklist", { raise = true })
-		end
-	end),
-	awful.button({}, 3, function()
-		awful.menu.client_list({ theme = { width = 250 } })
-	end),
-	awful.button({}, 4, function()
-		awful.client.focus.byidx(1)
-	end),
-	awful.button({}, 5, function()
-		awful.client.focus.byidx(-1)
 	end)
 )
 
@@ -74,33 +58,38 @@ awful.screen.connect_for_each_screen(function(s)
 		buttons = taglist_buttons,
 	})
 
-	-- Create a tasklist widget
-	s.mytasklist = awful.widget.tasklist({
+	s.mywibox = awful.wibar({
+		position = "top",
 		screen = s,
-		filter = awful.widget.tasklist.filter.currenttags,
-		buttons = tasklist_buttons,
-	})
-
-	-- Create the wibox
-	s.mywibox = awful.wibar({ position = "top", screen = s })
-
-	-- Add widgets to the wibox
-	s.mywibox:setup({
 		layout = wibox.layout.align.horizontal,
-		{ -- Left widgets
-			layout = wibox.layout.fixed.horizontal,
-			s.mytaglist,
-			wibox.widget.systray(),
-		},
-		{ -- Middle widgets
-			layout = wibox.layout.fixed.horizontal,
-			mytextclock,
-		},
-		{ -- Right widgets
-			layout = wibox.layout.fixed.horizontal,
-			mykeyboardlayout,
-			s.mylayoutbox,
+		height = 28,
+		bg = "#1E1E1E",
+		widgets = { -- Left widgets
+			{
+				layout = wibox.layout.fixed.horizontal,
+
+				-- Desktops
+				s.mytaglist,
+				-- System apps
+				wibox.widget.systray(),
+			},
+			{ -- Middle widgets
+				layout = wibox.layout.fixed.horizontal,
+
+				-- Clock widget that opens to show a calendar
+				mytextclock,
+			},
+			{ -- Right widgets
+				layout = wibox.layout.fixed.horizontal,
+
+				-- Layouts button
+				s.mylayoutbox,
+				-- Power menu
+				-- Battery widget
+				-- Volume
+				-- Wifi/network
+				-- Bluetooth?
+			},
 		},
 	})
 end)
--- }}}
