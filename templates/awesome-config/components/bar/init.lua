@@ -3,6 +3,9 @@ local beautiful = require("beautiful")
 local gears = require("gears")
 local wibox = require("wibox")
 
+-- Initialise modules
+local power_btn = require("power_btn")
+
 -- Make a clock
 mytextclock = wibox.widget.textclock()
 
@@ -85,6 +88,7 @@ awful.screen.connect_for_each_screen(function(s)
 				-- Layouts button
 				s.mylayoutbox,
 				-- Power menu
+				power_btn,
 				-- Battery widget
 				-- Volume
 				-- Wifi/network
