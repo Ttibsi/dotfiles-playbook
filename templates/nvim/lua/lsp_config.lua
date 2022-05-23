@@ -50,8 +50,8 @@ local function init()
     })
 
     -- lua
-    local sumneko_root_path = vim.fn.expand('$HOME') .. '.opt/lua-language-server'
-    local sumneko_binary = sumneko_root_path .. 'bin/lua-language-server'
+    local sumneko_root_path = vim.fn.expand('$HOME') .. '/.opt/lua-language-server'
+    local sumneko_binary = sumneko_root_path .. '/bin/lua-language-server'
 
     require 'lspconfig'.sumneko_lua.setup({
         on_attach = on_attach,

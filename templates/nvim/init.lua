@@ -45,6 +45,24 @@ local function custom_commands()
     vim.api.nvim_create_user_command('W', 'w', {})
     vim.api.nvim_create_user_command('Q', 'q', {})
     vim.api.nvim_create_user_command('Wq', 'wq', {})
+
+    -- Copy and paste 
+    vim.keymap.set('v', '<C-c>', ":'<, '>y +<CR>", {})
+    vim.keymap.set('n', '<leader>p', ':put+<CR>', {})
+
+    -- tabs
+    vim.keymap.set('n', 'Tt', ':tabnew<CR>', {})
+    vim.keymap.set('n', 'Tn', ':tabnext<CR>', {})
+    vim.keymap.set('n', 'Tp', ':tabprev<CR>', {})
+
+    -- Splits
+    vim.keymap.set('n', '<leader>s', ':new<CR>')
+    vim.keymap.set('n', '<leader>v', ':vnew<CR>')
+
+    vim.keymap.set('n', '<leader>h', '<C-w>h')
+    vim.keymap.set('n', '<leader>j', '<C-w>j')
+    vim.keymap.set('n', '<leader>k', '<C-w>k')
+    vim.keymap.set('n', '<leader>l', '<C-w>l')
 end
 
 -- Import files for plugin configs
@@ -68,6 +86,9 @@ local function call_plugins()
     }
 
     vim.cmd[[colorscheme catppuccin]]
+    vim.api.nvim_set_hl(0, 'Normal', {})
+    vim.api.nvim_set_hl(0, 'NonText', {})
+
     require 'lsp_config'.init()
     require 'cmp_config'.init()
     require 'treesitter_config'.init()
