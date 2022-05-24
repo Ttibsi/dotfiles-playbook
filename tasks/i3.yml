@@ -25,6 +25,9 @@
   become: true
   when: ansible_facts['distribution_version'] == '21.10'
 
+- name: Build i3-gaps
+  include_task: build_i3.yml
+
 - name: Distribute i3 config
   copy:
     src: templates/i3-config/config
