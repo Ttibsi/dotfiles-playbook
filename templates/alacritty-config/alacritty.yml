@@ -12,9 +12,9 @@ font:
 tabspaces: 4
 
 window:
-  dimensions:
-    columns: 80
-    lines: 40
+  padding:
+    x: 5
+    y: 5
 
 scrolling:
   history: 1000
