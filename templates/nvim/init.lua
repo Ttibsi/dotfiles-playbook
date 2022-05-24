@@ -14,7 +14,9 @@ local function basic_config()
         ruler = true,
         cursorline = true,
         colorcolumn = '80',
-        colorcolumn = '88',
+
+        splitbelow = true,
+        splitright = true,
 
         -- This is for nvim-cmp
         completeopt = {
@@ -41,7 +43,6 @@ end
 
 -- Set basic commands
 local function custom_commands()
-    -- Nvim 0.7 +
     vim.api.nvim_create_user_command('W', 'w', {})
     vim.api.nvim_create_user_command('Q', 'q', {})
     vim.api.nvim_create_user_command('Wq', 'wq', {})
@@ -85,6 +86,7 @@ local function call_plugins()
         "catppuccin/nvim";
     }
 
+    -- colourscheme
     vim.cmd[[colorscheme catppuccin]]
     vim.api.nvim_set_hl(0, 'Normal', {})
     vim.api.nvim_set_hl(0, 'NonText', {})
