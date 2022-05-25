@@ -41,11 +41,17 @@
     mode: '0755'
 
 - name: i3-gaps meson
-  command: "meson --prefix {{ home_dir }}/Downloads/i3-gaps/build" 
-  chdir: "{{ home_dir }}/Downloads/i3-gaps/"
+  command: "meson {{ home_dir }}/Downloads/i3-gaps" 
+  args:
+    chdir: "{{ home_dir }}/Downloads/i3-gaps/build"
 
-- name: i3-gaps nina build
-  command: ninja && ninja install
-  chdir: "{{ home_dir }}/Downloads/i3-gaps/build"
+- name: i3-gaps ninja
+  command: ninja
+  args:
+    chdir: "{{ home_dir }}/Downloads/i3-gaps/build"
+
+- name: i3-gaps ninja install
+  command: ninja install
+  args:
+    chdir: "{{ home_dir }}/Downloads/i3-gaps/build"
   become: true
-
