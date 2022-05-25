@@ -1,10 +1,11 @@
 ---
 #TODO: Find better wallpaper?
 
-- name: Download wallpaper
-  get_url:
-    url: "{{ wallpaper_url }}"
-    dest: "{{ home_dir }}/Workspace/wallpaper.jpg"
+- name: Download wallpaper directory
+  git:
+    clone: true
+    repo: https://gitlab.com/dwt1/wallpapers.git
+    dest: "{{ home_dir }}/.wallpapers"
 
 # Apparently it's better to overwrite standard i3 to avoid errors
 - name: Install i3
