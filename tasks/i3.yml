@@ -70,6 +70,7 @@
   copy:
     src: templates/i3-config/picom/
     dest: "{{ home_dir }}/.config/picom"
+    mode: +x
 
 # For brightness control
 - name: Install light

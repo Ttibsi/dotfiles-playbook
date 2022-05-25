@@ -205,6 +205,9 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # Set wallpaper
 exec_always --no-startup-id feh --randomize --bg-fill $HOME/.wallpapers/*
 
+# Picom
+exec --no-startup-id picom -b
+
 # i3-gaps
 #https://i3wm.org/docs/userguide.html#_changing_colors
 client.focused #ffffff #285577 #ffffff #2e9ef4 #ffffff
