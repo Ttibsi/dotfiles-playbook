@@ -199,22 +199,19 @@ mode "$mode_system" {
 
 bindsym $mod+BackSpace mode "$mode_system"
 
+# Polybar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
 # Set wallpaper
-exec --no-startup-id feh --randomize --bg-fill $HOME/.wallpapers/*
+exec_always --no-startup-id feh --randomize --bg-fill $HOME/.wallpapers/*
 
 # i3-gaps
 #https://i3wm.org/docs/userguide.html#_changing_colors
-client.focused #ffffff  #282a36 #ffffff #2e9ef4 #00ffff
-client.unfocused #333333 #282a36 #888888 #292d2e #00b5b5
+client.focused #ffffff #285577 #ffffff #2e9ef4 #ffffff
+client.unfocused #333333 #222222 #888888 #292d2e #aaaaaa
 
-#TODO: Enable when Gaps is supported
-#smart_gaps on
-#smart_borders on
-#gaps inner 15
-#gaps outer 5
-
-# Polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+smart_borders on
+gaps inner 7 
 
 # Picom
 exec_always --no-startup-id picom & 
