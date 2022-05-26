@@ -56,14 +56,14 @@ local function custom_commands()
 	vim.keymap.set("n", "Tn", ":tabnext<CR>", {})
 	vim.keymap.set("n", "Tp", ":tabprev<CR>", {})
 
-    -- Splits
-    vim.keymap.set('n', '<leader>s', ':new<CR>')
-    vim.keymap.set('n', '<leader>v', ':vnew<CR>')
+	-- Splits
+	vim.keymap.set("n", "<leader>s", ":new<CR>")
+	vim.keymap.set("n", "<leader>v", ":vnew<CR>")
 
-    vim.keymap.set('n', '<leader>h', '<C-w>h')
-    vim.keymap.set('n', '<leader>j', '<C-w>j')
-    vim.keymap.set('n', '<leader>k', '<C-w>k')
-    vim.keymap.set('n', '<leader>l', '<C-w>l')
+	vim.keymap.set("n", "<leader>h", "<C-w>h")
+	vim.keymap.set("n", "<leader>j", "<C-w>j")
+	vim.keymap.set("n", "<leader>k", "<C-w>k")
+	vim.keymap.set("n", "<leader>l", "<C-w>l")
 end
 
 -- Import files for plugin configs

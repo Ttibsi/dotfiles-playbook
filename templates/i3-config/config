@@ -199,6 +199,9 @@ mode "$mode_system" {
 
 bindsym $mod+BackSpace mode "$mode_system"
 
+bindsym $mod+p exec flameshot gui 
+bindsym $mod+shift+p exec flameshot screen -c
+
 # Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 

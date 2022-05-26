@@ -42,16 +42,18 @@ ansible-galaxy install -r requirements.yml
 
 ansible-playbook -K main.yml
 
+echo -e "\n----- Removing ansible requirements -----"
 rm -rf $HOME/.ansible
 
 echo -e "\n------Mounting NAS------"
 sudo apt install nfs-common
 echo "192.168.0.24:/export/PiShare /mnt/PiShare nfs defaults 0 0" | sudo tee /etc/fstab -a
 
+echo -e "\n----- Cleaning up apt -----"
 sudo apt autoclean -y
 sudo apt autoremove -y
 
-echo -e "\n\nCopying SHH pub key to clipboard"
+echo -e "\n----- Copying SHH pub key to clipboard -----"
 cat "$SSH_DIR/id_rsa.pub" | xclip -selection c
 echo Add to account here: https://github.com/settings/keys
 
