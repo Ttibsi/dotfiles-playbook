@@ -18,8 +18,12 @@
 
 - name: Distribute i3 config
   copy:
-    src: templates/i3-config/config
+    src: "templates/i3-config/{{ item }}"
     dest: "{{ home_dir }}/.config/i3/"
+  with_items:
+    - config
+    - i3lock.sh
+
 
 # For managing wallpapers in i3/config
 - name: Install feh

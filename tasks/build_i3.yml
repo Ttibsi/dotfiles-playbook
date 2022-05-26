@@ -3,6 +3,7 @@
 - name: Install dependancies
   apt:
     name:
+      # i3-gaps
       - meson
       - dh-autoreconf
       - libxcb-keysyms1-dev
@@ -24,6 +25,20 @@
       - libxcb-xrm-dev
       - libxcb-shape0
       - libxcb-shape0-dev
+        # i3lock-color
+      - autoconf
+      - gcc
+      - make
+      - pkg-config
+      - libpam0g-dev
+      - libcairo2-dev
+      - libfontconfig1-dev
+      - libxcb-composite0-dev
+      - libx11-xcb-dev
+      - libxcb-image0-dev
+      - libxcb-util-dev
+      - libxcb-xrm-dev
+      - libjpeg-dev
   become: true
 
 - name: Clone repo
@@ -55,3 +70,17 @@
   args:
     chdir: "{{ home_dir }}/Downloads/i3-gaps/build"
   become: true
+
+- name: i3lock-color clone repo
+  git:
+    clone: true
+    dest: "{{ home_dir }}/Downloads/i3lock-color"
+    force: true
+    repo: https://github.com/Raymo111/i3lock-color.git
+    update: true
+    version: "{{ i3lock_version }}"
+
+- name: i3lock-color run build script
+  script: "{{ home_dir }}/Downloads/i3lock-color/install-i3lock-color.sh"
+  args:
+    chdir: "{{ home_dir }}/Downloads/i3lock-color"

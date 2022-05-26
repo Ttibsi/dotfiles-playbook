@@ -10,6 +10,7 @@
     # These are git tags
     nvim_version: v0.7.0
     lua_lsp_version: 3.0.1
+    i3lock_version: 2.13.c.4
 
   tasks:
     - name: Initial setup
