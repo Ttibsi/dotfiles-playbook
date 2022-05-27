@@ -75,6 +75,13 @@
     mode: +s
   become: true
 
+# https://cravencode.com/post/essentials/enable-tap-to-click-in-i3wm/
+- name: Enable tap-to-click for touchpad
+  copy:
+    src: templates/internal-configs/90-touchpad.conf
+    dest: /etc/X11/xorg.conf.d/
+  become: true
+
 # TESTS
 # relog into i3-gaps
 # Does the wallpaper appear?
