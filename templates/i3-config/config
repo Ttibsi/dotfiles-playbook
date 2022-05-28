@@ -174,28 +174,10 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Custom commands
-bindsym XF86MonBrightnessUp exec light -A 1 # increase screen brightness
-bindsym XF86MonBrightnessDown exec light -U 1 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
 
 exec --no-startup-id gnome-settings-daemon
-
-# shutdown / restart / suspend...
-set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (CTRL+s) shutdown
-
-mode "$mode_system" {
-    bindsym l exec --no-startup-id $i3lockwall, mode "default"
-    bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym s exec --no-startup-id $i3lockwall && systemctl suspend, mode "default"
-    bindsym h exec --no-startup-id $i3lockwall && systemctl hibernate, mode "default"
-    bindsym r exec --no-startup-id systemctl reboot, mode "default"
-    bindsym Ctrl+s exec --no-startup-id systemctl poweroff -i, mode "default"
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-bindsym $mod+BackSpace mode "$mode_system"
 
 bindsym $mod+m exec $HOME/.config/i3/i3lock.sh
 bindsym $mod+p exec flameshot gui 
