@@ -198,7 +198,7 @@ client.focused #ffffff #285577 #ffffff #2e9ef4 #ffffff
 client.unfocused #333333 #222222 #888888 #292d2e #aaaaaa
 
 smart_borders on
-gaps inner 7 
+gaps inner 7
 
 # Picom
 exec_always --no-startup-id picom & 

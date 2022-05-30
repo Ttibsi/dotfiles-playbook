@@ -63,6 +63,12 @@
     dest: "{{ home_dir }}/.config/picom"
     mode: +x
 
+- name: Distribute dunstrc
+  copy:
+    src: templates/i3-config/dunst/
+    dest: "{{ home_dir }}/.config/dunst"
+    mode: +x
+
 # For brightness control
 - name: Install light
   apt:
