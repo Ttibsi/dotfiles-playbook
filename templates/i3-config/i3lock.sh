@@ -4,7 +4,7 @@
 WHITE='#ffffffff'
 LOCK_COL='#77777766'
 WRONG='#88000000'
-RAND_IMAGE=$(find ~/.wallpapers -name "*.jpg" | shuf n1)
+RAND_IMAGE=$(find ~/.wallpapers -name "*.jpg" | shuf | head -n 1)
 
 i3lock \
 --image=$RAND_IMAGE                            \
@@ -46,3 +46,7 @@ i3lock \
 --greeteroutline-color=$WHITE                  \
 --greeter-font="DroidSansMono Nerd Font Mono"  \
 --greeter-pos=w/2:h/2+130
+
+sleep 5m
+i3-msg exit
+
