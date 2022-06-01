@@ -35,4 +35,5 @@ This dev environment is mostly built around i3-gaps and polybar, with the latest
     - Alacritty because I'm currently using a build that someone else has compiled, and I'd rather have my own control over it
  
  - I want to add a way to specify which ricing theme to use out of multiple, potentially concatenating to various config files using bash scripts run after the playbook in the main dotfiles 
- - I may also convert over to awesomewm, which I have started to experiment with in the `awesome` branch.
+
+ - There are also a few minor things in the environment that need tweaks, such as using icons on the wifi section of polybar, and tweaking the appearance of the dunst notifications 
