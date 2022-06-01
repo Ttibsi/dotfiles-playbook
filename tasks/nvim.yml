@@ -16,17 +16,17 @@
       - curl
       - doxygen
       # For clipboard manupulation
-      - xclip 
+      - xclip
     state: latest
   become: true
 
 - name: Clone repo
   git:
-    clone: yes
+    clone: true
     dest: "{{ home_dir }}/Downloads/nvim"
-    force: yes
+    force: true
     repo: https://github.com/neovim/neovim.git
-    update: yes
+    update: true
     version: "{{ nvim_version }}"
   register: clone
 
@@ -53,15 +53,15 @@
 
 - name: Install paq package manager
   git:
-    clone: yes
+    clone: true
     repo: https://github.com/savq/paq-nvim.git
     dest: "{{ home_dir }}/.local/share/nvim/site/pack/paqs/start/paq-nvim/"
-    force: yes
-    update: yes
+    force: true
+    update: true
 
 - name: Install plugin dependencies
   apt:
-    name: 
+    name:
       # gcc for Treesitter
       - gcc
       - build-essential

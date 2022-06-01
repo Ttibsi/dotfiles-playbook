@@ -3,7 +3,7 @@
 - name: PythonLSP - pyright
   community.general.npm:
     name: pyright
-    global: yes
+    global: true
   become: true
 
 - name: luaLSP - Sumneko - Create directory

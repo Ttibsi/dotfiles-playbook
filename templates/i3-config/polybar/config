@@ -3,8 +3,8 @@ include-file = ~/.config/polybar/colors.ini
 
 [bar/my_bar]
 width = 100%
-height = 40pt
-radius = 18
+height = 50pt
+radius = 22
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -18,7 +18,7 @@ border-size = 10pt
 separator = |
 separator-foreground = ${colors.foreground}
 
-font-0 = DroidSansMono Nerd Font Mono:style=Book;2
+font-0 = DroidSansMono Nerd Font Mono:style=Book:size=14;2
 
 modules-left = xworkspaces
 modules-center = time date

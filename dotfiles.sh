@@ -12,6 +12,9 @@ sudo dpkg --configure --pending
 sudo apt-get update 
 sudo apt-get upgrade -y
 
+echo -e "\nShow Percentage in top bar"
+gsettings set org.gnome.desktop.interface show-battery-percentage true
+
 # Check if ansible is installed
 if ! [ -x "$(command -v ansible)" ]; then
     echo -e  "\n----- Installing ansible -----"
@@ -39,16 +42,22 @@ ansible-galaxy install -r requirements.yml
 
 ansible-playbook -K main.yml
 
+echo -e "\n----- Removing ansible requirements -----"
 rm -rf $HOME/.ansible
 
 echo -e "\n------Mounting NAS------"
 sudo apt install nfs-common
 echo "192.168.0.24:/export/PiShare /mnt/PiShare nfs defaults 0 0" | sudo tee /etc/fstab -a
 
-echo -e "\n------Copying SHH pub key to clipboard------"
+echo -e "\n----- Cleaning up apt -----"
+sudo apt autoclean -y
+sudo apt autoremove -y
+
+echo -e "\n----- Copying SHH pub key to clipboard -----"
 cat "$SSH_DIR/id_rsa.pub" | xclip -selection c
 echo Add to account here: https://github.com/settings/keys
 
 echo -e "\n---------------\n"
 
-echo -e "Provision complete"
+echo -e "Provisioning complete"
+echo -e "Reboot the system now"

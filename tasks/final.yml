@@ -1,11 +1,5 @@
 ---
 
-- name: apt clean and remove
-  apt:
-    autoclean: yes
-    autoremove: yes
-  become: true
-
 - name: Remove files from $HOME
   file:
     path: "{{ home_dir }}/{{item}}"
@@ -23,4 +17,3 @@
   with_items:
     - absent
     - directory
-

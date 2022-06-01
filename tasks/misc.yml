@@ -25,6 +25,22 @@
     name: neofetch
   become: true
 
+- name: Pipes
+  block:
+    - name: clone repo
+      git:
+        clone: true
+        dest: "{{ home_dir }}/Downloads/pipes"
+        force: true
+        repo: https://github.com/pipeseroni/pipes.sh.git
+        update: true
+
+    - name: Install pipes
+      make:
+        target: install
+        chdir: "{{ home_dir }}/Downloads/pipes"
+      become: true
+
 - name: Powertop
   apt:
     name: powertop

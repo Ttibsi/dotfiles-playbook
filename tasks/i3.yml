@@ -1,10 +1,11 @@
 ---
 #TODO: Find better wallpaper?
 
-- name: Download wallpaper
-  get_url:
-    url: "{{ wallpaper_url }}"
-    dest: "{{ home_dir }}/Workspace/wallpaper.jpg"
+- name: Download wallpaper directory
+  git:
+    clone: true
+    repo: https://gitlab.com/dwt1/wallpapers.git
+    dest: "{{ home_dir }}/.wallpapers"
 
 # Apparently it's better to overwrite standard i3 to avoid errors
 - name: Install i3
@@ -12,23 +13,17 @@
     name: i3
   become: true
 
-#TODO: Enable when gaps is supported
-- name: Add regolith linux PPA
-  apt_repository:
-    repo: "ppa:regolith-linux/release"
-  become: true
-  when: ansible_facts['distribution_version'] == '21.10'
-
-- name: Install i3-gaps
-  apt:
-    name: i3-gaps
-  become: true
-  when: ansible_facts['distribution_version'] == '21.10'
+- name: Build i3-gaps
+  include_tasks: build_i3.yml
 
 - name: Distribute i3 config
   copy:
-    src: templates/i3-config/config
+    src: "templates/i3-config/{{ item }}"
     dest: "{{ home_dir }}/.config/i3/"
+  with_items:
+    - config
+    - i3lock.sh
+
 
 # For managing wallpapers in i3/config
 - name: Install feh
@@ -66,6 +61,13 @@
   copy:
     src: templates/i3-config/picom/
     dest: "{{ home_dir }}/.config/picom"
+    mode: +x
+
+- name: Distribute dunstrc
+  copy:
+    src: templates/i3-config/dunst/
+    dest: "{{ home_dir }}/.config/dunst"
+    mode: +x
 
 # For brightness control
 - name: Install light
@@ -77,6 +79,13 @@
   file:
     path: /usr/bin/light
     mode: +s
+  become: true
+
+# https://cravencode.com/post/essentials/enable-tap-to-click-in-i3wm/
+- name: Enable tap-to-click for touchpad
+  copy:
+    src: templates/internal-configs/90-touchpad.conf
+    dest: /etc/X11/xorg.conf.d/
   become: true
 
 # TESTS
