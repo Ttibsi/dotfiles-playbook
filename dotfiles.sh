@@ -46,7 +46,7 @@ echo -e "\n----- Removing ansible requirements -----"
 rm -rf $HOME/.ansible
 
 echo -e "\n------Mounting NAS------"
-sudo apt install nfs-common
+sudo apt install nfs-common -y
 echo "192.168.0.24:/export/PiShare /mnt/PiShare nfs defaults 0 0" | sudo tee /etc/fstab -a
 
 echo -e "\n----- Cleaning up apt -----"
