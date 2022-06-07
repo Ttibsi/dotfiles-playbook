@@ -4,7 +4,7 @@ This is an Ansible playbook to install and configure Debian-based systems using 
 
 If you choose to use this playbook, I'd recommend looking through the templates folder and picking and choosing configs you want to emulate yourself, as certain parts are keyed to me (such as the gitconfig) as opposed to running this wholesale. 
 
-<Screenshot here>
+![Main screenshot](https://user-images.githubusercontent.com/60970073/172371773-d3e91b4c-21ec-4dde-b2bd-fe1eab7914e8.png)
 
 ### What's included here
 
