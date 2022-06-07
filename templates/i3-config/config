@@ -5,7 +5,7 @@ set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font DroidSansMono Nerd Font Mono:monospace 14 
+font DroidSansMono Nerd Font Mono:book 14 
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -177,6 +177,9 @@ bindsym $mod+m exec $HOME/.config/i3/i3lock.sh
 bindsym $mod+p exec flameshot gui 
 bindsym $mod+shift+p exec flameshot screen -c
 
+# Launch on startup
+exec --no-startup-id flameshot
+
 # Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
@@ -188,15 +191,10 @@ exec --no-startup-id picom -b
 
 # i3-gaps
 #https://i3wm.org/docs/userguide.html#_changing_colors
+default_border pixel 1
 client.focused #ffffff #285577 #ffffff #2e9ef4 #ffffff
 client.unfocused #333333 #222222 #888888 #292d2e #aaaaaa
 
 smart_borders on
 gaps inner 7
 
-# Picom
-exec_always --no-startup-id picom & 
-
-# Launch on startup
-exec flameshot
-bindsym $mod+p exec flameshot gui
