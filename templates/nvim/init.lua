@@ -47,11 +47,11 @@ local function custom_commands()
 	vim.api.nvim_create_user_command("Q", "q", {})
 	vim.api.nvim_create_user_command("Wq", "wq", {})
 
-	-- Copy and paste
+	-- Copy and Paste
 	vim.keymap.set("v", "<C-c>", ":'<, '>y +<CR>", {})
 	vim.keymap.set("n", "<leader>p", ":put+<CR>", {})
 
-	-- tabs
+	-- Tabs
 	vim.keymap.set("n", "Tt", ":tabnew<CR>", {})
 	vim.keymap.set("n", "Tn", ":tabnext<CR>", {})
 	vim.keymap.set("n", "Tp", ":tabprev<CR>", {})
@@ -64,6 +64,9 @@ local function custom_commands()
 	vim.keymap.set("n", "<leader>j", "<C-w>j")
 	vim.keymap.set("n", "<leader>k", "<C-w>k")
 	vim.keymap.set("n", "<leader>l", "<C-w>l")
+
+	-- Navigation
+	vim.keymap.set("n", "<leader>e", ":Ex<CR>")
 end
 
 -- Import files for plugin configs
