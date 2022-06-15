@@ -2,6 +2,7 @@ local function init()
 	require("nvim-treesitter.configs").setup({
 		ensure_installed = {
 			"bash",
+			"go",
 			"json",
 			"lua",
 			"python",

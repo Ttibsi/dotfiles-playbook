@@ -169,6 +169,12 @@ local function init()
 			},
 		},
 	})
+
+	-- golang
+	require("lspconfig").gopls.setup({
+		on_attach = on_attach,
+		capabilities = capabilities,
+	})
 end
 
 return {
