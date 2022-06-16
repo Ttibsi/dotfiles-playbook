@@ -23,3 +23,11 @@
     dest: "{{ home_dir }}/.opt/lua-language-server"
     mode: 0755
   become: true
+
+- name: Gopls - Install
+  shell: go install golang.org/x/tools/gopls@latest
+
+- name: Move Go directory
+  copy:
+    src: "{{ home_dir }}/go"
+    dest: "{{ home_dir }}/.go"
