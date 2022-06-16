@@ -1,0 +1,12 @@
+---
+
+- name: Download Go
+  get_url:
+    url: "https://go.dev/dl/go{{ go_version }}.linux-amd64.tar.gz"
+    dest: "{{ home_dir }}/Downloads/go.tar.gz"
+
+- name: Install Go
+  unarchive:
+    src: "{{ home_dir }}/Downloads/go.tar.gz"
+    dest: "/usr/local/"
+  become: True
