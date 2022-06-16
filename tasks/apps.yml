@@ -1,16 +1,10 @@
 ---
 
-- name: Download Alacritty from apt
+# TODO: Ubuntu Jammy here uses Snap, I think
+- name: Install Alacritty
   apt:
     name: alacritty
   become: true
-  when: not (ansible_facts['distribution'] == 'Ubuntu') and not (ansible_facts['distribution_release'] == 'jammy')
-
-- name: Download Alacritty .deb
-  apt:
-    deb: https://github.com/barnumbirr/alacritty-debian/releases/download/v0.10.1-1/alacritty_0.10.1-1_amd64_bullseye.deb
-  become: true
-  when: (ansible_facts['distribution'] == 'Ubuntu') and (ansible_facts['distribution_release'] == 'jammy')
 
 - name: Move config file
   copy:
