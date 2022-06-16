@@ -10,3 +10,6 @@
     src: "{{ home_dir }}/Downloads/go.tar.gz"
     dest: "/usr/local/"
   become: True
+
+# Tests
+# Run `go version`

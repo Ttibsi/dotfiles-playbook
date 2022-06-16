@@ -90,3 +90,4 @@
 # Verify paq install by running :PaqList
 # Check if treesitter is installing when you first open nvim
 # Verify files have been copied to `~/.config/nvim`
+# Run :LspInfo to check if all LSPs are working and open files of each type

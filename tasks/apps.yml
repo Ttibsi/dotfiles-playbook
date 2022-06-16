@@ -8,7 +8,7 @@
 
 - name: Download Alacritty .deb
   apt:
-      deb: https://github.com/barnumbirr/alacritty-debian/releases/download/v0.10.1-1/alacritty_0.10.1-1_amd64_bullseye.deb
+    deb: https://github.com/barnumbirr/alacritty-debian/releases/download/v0.10.1-1/alacritty_0.10.1-1_amd64_bullseye.deb
   become: true
   when: (ansible_facts['distribution'] == 'Ubuntu') and (ansible_facts['distribution_release'] == 'jammy')
 

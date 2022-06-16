@@ -26,3 +26,8 @@
 
 - name: Gopls - Install
   shell: go install golang.org/x/tools/gopls@latest
+
+- name: Move directory
+  copy:
+    src: "{{ home_dir }}/go"
+    dest: "{{ home_dir }}/.go"
