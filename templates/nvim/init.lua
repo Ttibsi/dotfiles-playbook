@@ -48,7 +48,7 @@ local function custom_commands()
 	vim.api.nvim_create_user_command("Wq", "wq", {})
 
 	-- Copy and Paste
-	vim.keymap.set("v", "<C-c>", ":'<, '>y +<CR>", {})
+	vim.keymap.set("v", "<leader>c", ":'<, '>y +<CR>", {})
 	vim.keymap.set("n", "<leader>p", ":put+<CR>", {})
 
 	-- Tabs
