@@ -24,10 +24,11 @@
     mode: 0755
   become: true
 
-- name: Gopls - Install
-  shell: go install golang.org/x/tools/gopls@latest
+# TODO: This doesn't work - i think because go is installed in the same process
+#- name: Gopls - Install
+#  shell: go install golang.org/x/tools/gopls@latest
 
-- name: Move Go directory
-  copy:
-    src: "{{ home_dir }}/go"
-    dest: "{{ home_dir }}/.go"
+#- name: Move Go directory
+#  copy:
+  #    src: "{{ home_dir }}/go"
+  #    dest: "{{ home_dir }}/.go"
