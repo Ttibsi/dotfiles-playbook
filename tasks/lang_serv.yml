@@ -24,8 +24,9 @@
     mode: 0755
   become: true
 
-- name: Gopls - Install
-  shell: go install golang.org/x/tools/gopls@latest
+# TODO: This crashes i think because go is installed in the same script/process
+#- name: Gopls - Install
+#  shell: go install golang.org/x/tools/gopls@latest
 
 - name: Move Go directory
   copy:
