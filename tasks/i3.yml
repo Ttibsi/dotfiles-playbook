@@ -1,5 +1,4 @@
 ---
-#TODO: Find better wallpaper?
 
 - name: Download wallpaper directory
   git:
@@ -23,7 +22,6 @@
   with_items:
     - config
     - i3lock.sh
-
 
 # For managing wallpapers in i3/config
 - name: Install feh

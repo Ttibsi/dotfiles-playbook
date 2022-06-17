@@ -27,7 +27,7 @@
 
 - name: Pipes
   block:
-    - name: clone repo
+    - name: Clone Pipes repo
       git:
         clone: true
         dest: "{{ home_dir }}/Downloads/pipes"

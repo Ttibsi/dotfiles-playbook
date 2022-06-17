@@ -2,15 +2,14 @@
 
 - hosts: localhost
   vars:
-    discord_version: 0.0.17
-    geekbench_version: 5.4.4
+    discord_version: 0.0.18
+    geekbench_version: 5.4.5
     go_version: 1.18.3
     home_dir: "{{ lookup('env', 'HOME') }}"
-    wallpaper_url: https://preview.redd.it/nlseh8bcvfq81.jpg?width=3840&format=pjpg&auto=webp&s=dda5aba0c1e750d717c7fa90a2355aeafc027861
 
     # These are git tags
     nvim_version: v0.7.0
-    lua_lsp_version: 3.2.5
+    lua_lsp_version: 3.3.0
     i3lock_version: 2.13.c.4
 
   tasks:
