@@ -86,6 +86,8 @@ local function call_plugins()
 		"lukas-reineke/indent-blankline.nvim",
 		"nvim-lualine/lualine.nvim",
 
+		"numToStr/Comment.nvim",
+
 		{ "decaycs/decay.nvim", as = "decay" },
 	})
 
@@ -94,6 +96,8 @@ local function call_plugins()
 		nvim_tree = { contrast = true },
 	})
 
+	-- Background Translucency
+	-- This has to be set after the colourscheme
 	vim.api.nvim_set_hl(0, "Normal", {})
 	vim.api.nvim_set_hl(0, "NonText", {})
 
@@ -102,6 +106,8 @@ local function call_plugins()
 	require("treesitter_config").init()
 	require("indent_blankline_config").init()
 	require("lualine_config").init()
+
+	require("Comment").setup()
 end
 
 local function init()

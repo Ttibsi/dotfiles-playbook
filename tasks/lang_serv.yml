@@ -25,6 +25,7 @@
   become: true
 
 # TODO: This doesn't work - i think because go is installed in the same process
+# I also don't think that the second block is needed
 #- name: Gopls - Install
 #  shell: go install golang.org/x/tools/gopls@latest
 
