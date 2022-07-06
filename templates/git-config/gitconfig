@@ -8,3 +8,5 @@
     HEAD = push origin HEAD
 [core]
     editor = nvim
+[init]
+    defaultBranch = main
