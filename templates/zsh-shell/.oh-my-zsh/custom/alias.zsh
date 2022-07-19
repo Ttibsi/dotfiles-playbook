@@ -1,6 +1,7 @@
 #Terminal 
 alias la="ls -Alh"
 alias which_term="ps -aux | grep `ps -p $$ -o ppid=`"
+alias vim="nvim"
 
 #Git 
 alias gbl="git branch --list"
@@ -13,5 +14,5 @@ alias gph="git push origin HEAD"
 # Other
 alias bt-airpods="bluetoothctl pair 5C:52:30:E2:F8:D1"
 alias bt-crushers="bluetoothctl pair 38:F3:2E:76:47:5E"
-alias btm="btm --color=nord --battery"
+alias btm="btm --battery"
 alias stats="ghstats -u ttibsi"
