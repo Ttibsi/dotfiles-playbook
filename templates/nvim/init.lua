@@ -5,10 +5,15 @@
 local function basic_config()
 	local settings = {
 		background = dark,
+		encoding = "utf-8",
+		hlsearch = false,
+		wrap = false,
 
 		expandtab = true,
 		smartindent = true,
 		scrolloff = 5,
+		shiftwidth = 4,
+		tabstop = 4,
 
 		number = true,
 		ruler = true,
@@ -30,12 +35,8 @@ local function basic_config()
 		vim.opt[key] = value
 	end
 
-	-- not in vim.o
-	vim.cmd("set encoding=utf-8")
+	-- not in vim.o - do :h option-list
 	vim.cmd("set nocompatible")
-	vim.cmd("set nowrap")
-	vim.cmd("set tabstop=4")
-	vim.cmd("set shiftwidth=4")
 
 	-- set leader
 	vim.g.mapleader = "'"

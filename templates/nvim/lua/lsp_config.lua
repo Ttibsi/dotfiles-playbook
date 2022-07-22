@@ -80,7 +80,7 @@ local on_attach = function(client, bufnr, opts)
 	vim.api.nvim_buf_set_keymap(
 		bufnr,
 		"n",
-		"<leader>C",
+		"<leader>c",
 		"<cmd>lua vim.lsp.buf.code_action()<CR>",
 		opts
 	)
