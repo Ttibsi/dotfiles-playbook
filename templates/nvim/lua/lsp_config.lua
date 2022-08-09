@@ -180,7 +180,13 @@ local function init()
 	require("lspconfig").clangd.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
-		cmd = { "clangd", "-std=c++17" },
+	})
+
+	--cmake
+	--pip install cmake-language-server
+	require("lspconfig").cmake.setup({
+		on_attach = on_attach,
+		capabilities = capabilities,
 	})
 end
 
