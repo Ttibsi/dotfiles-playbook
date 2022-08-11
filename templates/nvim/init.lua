@@ -88,6 +88,7 @@ local function call_plugins()
 		"nvim-lualine/lualine.nvim",
 
 		"numToStr/Comment.nvim",
+		"ellisonleao/glow.nvim",
 
 		{ "decaycs/decay.nvim", as = "decay" },
 	})
