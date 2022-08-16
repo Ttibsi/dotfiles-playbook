@@ -89,12 +89,18 @@ local function call_plugins()
 
 		"numToStr/Comment.nvim",
 		"ellisonleao/glow.nvim",
+		"ttibsi/pre-commit.nvim",
 
 		{ "decaycs/decay.nvim", as = "decay" },
+		{ "Everblush/everblush.nvim", as = "everblush" },
 	})
 
 	-- colourscheme
-	require("decay").setup({
+	--require("decay").setup({
+	--	nvim_tree = { contrast = true },
+	--})
+
+	require("everblush").setup({
 		nvim_tree = { contrast = true },
 	})
 
