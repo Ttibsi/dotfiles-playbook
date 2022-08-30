@@ -90,6 +90,7 @@ local function call_plugins()
 		"numToStr/Comment.nvim",
 		"ellisonleao/glow.nvim",
 		"ttibsi/pre-commit.nvim",
+		"Djancyp/better-comments.nvim",
 
 		{ "decaycs/decay.nvim", as = "decay" },
 		{ "Everblush/everblush.nvim", as = "everblush" },
@@ -116,6 +117,7 @@ local function call_plugins()
 	require("lualine_config").init()
 
 	require("Comment").setup()
+	require("better-comment").Setup()
 end
 
 local function init()
