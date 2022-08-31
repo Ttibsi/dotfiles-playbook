@@ -2,6 +2,8 @@
 # TODO: Build from source
 # https://ubuntuhandbook.org/index.php/2022/04/install-firefox-deb-ubuntu-22-04/
 
+# TODO: If we only target popOS instead of Ubuntu as well, we can remove most
+# of these
 - name: Remove snap Firefox
   community.general.snap:
     name: firefox
