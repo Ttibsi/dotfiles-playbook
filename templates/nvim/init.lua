@@ -92,6 +92,7 @@ local function call_plugins()
 		"saadparwaiz1/cmp_luasnip",
 
 		{ "nvim-treesitter/nvim-treesitter", run = TSUpdate },
+		"nvim-treesitter/nvim-treesitter-context",
 		"lukas-reineke/indent-blankline.nvim",
 		"nvim-lualine/lualine.nvim",
 
