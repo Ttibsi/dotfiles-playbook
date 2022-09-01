@@ -40,6 +40,10 @@ local function basic_config()
 
 	-- set leader
 	vim.g.mapleader = "'"
+
+	-- Global variables
+	vim.g.netrw_banner = 0
+	vim.g.netrw_winsize = 25
 end
 
 -- Set basic commands
