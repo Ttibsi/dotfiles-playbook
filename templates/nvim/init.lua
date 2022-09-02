@@ -72,6 +72,7 @@ local function custom_commands()
 
 	-- Navigation
 	vim.keymap.set("n", "<leader>e", ":Ex<CR>")
+	vim.keymap.set("n", "a", "$")
 
 	-- Move selected lines up/down
 	vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
