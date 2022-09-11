@@ -120,6 +120,7 @@ local function call_plugins()
     require('everblush').setup({
         override = {
             LineNr = { fg = colors.normal },
+            CursorLineNr = { fg = colors.normal },
             TSComment = { fg = colors.color7 },
         }
     })
