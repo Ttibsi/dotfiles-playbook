@@ -111,14 +111,18 @@ local function call_plugins()
 	--	nvim_tree = { contrast = true },
 	--})
 
-	require("everblush").setup({
-		nvim_tree = { contrast = true },
-	})
-
 	-- Background Translucency
 	-- This has to be set after the colourscheme
-	vim.api.nvim_set_hl(0, "Normal", {})
-	vim.api.nvim_set_hl(0, "NonText", {})
+	--vim.api.nvim_set_hl(0, "Normal", {})
+	--vim.api.nvim_set_hl(0, "NonText", {})
+
+    local colors = require('everblush.core').get_colors()
+    require('everblush').setup({
+        override = {
+            LineNr = { fg = colors.normal },
+            TSComment = { fg = colors.color7 },
+        }
+    })
 
 	require("lsp_config").init()
 	require("cmp_config").init()
