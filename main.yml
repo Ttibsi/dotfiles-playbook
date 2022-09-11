@@ -5,7 +5,7 @@
   vars:
     discord_version: 0.0.19
     geekbench_version: 5.4.5
-    go_version: 1.19.0
+    go_version: 1.19.1
     home_dir: "{{ lookup('env', 'HOME') }}"
 
     # These are git tags
