@@ -142,6 +142,8 @@ local function init()
 	})
 
 	-- lua
+	-- local sumneko_root_path = "/usr/local/Cellar/lua-language-server/3.5.5/libexec"
+	-- local sumneko_binary = "/usr/local/Cellar/lua-language-server/3.5.5/bin/lua-language-server"
 	local sumneko_root_path = vim.fn.expand("$HOME")
 		.. "/.opt/lua-language-server"
 	local sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
@@ -185,6 +187,12 @@ local function init()
 	--cmake
 	--pip install cmake-language-server
 	require("lspconfig").cmake.setup({
+		on_attach = on_attach,
+		capabilities = capabilities,
+	})
+
+	-- Docker
+	require("lspconfig").dockerls.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
 	})

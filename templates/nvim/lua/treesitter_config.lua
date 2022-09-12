@@ -3,6 +3,7 @@ local function init()
 		ensure_installed = {
 			"bash",
 			"cpp",
+			"dockerfile",
 			"go",
 			"json",
 			"lua",
