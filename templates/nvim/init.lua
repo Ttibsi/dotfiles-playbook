@@ -61,6 +61,10 @@ local function custom_commands()
 	vim.keymap.set("n", "Tn", ":tabnext<CR>", {})
 	vim.keymap.set("n", "Tp", ":tabprev<CR>", {})
 
+	vim.keymap.set("n", "<leader>t", ":tabnew<CR>", {})
+	vim.keymap.set("n", "<leader>n", ":tabnext<CR>", {})
+	vim.keymap.set("n", "<leader>N", ":tabprev<CR>", {})
+
 	-- Splits
 	vim.keymap.set("n", "<leader>s", ":new<CR>")
 	vim.keymap.set("n", "<leader>v", ":vnew<CR>")
@@ -116,14 +120,14 @@ local function call_plugins()
 	--vim.api.nvim_set_hl(0, "Normal", {})
 	--vim.api.nvim_set_hl(0, "NonText", {})
 
-    local colors = require('everblush.core').get_colors()
-    require('everblush').setup({
-        override = {
-            LineNr = { fg = colors.normal },
-            CursorLineNr = { fg = colors.normal },
-            TSComment = { fg = colors.color7 },
-        }
-    })
+	local colors = require("everblush.core").get_colors()
+	require("everblush").setup({
+		override = {
+			LineNr = { fg = colors.normal },
+			CursorLineNr = { fg = colors.normal },
+			TSComment = { fg = colors.color7 },
+		},
+	})
 
 	require("lsp_config").init()
 	require("cmp_config").init()
