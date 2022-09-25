@@ -27,10 +27,10 @@
   become: true
 
 # /usr/share/discord/
-- name: Install Discord
-  apt:
-    deb: 'https://dl.discordapp.net/apps/linux/{{ discord_version }}/discord-{{ discord_version }}.deb'
-  become: true
+- name: Install Discord flatpak
+  community.general.flatpak:
+    name: com.discordapp.Discord
+    state: present
 
 - name: Install firefox
   include_tasks: build_firefox.yml
