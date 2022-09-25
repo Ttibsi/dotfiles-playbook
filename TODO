@@ -1,0 +1,12 @@
+[x] Remove geekbench
+[x] Double check how Firefox & discord installs
+    [x] apt install Firefox
+    [x] flatpak install discord
+[x] Remove Ubuntu checks
+[x] Check to remove go if installed before running go.yml
+[ ] Replace file moves with symlinks
+[ ] Install and copy tmux conf 
+[ ] Replace Gnome-Boxes with virtmanager
+[ ] Update README
+[ ] Update versions
+[ ] Check default terminal
