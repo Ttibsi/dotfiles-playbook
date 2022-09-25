@@ -40,19 +40,6 @@
     name: flameshot
   become: true
 
-- name: Download Geekbench
-  get_url:
-    url: "https://cdn.geekbench.com/Geekbench-{{geekbench_version}}-Linux.tar.gz"
-    dest: "{{ home_dir }}/Downloads/Geekbench-{{geekbench_version}}-Linux.tar.gz"
-    mode: 0755
-
-- name: Install Geekbench
-  unarchive:
-    src: "{{ home_dir }}/Downloads/Geekbench-{{geekbench_version}}-Linux.tar.gz"
-    dest: "{{ home_dir }}/Applications/"
-    mode: 0755
-  become: true
-
 - name: Install gnome-boxes
   apt:
     name: gnome-boxes
