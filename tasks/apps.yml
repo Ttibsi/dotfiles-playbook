@@ -7,9 +7,10 @@
   become: true
 
 - name: Move config file
-  copy:
-    src: templates/alacritty-config/alacritty.yml
+  file:
+    src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/alacritty-config/alacritty.yml" 
     dest: "{{ home_dir }}/.config/alacritty/alacritty.yml"
+    state: link
 
 - name: Add appimagelauncher PPA
   apt_repository:

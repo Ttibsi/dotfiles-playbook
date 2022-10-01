@@ -33,6 +33,12 @@
 - name: reload fonts
   command: fc-cache -f -v
 
+- name: Clone this repo to correct location
+  git:
+    repo: git@github.com:Ttibsi/dotfiles-playbook.git
+    dest: "{{ home_dir }}/Workspace/dotfiles-playbook"
+    version: master
+
 # Tests:
 # Check folders exist manually using ls
 # `fc-list | grep "Droid"
