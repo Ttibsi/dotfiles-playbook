@@ -1,11 +1,11 @@
 ---
 repos:
   - repo: https://github.com/JohnnyMorganz/StyLua
-    rev: v0.13.1
+    rev: v0.15.1
     hooks:
       - id: stylua-github
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.26.3
+    rev: v1.28.0
     hooks:
       - id: yamllint
         args: ["-d {extends: relaxed, rules: {line-length: disable}}", "-s"]
