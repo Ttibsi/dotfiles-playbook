@@ -53,8 +53,8 @@ local function custom_commands()
 	vim.api.nvim_create_user_command("Wq", "wq", {})
 
 	-- Copy and Paste
-    vim.keymap.set("n", "<leader>y", "\"+y")
-    vim.keymap.set("v", "<leader>y", "\"+y")
+	vim.keymap.set("n", "<leader>y", '"+y')
+	vim.keymap.set("v", "<leader>y", '"+y')
 	vim.keymap.set("n", "<leader>p", ":put+<CR>", {})
 
 	-- Tabs
@@ -117,14 +117,14 @@ local function call_plugins()
 	--vim.api.nvim_set_hl(0, "Normal", {})
 	--vim.api.nvim_set_hl(0, "NonText", {})
 
-    local colors = require('everblush.core').get_colors()
-    require('everblush').setup({
-        override = {
-            LineNr = { fg = colors.normal },
-            CursorLineNr = { fg = colors.normal },
-            TSComment = { fg = colors.color7 },
-        }
-    })
+	local colors = require("everblush.core").get_colors()
+	require("everblush").setup({
+		override = {
+			LineNr = { fg = colors.normal },
+			CursorLineNr = { fg = colors.normal },
+			TSComment = { fg = colors.color7 },
+		},
+	})
 
 	require("lsp_config").init()
 	require("cmp_config").init()

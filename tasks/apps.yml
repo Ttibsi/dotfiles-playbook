@@ -8,7 +8,7 @@
 
 - name: Move config file
   file:
-    src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/alacritty-config/alacritty.yml" 
+    src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/alacritty-config/alacritty.yml"
     dest: "{{ home_dir }}/.config/alacritty/alacritty.yml"
     state: link
 

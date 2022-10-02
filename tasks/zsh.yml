@@ -25,13 +25,13 @@
 # This needs to be after omz install or it'll overwrite it - `.zshrc-pre-oh-my-zsh`
 - name: Distribute zshrc
   file:
-    src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/zsh-shell/zshrc" 
+    src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/zsh-shell/zshrc"
     dest: "{{ home_dir }}/.zshrc"
     state: link
 
 - name: Distribute OMZ
   file:
-    src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/zsh-shell/.oh-my-zsh/" 
+    src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/zsh-shell/.oh-my-zsh/"
     dest: "{{ home_dir }}/.oh-my-zsh/"
     state: link
   when: not zsh_exist.stat.exists
@@ -45,7 +45,7 @@
 
 - name: Distribute p10k config
   file:
-    src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/zsh-shell/p10k.zsh" 
+    src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/zsh-shell/p10k.zsh"
     dest: "{{ home_dir }}/.p10k.zsh"
     state: link
 
