@@ -6,7 +6,7 @@
 [x] Check to remove go if installed before running go.yml
 [x] Replace file moves with symlinks
     [x] Git clone second version of this repo to ~/Workspace/dotfiles-playbook
-[ ] Install and copy tmux conf 
+[x] Install and copy tmux conf 
     [ ] Create new tmux config
 [ ] Replace Gnome-Boxes with virtmanager
 [ ] Update README
