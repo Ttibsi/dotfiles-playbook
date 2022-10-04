@@ -132,6 +132,17 @@ local function defaults()
 	return capabilities
 end
 
+function scandir(directory)
+	local i, t, popen = 0, {}, io.popen
+	local pfile = popen('ls -A "' .. directory .. '"')
+	for filename in pfile:lines() do
+		i = i + 1
+		t[i] = filename
+	end
+	pfile:close()
+	return t
+end
+
 local function init()
 	capabilities = defaults()
 
@@ -142,9 +153,17 @@ local function init()
 	})
 
 	-- lua
-	local sumneko_root_path = vim.fn.expand("$HOME")
-		.. "/.opt/lua-language-server"
-	local sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
+	if vim.loop.os_uname().sysname == "Darwin" then
+		local sumneko_version =
+			scandir("/usr/local/Cellar/lua-language-server")[1]
+		sumneko_root_path = "/usr/local/Cellar/lua-language-server/"
+			.. sumneko_version
+		sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
+	else
+		sumneko_root_path = vim.fn.expand("$HOME")
+			.. "/.opt/lua-language-server"
+		sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
+	end
 
 	require("lspconfig").sumneko_lua.setup({
 		on_attach = on_attach,
