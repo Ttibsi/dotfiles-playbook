@@ -98,6 +98,7 @@ local function call_plugins()
 		"nvim-treesitter/nvim-treesitter-context",
 		"lukas-reineke/indent-blankline.nvim",
 		"nvim-lualine/lualine.nvim",
+        "lewis6991/gitsigns.nvim",
 
 		"numToStr/Comment.nvim",
 		"ellisonleao/glow.nvim",
@@ -113,8 +114,9 @@ local function call_plugins()
     require("theme").init()
 	require("treesitter_config").init()
 
-	require("Comment").setup()
 	require("better-comment").Setup()
+	require("Comment").setup()
+    require('gitsigns').setup()
 end
 
 local function init()
