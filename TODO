@@ -7,7 +7,7 @@
 [x] Replace file moves with symlinks
     [x] Git clone second version of this repo to ~/Workspace/dotfiles-playbook
 [x] Install and copy tmux conf 
-    [ ] Create new tmux config
+    [x] Create new tmux config
 [x] nvim config refactor theming stuff
 [ ] Replace Gnome-Boxes with virtmanager
 [ ] Update README
