@@ -9,7 +9,7 @@
 [x] Install and copy tmux conf 
     [x] Create new tmux config
 [x] nvim config refactor theming stuff
-[ ] Replace Gnome-Boxes with virtmanager
-[ ] Update README
-[ ] Update versions
+[-] Replace Gnome-Boxes with virtmanager
+[x] Update versions
 [ ] Check default terminal
+[ ] Update README
