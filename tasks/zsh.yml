@@ -22,6 +22,11 @@
   become: false
   when: not zsh_exist.stat.exists
 
+- name: Remove default zshrc
+  file:
+    path: "{{ home_dir }}/.zshrc"
+    state: absent
+
 # This needs to be after omz install or it'll overwrite it - `.zshrc-pre-oh-my-zsh`
 - name: Distribute zshrc
   file:

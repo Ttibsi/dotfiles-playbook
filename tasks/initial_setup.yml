@@ -38,7 +38,7 @@
   git:
     repo: https://github.com/Ttibsi/dotfiles-playbook
     dest: "{{ home_dir }}/Workspace/dotfiles-playbook"
-    version: master
+    version: revision
 
 # Tests:
 # Check folders exist manually using ls
