@@ -35,7 +35,7 @@
 
 - name: Clone this repo to correct location
   git:
-    repo: git@github.com:Ttibsi/dotfiles-playbook.git
+    repo: https://github.com/Ttibsi/dotfiles-playbook
     dest: "{{ home_dir }}/Workspace/dotfiles-playbook"
     version: master
 
