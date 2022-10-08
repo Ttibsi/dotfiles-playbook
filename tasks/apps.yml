@@ -1,6 +1,5 @@
 ---
 
-# TODO: Ubuntu Jammy here uses Snap, I think
 - name: Install Alacritty
   apt:
     name: alacritty

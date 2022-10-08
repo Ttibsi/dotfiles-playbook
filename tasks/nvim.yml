@@ -74,9 +74,10 @@
 
 - name: Distribute nvim config
   file:
-    src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/nvim/"
-    dest: "{{ home_dir }}/.config/nvim/"
+    path: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/nvim"
+    dest: "{{ home_dir }}/.config/nvim"
     state: link
+    force: True
 
 - name: Install nvim plugins
   command: nvim --headless -c 'PaqInstall' +q
