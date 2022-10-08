@@ -4,6 +4,7 @@
   file:
     path: "/usr/local/go"
     state: absent
+  become: True
 
 - name: Download Go
   get_url:

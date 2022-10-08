@@ -18,7 +18,7 @@
 - name: Distribute i3 config
   file:
     src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/i3-config/{{ item }}"
-    dest: "{{ home_dir }}/.config/i3/"
+    dest: "{{ home_dir }}/.config/i3/{{ item }}"
     state: link
   with_items:
     - config
@@ -88,7 +88,7 @@
 - name: Enable tap-to-click for touchpad
   file:
     src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/internal-configs/90-touchpad.conf"
-    dest: /etc/X11/xorg.conf.d/
+    dest: /etc/X11/xorg.conf.d/90-touchpad.conf
     state: link
   become: true
 
