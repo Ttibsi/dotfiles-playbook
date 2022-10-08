@@ -28,9 +28,20 @@
 
 # /usr/share/discord/
 - name: Install Discord flatpak
-  community.general.flatpak:
-    name: com.discordapp.Discord
-    state: present
+  block:
+    - name: Install flatpak
+      apt:
+        name: 
+          - flatpak
+          - gnome-software
+          - gnome-software-plugin-flatpak
+      become: True
+
+    - name: Install discord
+      community.general.flatpak:
+        name: com.discordapp.Discord
+        state: present
+      become: True
 
 - name: Install firefox
   include_tasks: build_firefox.yml
