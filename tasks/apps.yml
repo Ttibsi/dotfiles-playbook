@@ -37,11 +37,17 @@
           - gnome-software-plugin-flatpak
       become: True
 
+    - name: Add the flathub flatpak repository remote to the user installation
+      community.general.flatpak_remote:
+        name: flathub
+        state: present
+        flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+      become: True
+
     - name: Install discord
       community.general.flatpak:
         name: com.discordapp.Discord
         state: present
-      become: True
 
 - name: Install firefox
   include_tasks: build_firefox.yml
