@@ -51,6 +51,19 @@
     name: tlp
   become: true
 
+- name: Tmux
+  block:
+    - name: Install Tmux
+      apt:
+        name: tmux
+      become: true
+
+    - name: Copy tmux config
+      file:
+        src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/tmux/tmux.conf"
+        dest: "{{ home_dir }}/.config/tmux/tmux.conf"
+        state: link
+
 - name: Tree
   apt:
     name: tree

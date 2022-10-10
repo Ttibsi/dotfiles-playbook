@@ -1,5 +1,11 @@
 ---
 
+- name: Remove prior Go Install
+  file:
+    path: "/usr/local/go"
+    state: absent
+  become: True
+
 - name: Download Go
   get_url:
     url: "https://go.dev/dl/go{{ go_version }}.linux-amd64.tar.gz"

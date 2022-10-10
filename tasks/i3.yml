@@ -16,9 +16,10 @@
   include_tasks: build_i3.yml
 
 - name: Distribute i3 config
-  copy:
-    src: "templates/i3-config/{{ item }}"
-    dest: "{{ home_dir }}/.config/i3/"
+  file:
+    src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/i3-config/{{ item }}"
+    dest: "{{ home_dir }}/.config/i3/{{ item }}"
+    state: link
   with_items:
     - config
     - i3lock.sh
@@ -35,9 +36,10 @@
   become: true
 
 - name: Distribute Rofi config
-  copy:
-    src: templates/i3-config/rofi-config/
+  file:
+    src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/i3-config/rofi-config"
     dest: "{{ home_dir }}/.config/rofi"
+    state: link
 
 - name: Install polybar
   apt:
@@ -45,10 +47,11 @@
   become: true
 
 - name: Distribute polybar config
-  copy:
-    src: templates/i3-config/polybar/
+  file:
+    src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/i3-config/polybar/"
     dest: "{{ home_dir }}/.config/polybar"
     mode: +x
+    state: link
 
 - name: Install picom
   apt:
@@ -56,16 +59,18 @@
   become: true
 
 - name: Distribute picom config
-  copy:
-    src: templates/i3-config/picom/
+  file:
+    src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/i3-config/picom/"
     dest: "{{ home_dir }}/.config/picom"
     mode: +x
+    state: link
 
 - name: Distribute dunstrc
-  copy:
-    src: templates/i3-config/dunst/
+  file:
+    src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/i3-config/dunst/"
     dest: "{{ home_dir }}/.config/dunst"
     mode: +x
+    state: link
 
 # For brightness control
 - name: Install light
@@ -81,9 +86,10 @@
 
 # https://cravencode.com/post/essentials/enable-tap-to-click-in-i3wm/
 - name: Enable tap-to-click for touchpad
-  copy:
-    src: templates/internal-configs/90-touchpad.conf
-    dest: /etc/X11/xorg.conf.d/
+  file:
+    src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/internal-configs/90-touchpad.conf"
+    dest: /etc/X11/xorg.conf.d/90-touchpad.conf
+    state: link
   become: true
 
 # TESTS

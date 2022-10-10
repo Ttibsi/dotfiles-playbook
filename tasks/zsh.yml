@@ -22,17 +22,28 @@
   become: false
   when: not zsh_exist.stat.exists
 
+- name: Remove default zshrc
+  file:
+    path: "{{ home_dir }}/.zshrc"
+    state: absent
+
 # This needs to be after omz install or it'll overwrite it - `.zshrc-pre-oh-my-zsh`
 - name: Distribute zshrc
-  copy:
-    src: "templates/zsh-shell/zshrc"
+  file:
+    src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/zsh-shell/zshrc"
     dest: "{{ home_dir }}/.zshrc"
+    state: link
+
+- name: Remove default OMZ config
+  file:
+    path: "{{ home_dir }}/.oh-my-zsh"
+    state: absent
 
 - name: Distribute OMZ
-  copy:
-    src: templates/zsh-shell/.oh-my-zsh/
-    dest: "{{ home_dir }}/.oh-my-zsh/"
-  when: not zsh_exist.stat.exists
+  file:
+    src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/zsh-shell/.oh-my-zsh"
+    dest: "{{ home_dir }}/.oh-my-zsh"
+    state: link
 
 - name: Download p10k
   git:
@@ -42,9 +53,10 @@
     force: true
 
 - name: Distribute p10k config
-  copy:
-    src: templates/zsh-shell/p10k.zsh
+  file:
+    src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/zsh-shell/p10k.zsh"
     dest: "{{ home_dir }}/.p10k.zsh"
+    state: link
 
 - name: Clone zsh-autosuggestions
   ansible.builtin.git:

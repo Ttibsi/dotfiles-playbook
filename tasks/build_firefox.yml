@@ -2,41 +2,10 @@
 # TODO: Build from source
 # https://ubuntuhandbook.org/index.php/2022/04/install-firefox-deb-ubuntu-22-04/
 
-# TODO: If we only target popOS instead of Ubuntu as well, we can remove most
-# of these
-- name: Remove snap Firefox
-  community.general.snap:
-    name: firefox
-    state: absent
-  become: true
-  when: (ansible_facts['distribution'] == 'Ubuntu') and (ansible_facts['distribution_release'] == 'jammy')
-
-- name: Add mozilla PPA
-  apt_repository:
-    repo: ppa:mozillateam/ppa
-  become: true
-  when: (ansible_facts['distribution'] == 'Ubuntu') and (ansible_facts['distribution_release'] == 'jammy')
-
-- name: Set PPA Priority
-  shell: "echo {{ item }} >> /etc/apt/preferences.d/mozillateamppa"
-  with_items:
-    - "Package: firefox*"
-    - "Pin: release o=LP-PPA-mozillateam"
-    - "Pin-Priority: 501"
-  become: true
-  when: (ansible_facts['distribution'] == 'Ubuntu') and (ansible_facts['distribution_release'] == 'jammy')
-
-- name: Apt update
-  apt:
-    update_cache: true
-  become: true
-  when: (ansible_facts['distribution'] == 'Ubuntu') and (ansible_facts['distribution_release'] == 'jammy')
-
 - name: Install firefox
   apt:
     name: firefox
   become: true
-  when: (ansible_facts['distribution'] == 'Ubuntu') and (ansible_facts['distribution_release'] == 'jammy')
 
 - name: Create distribution folder
   file:
@@ -46,12 +15,12 @@
   become: true
 
 - name: Distribute firefox policy
-  copy:
-    src: templates/firefox/policies.json
+  file:
+    src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/firefox/policies.json"
     dest: "/etc/firefox/policies/policies.json"
+    state: link
   become: true
 
 # TESTS
-# Check /snap/firefox doesn't exist
 # Launch firefox
 # Verify policies are applied

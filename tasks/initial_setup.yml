@@ -21,8 +21,9 @@
   with_items:
     - "Workspace"
     - "Applications"
-    - ".config/i3"
     - ".config/alacritty"
+    - ".config/i3"
+    - ".config/tmux"
     - ".local/share/fonts"
 
 - name: Install Font
@@ -32,6 +33,12 @@
 
 - name: reload fonts
   command: fc-cache -f -v
+
+- name: Clone this repo to correct location
+  git:
+    repo: https://github.com/Ttibsi/dotfiles-playbook
+    dest: "{{ home_dir }}/Workspace/dotfiles-playbook"
+    version: revision
 
 # Tests:
 # Check folders exist manually using ls

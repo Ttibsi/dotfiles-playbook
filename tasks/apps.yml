@@ -1,15 +1,15 @@
 ---
 
-# TODO: Ubuntu Jammy here uses Snap, I think
 - name: Install Alacritty
   apt:
     name: alacritty
   become: true
 
 - name: Move config file
-  copy:
-    src: templates/alacritty-config/alacritty.yml
+  file:
+    src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/alacritty-config/alacritty.yml"
     dest: "{{ home_dir }}/.config/alacritty/alacritty.yml"
+    state: link
 
 - name: Add appimagelauncher PPA
   apt_repository:
@@ -27,10 +27,27 @@
   become: true
 
 # /usr/share/discord/
-- name: Install Discord
-  apt:
-    deb: 'https://dl.discordapp.net/apps/linux/{{ discord_version }}/discord-{{ discord_version }}.deb'
-  become: true
+- name: Install Discord flatpak
+  block:
+    - name: Install flatpak
+      apt:
+        name:
+          - flatpak
+          - gnome-software
+          - gnome-software-plugin-flatpak
+      become: True
+
+    - name: Add the flathub flatpak repository remote to the user installation
+      community.general.flatpak_remote:
+        name: flathub
+        state: present
+        flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+      become: True
+
+    - name: Install discord
+      community.general.flatpak:
+        name: com.discordapp.Discord
+        state: present
 
 - name: Install firefox
   include_tasks: build_firefox.yml
@@ -38,19 +55,6 @@
 - name: Install flameshot
   apt:
     name: flameshot
-  become: true
-
-- name: Download Geekbench
-  get_url:
-    url: "https://cdn.geekbench.com/Geekbench-{{geekbench_version}}-Linux.tar.gz"
-    dest: "{{ home_dir }}/Downloads/Geekbench-{{geekbench_version}}-Linux.tar.gz"
-    mode: 0755
-
-- name: Install Geekbench
-  unarchive:
-    src: "{{ home_dir }}/Downloads/Geekbench-{{geekbench_version}}-Linux.tar.gz"
-    dest: "{{ home_dir }}/Applications/"
-    mode: 0755
   become: true
 
 - name: Install gnome-boxes

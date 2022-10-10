@@ -19,6 +19,7 @@ local function basic_config()
 		ruler = true,
 		cursorline = true,
 		colorcolumn = "80",
+		mouse = "",
 
 		splitbelow = true,
 		splitright = true,
@@ -53,13 +54,14 @@ local function custom_commands()
 	vim.api.nvim_create_user_command("Wq", "wq", {})
 
 	-- Copy and Paste
-	vim.keymap.set("v", "<C-c>", ":'<, '>y +<CR>", {})
+	vim.keymap.set("n", "<leader>y", '"+y')
+	vim.keymap.set("v", "<leader>y", '"+y')
 	vim.keymap.set("n", "<leader>p", ":put+<CR>", {})
 
 	-- Tabs
-	vim.keymap.set("n", "Tt", ":tabnew<CR>", {})
-	vim.keymap.set("n", "Tn", ":tabnext<CR>", {})
-	vim.keymap.set("n", "Tp", ":tabprev<CR>", {})
+	vim.keymap.set("n", "<leader>t", ":tabnew<CR>", {})
+	vim.keymap.set("n", "<leader>n", ":tabnext<CR>", {})
+	vim.keymap.set("n", "<leader>N", ":tabprev<CR>", {})
 
 	vim.keymap.set("n", "<leader>t", ":tabnew<CR>", {})
 	vim.keymap.set("n", "<leader>n", ":tabnext<CR>", {})
@@ -100,43 +102,24 @@ local function call_plugins()
 		"nvim-treesitter/nvim-treesitter-context",
 		"lukas-reineke/indent-blankline.nvim",
 		"nvim-lualine/lualine.nvim",
+		"lewis6991/gitsigns.nvim",
 
 		"numToStr/Comment.nvim",
 		"ellisonleao/glow.nvim",
 		"ttibsi/pre-commit.nvim",
 		"Djancyp/better-comments.nvim",
-
-		{ "decaycs/decay.nvim", as = "decay" },
-		{ "Everblush/everblush.nvim", as = "everblush" },
 	})
-
-	-- colourscheme
-	--require("decay").setup({
-	--	nvim_tree = { contrast = true },
-	--})
-
-	-- Background Translucency
-	-- This has to be set after the colourscheme
-	--vim.api.nvim_set_hl(0, "Normal", {})
-	--vim.api.nvim_set_hl(0, "NonText", {})
-
-	local colors = require("everblush.core").get_colors()
-	require("everblush").setup({
-		override = {
-			LineNr = { fg = colors.normal },
-			CursorLineNr = { fg = colors.normal },
-			TSComment = { fg = colors.color7 },
-		},
-	})
-
-	require("lsp_config").init()
+  
 	require("cmp_config").init()
-	require("treesitter_config").init()
 	require("indent_blankline_config").init()
+	require("lsp_config").init()
 	require("lualine_config").init()
+	require("theme").init()
+	require("treesitter_config").init()
 
-	require("Comment").setup()
 	require("better-comment").Setup()
+	require("Comment").setup()
+	require("gitsigns").setup()
 end
 
 local function init()
