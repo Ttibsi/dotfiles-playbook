@@ -153,6 +153,7 @@ local function init()
 	})
 
 	-- lua
+
 	if vim.loop.os_uname().sysname == "Darwin" then
 		local sumneko_version =
 			scandir("/usr/local/Cellar/lua-language-server")[1]
@@ -164,6 +165,7 @@ local function init()
 			.. "/.opt/lua-language-server"
 		sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
 	end
+
 
 	require("lspconfig").sumneko_lua.setup({
 		on_attach = on_attach,
@@ -204,6 +206,12 @@ local function init()
 	--cmake
 	--pip install cmake-language-server
 	require("lspconfig").cmake.setup({
+		on_attach = on_attach,
+		capabilities = capabilities,
+	})
+
+	-- Docker
+	require("lspconfig").dockerls.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
 	})

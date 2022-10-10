@@ -63,6 +63,10 @@ local function custom_commands()
 	vim.keymap.set("n", "<leader>n", ":tabnext<CR>", {})
 	vim.keymap.set("n", "<leader>N", ":tabprev<CR>", {})
 
+	vim.keymap.set("n", "<leader>t", ":tabnew<CR>", {})
+	vim.keymap.set("n", "<leader>n", ":tabnext<CR>", {})
+	vim.keymap.set("n", "<leader>N", ":tabprev<CR>", {})
+
 	-- Splits
 	vim.keymap.set("n", "<leader>s", ":new<CR>")
 	vim.keymap.set("n", "<leader>v", ":vnew<CR>")
@@ -105,7 +109,7 @@ local function call_plugins()
 		"ttibsi/pre-commit.nvim",
 		"Djancyp/better-comments.nvim",
 	})
-
+  
 	require("cmp_config").init()
 	require("indent_blankline_config").init()
 	require("lsp_config").init()
