@@ -98,25 +98,24 @@ local function call_plugins()
 		"nvim-treesitter/nvim-treesitter-context",
 		"lukas-reineke/indent-blankline.nvim",
 		"nvim-lualine/lualine.nvim",
-        "lewis6991/gitsigns.nvim",
+		"lewis6991/gitsigns.nvim",
 
 		"numToStr/Comment.nvim",
 		"ellisonleao/glow.nvim",
 		"ttibsi/pre-commit.nvim",
 		"Djancyp/better-comments.nvim",
-
 	})
 
 	require("cmp_config").init()
 	require("indent_blankline_config").init()
 	require("lsp_config").init()
 	require("lualine_config").init()
-    require("theme").init()
+	require("theme").init()
 	require("treesitter_config").init()
 
 	require("better-comment").Setup()
 	require("Comment").setup()
-    require('gitsigns').setup()
+	require("gitsigns").setup()
 end
 
 local function init()

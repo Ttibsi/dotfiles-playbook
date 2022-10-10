@@ -34,7 +34,7 @@
     dest: "{{ home_dir }}/.zshrc"
     state: link
 
-- name: Remove default OMZ config 
+- name: Remove default OMZ config
   file:
     path: "{{ home_dir }}/.oh-my-zsh"
     state: absent
