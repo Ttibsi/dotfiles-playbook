@@ -63,10 +63,6 @@ local function custom_commands()
 	vim.keymap.set("n", "<leader>n", ":tabnext<CR>", {})
 	vim.keymap.set("n", "<leader>N", ":tabprev<CR>", {})
 
-	vim.keymap.set("n", "<leader>t", ":tabnew<CR>", {})
-	vim.keymap.set("n", "<leader>n", ":tabnext<CR>", {})
-	vim.keymap.set("n", "<leader>N", ":tabprev<CR>", {})
-
 	-- Splits
 	vim.keymap.set("n", "<leader>s", ":new<CR>")
 	vim.keymap.set("n", "<leader>v", ":vnew<CR>")
@@ -87,7 +83,8 @@ end
 
 -- Import files for plugin configs
 local function call_plugins()
-	require("paq")({
+	local themes_list = require("theme").init()
+	local plugins_list = {
 		"savq/paq-nvim",
 
 		"neovim/nvim-lspconfig",
@@ -108,13 +105,17 @@ local function call_plugins()
 		"ellisonleao/glow.nvim",
 		"ttibsi/pre-commit.nvim",
 		"Djancyp/better-comments.nvim",
-	})
-  
+	}
+
+	for _, theme in ipairs(themes_list) do
+		table.insert(plugins_list, theme)
+	end
+
+	require("paq"):setup({})(plugins_list)
 	require("cmp_config").init()
 	require("indent_blankline_config").init()
 	require("lsp_config").init()
 	require("lualine_config").init()
-	require("theme").init()
 	require("treesitter_config").init()
 
 	require("better-comment").Setup()

@@ -1,9 +1,11 @@
-local function init()
-	require("paq")({
+local M = {}
+
+M.init = function()
+	local themes_list = {
 		{ "decaycs/decay.nvim", as = "decay" },
 		{ "Everblush/everblush.nvim", as = "everblush" },
 		{ "catppuccin/nvim", as = "catppuccin" },
-	})
+	}
 
 	require("decay").setup({
 		nvim_tree = { contrast = true },
@@ -37,8 +39,8 @@ local function init()
 
 	local theme = "catppuccin"
 	vim.api.nvim_exec("colorscheme " .. theme, {})
+
+	return themes_list
 end
 
-return {
-	init = init,
-}
+return M

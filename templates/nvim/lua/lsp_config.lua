@@ -147,7 +147,7 @@ local function init()
 	capabilities = defaults()
 
 	-- python
-	require("lspconfig").pyright.setup({
+	require("lspconfig").pylsp.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
 	})
@@ -165,7 +165,6 @@ local function init()
 			.. "/.opt/lua-language-server"
 		sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
 	end
-
 
 	require("lspconfig").sumneko_lua.setup({
 		on_attach = on_attach,
