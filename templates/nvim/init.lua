@@ -83,8 +83,8 @@ end
 
 -- Import files for plugin configs
 local function call_plugins()
-    local themes_list = require("theme").init()
-    local plugins_list = {
+	local themes_list = require("theme").init()
+	local plugins_list = {
 		"savq/paq-nvim",
 
 		"neovim/nvim-lspconfig",
@@ -94,14 +94,15 @@ local function call_plugins()
 		"hrsh7th/cmp-path",
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
-        "mfussenegger/nvim-dap",
-        "rcarriga/nvim-dap-ui",
+		"mfussenegger/nvim-dap",
+		"rcarriga/nvim-dap-ui",
+		"theHamsta/nvim-dap-virtual-text",
 
 		{ "nvim-treesitter/nvim-treesitter", run = TSUpdate },
 		"nvim-treesitter/nvim-treesitter-context",
 		"lukas-reineke/indent-blankline.nvim",
 		"nvim-lualine/lualine.nvim",
-        "lewis6991/gitsigns.nvim",
+		"lewis6991/gitsigns.nvim",
 
 		"numToStr/Comment.nvim",
 		"ellisonleao/glow.nvim",
@@ -109,9 +110,9 @@ local function call_plugins()
 		"Djancyp/better-comments.nvim",
 	}
 
-    for _, theme in ipairs(themes_list) do
-        table.insert(plugins_list, theme)
-    end
+	for _, theme in ipairs(themes_list) do
+		table.insert(plugins_list, theme)
+	end
 
 	require("paq"):setup({})(plugins_list)
 	require("cmp_config").init()
@@ -122,8 +123,8 @@ local function call_plugins()
 	require("treesitter_config").init()
 
 	require("better-comment").Setup()
-    require("Comment").setup()
-    require('gitsigns').setup()
+	require("Comment").setup()
+	require("gitsigns").setup()
 end
 
 local function init()
