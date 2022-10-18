@@ -1,8 +1,6 @@
-local function init()
-	local dap = require("dap")
-	require("nvim-dap-virtual-text").setup()
-	local dapui = require("dapui").setup({})
+local dap = require("dap")
 
+local function adapters()
 	-- C++/C/Rust
 	dap.adapters.lldb = {
 		type = "executable",
@@ -15,7 +13,9 @@ local function init()
 		command = "python3",
 		args = { "-m", "debugpy.adapter" },
 	}
+end
 
+local function configurations()
 	dap.configurations.cpp = {
 		{
 			name = "Launch",
@@ -36,13 +36,11 @@ local function init()
 
 	dap.configurations.python = {
 		{
-			-- The first three options are required by nvim-dap
 			type = "python", -- the type here established the link to the adapter definition: `dap.adapters.python`
 			request = "launch",
 			name = "Launch file",
 
 			-- Options below are for debugpy, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for supported options
-
 			program = "${file}", -- This configuration will launch the current file if used.
 			pythonPath = function()
 				-- debugpy supports launching an application with a different interpreter then the one used to launch debugpy itself.
@@ -59,19 +57,28 @@ local function init()
 			end,
 		},
 	}
+end
 
+local function keymaps()
+    --nvim-dap
+	vim.keymap.set( "n", "<leader>db", ":lua require'dap'.toggle_breakpoint()<CR>")
 	-- vim.keymap.set("n", "<leader>dB", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>")
-	vim.keymap.set(
-		"n",
-		"<leader>db",
-		":lua require'dap'.toggle_breakpoint()<CR>"
-	)
 	vim.keymap.set("n", "<leader>di", ":lua require'dap'.step_into()<CR>")
 	vim.keymap.set("n", "<leader>do", ":lua require'dap'.step_over()<CR>")
 	vim.keymap.set("n", "<leader>dp", ":lua require'dap'.step_back()<CR>")
 	vim.keymap.set("n", "<leader>dc", ":lua require'dap'.continue()<CR>")
 
+    -- dap-ui
 	vim.keymap.set("n", "<leader>dr", ":lua require'dapui'.open()<CR>")
+end
+
+local function init()
+	require("nvim-dap-virtual-text").setup()
+	require("dapui").setup({})
+
+    adapters()
+    configurations()
+    keymaps()
 end
 
 return { init = init }
