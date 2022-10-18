@@ -2,7 +2,7 @@ local function init()
 	require("nvim-treesitter.configs").setup({
 		ensure_installed = {
 			"bash",
-            "cmake",
+			"cmake",
 			"cpp",
 			"dockerfile",
 			"go",
