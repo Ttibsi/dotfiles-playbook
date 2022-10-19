@@ -107,7 +107,6 @@ local function call_plugins()
 		"numToStr/Comment.nvim",
 		"ellisonleao/glow.nvim",
 		"ttibsi/pre-commit.nvim",
-		"Djancyp/better-comments.nvim",
 	}
 
 	for _, theme in ipairs(themes_list) do
@@ -122,7 +121,6 @@ local function call_plugins()
 	require("lualine_config").init()
 	require("treesitter_config").init()
 
-	require("better-comment").Setup()
 	require("Comment").setup()
 	require("gitsigns").setup()
 end
