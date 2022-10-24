@@ -4,27 +4,25 @@ local function init()
     -- MIT license, see LICENSE for more details.
 
     -- stylua: ignore
+    -- TODO: Replace colours with theme colours
     local colors = {
-      blue   = '#80a0ff',
-      cyan   = '#79dac8',
-      black  = '#080808',
-      white  = '#c6c6c6',
-      red    = '#ff5189',
-      violet = '#d183e8',
-      grey   = '#303030',
-      lightgrey = '#cccccc',
+        blue   = '#80a0ff',
+        cyan   = '#79dac8',
+        black  = '#080808',
+        white  = '#c6c6c6',
+        red    = '#ff5189',
+        violet = '#d183e8',
+        grey   = '#303030',
     }
-
 	local bubbles_theme = {
 		normal = {
-			a = { fg = colors.black, bg = colors.lightgrey },
+			a = { fg = colors.black, bg = colors.violet },
 			b = { fg = colors.white, bg = colors.grey },
 			c = { fg = colors.black, bg = colors.black },
 		},
 
 		insert = { a = { fg = colors.black, bg = colors.blue } },
 		visual = { a = { fg = colors.black, bg = colors.cyan } },
-		command = { a = { fg = colors.black, bg = colors.red } },
 		replace = { a = { fg = colors.black, bg = colors.red } },
 
 		inactive = {
@@ -49,11 +47,7 @@ local function init()
 			lualine_x = {},
 			lualine_y = { "filetype", "progress" },
 			lualine_z = {
-				{
-					"location",
-					separator = { right = "" },
-					left_padding = 2,
-				},
+				{ "location", separator = { right = "" }, left_padding = 2 },
 			},
 		},
 		inactive_sections = {
@@ -67,6 +61,9 @@ local function init()
 		tabline = {},
 		extensions = {},
 	})
+
+	vim.api.nvim_set_hl(0, "StatusLine", { link = "Normal" })
+	vim.api.nvim_set_hl(0, "StatusLineNC", { link = "Normal" })
 end
 
 return {

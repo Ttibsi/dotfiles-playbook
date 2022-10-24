@@ -60,15 +60,19 @@ local function configurations()
 end
 
 local function keymaps()
-    --nvim-dap
-	vim.keymap.set( "n", "<leader>db", ":lua require'dap'.toggle_breakpoint()<CR>")
+	--nvim-dap
+	vim.keymap.set(
+		"n",
+		"<leader>db",
+		":lua require'dap'.toggle_breakpoint()<CR>"
+	)
 	-- vim.keymap.set("n", "<leader>dB", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>")
 	vim.keymap.set("n", "<leader>di", ":lua require'dap'.step_into()<CR>")
 	vim.keymap.set("n", "<leader>do", ":lua require'dap'.step_over()<CR>")
 	vim.keymap.set("n", "<leader>dp", ":lua require'dap'.step_back()<CR>")
 	vim.keymap.set("n", "<leader>dc", ":lua require'dap'.continue()<CR>")
 
-    -- dap-ui
+	-- dap-ui
 	vim.keymap.set("n", "<leader>dr", ":lua require'dapui'.open()<CR>")
 end
 
@@ -76,9 +80,9 @@ local function init()
 	require("nvim-dap-virtual-text").setup()
 	require("dapui").setup({})
 
-    adapters()
-    configurations()
-    keymaps()
+	adapters()
+	configurations()
+	keymaps()
 end
 
 return { init = init }
