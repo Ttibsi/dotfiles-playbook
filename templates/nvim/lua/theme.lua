@@ -2,19 +2,21 @@ local M = {}
 
 --TODO: Random theme at launch
 M.init = function()
-	local themes_list = {
-		{ "decaycs/decay.nvim", as = "decay" },
+	local themes_install = {
+		--{ "decaycs/decay.nvim", as = "decay" },
 		{ "Everblush/everblush.nvim", as = "everblush" },
 		{ "catppuccin/nvim", as = "catppuccin" },
-		{ "morhetz/gruvbox", as = "gruvbox" },
+		{ "ellisonleao/gruvbox", as = "gruvbox" },
 	}
 
-	local decay_installed, decay_plugin = pcall(require, "decay")
-	if decay_installed then
-		decay_plugin.setup({
-			nvim_tree = { contrast = true },
-		})
-	end
+--  	local decay_installed, decay_plugin = pcall(require, "decay")
+--  	if decay_installed then
+--  		decay_plugin.setup({
+--  			nvim_tree = { contrast = true },
+--  		})
+--  
+--          table.insert(theme_list, "decay")
+--  	end
 
 	local everblush_installed, everblush_plugin = pcall(require, "everblush")
 	if everblush_installed then
@@ -50,11 +52,13 @@ M.init = function()
 
 	local gruvbox_installed, gruvbox_plugin = pcall(require, "gruvbox")
 
-	-- TODO: Check this exists (for initial install)
-	local theme = "gruvbox"
-	vim.api.nvim_exec("colorscheme " .. theme, {})
+    local theme = "catppuccin"
+    local success = pcall(vim.cmd, "colorscheme " .. theme)
+    if not success then
+        vim.cmd("colorscheme blue")
+    end
 
-	return themes_list
+	return themes_install
 end
 
 return M
