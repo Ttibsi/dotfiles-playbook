@@ -6,7 +6,7 @@ M.init = function()
 		{ "decaycs/decay.nvim", as = "decay" },
 		{ "Everblush/everblush.nvim", as = "everblush" },
 		{ "catppuccin/nvim", as = "catppuccin" },
-		{ "ellisonleao/gruvbox", as = "gruvbox" },
+		{ "ellisonleao/gruvbox.nvim", as = "gruvbox" },
 	}
 
     local decay_installed, decay_plugin = pcall(require, "decay")
