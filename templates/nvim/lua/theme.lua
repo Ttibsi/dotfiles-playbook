@@ -7,6 +7,7 @@ M.init = function()
 		{ "Everblush/everblush.nvim", as = "everblush" },
 		{ "catppuccin/nvim", as = "catppuccin" },
 		{ "ellisonleao/gruvbox.nvim", as = "gruvbox" },
+		{ "folke/tokyonight.nvim", as = "tokyonight" },
 	}
 
     local decay_installed, decay_plugin = pcall(require, "decay")
@@ -21,10 +22,10 @@ M.init = function()
 		local colors = require("everblush.core").get_colors()
 		everblush_plugin.setup({
 			override = {
-				LineNr = { fg = colors.normal },
+				LineNr = { fg = colors.color7 }, --This doesnt owrk
 				CursorLineNr = { fg = colors.normal },
 				TSComment = { fg = colors.color7 },
-			},
+            },
 		})
 	end
 
@@ -49,8 +50,14 @@ M.init = function()
 	end
 
 	local gruvbox_installed, gruvbox_plugin = pcall(require, "gruvbox")
+	local tokyonight_installed, tokyonight_plugin = pcall(require, "tokyonight")
+	if tokyonight_installed then
+        tokyonight_plugin.setup({
+            style = "night" -- storm, night, moon, day
+        })
+    end
 
-    local theme = "decay"
+    local theme = "tokyonight"
     local success = pcall(vim.cmd, "colorscheme " .. theme)
     if not success then
         vim.cmd("colorscheme blue")
