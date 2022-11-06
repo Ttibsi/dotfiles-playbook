@@ -9,6 +9,7 @@ local function init()
 			"json",
 			"lua",
 			"python",
+            "sql",
 			"yaml",
 		},
 
