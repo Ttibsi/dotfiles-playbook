@@ -53,7 +53,7 @@ M.init = function()
 	local tokyonight_installed, tokyonight_plugin = pcall(require, "tokyonight")
 	if tokyonight_installed then
         tokyonight_plugin.setup({
-            style = "night" -- storm, night, moon, day
+            style = "moon" -- storm, night, moon, day
         })
     end
 

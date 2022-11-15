@@ -10,6 +10,7 @@ local function init()
 			"lua",
 			"python",
             "sql",
+            "toml",
 			"yaml",
 		},
 
