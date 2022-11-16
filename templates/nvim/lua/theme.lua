@@ -8,6 +8,8 @@ M.init = function()
 		{ "catppuccin/nvim", as = "catppuccin" },
 		{ "ellisonleao/gruvbox.nvim", as = "gruvbox" },
 		{ "folke/tokyonight.nvim", as = "tokyonight" },
+		{ "navarasu/onedark.nvim", as = "onedark" },
+
 	}
 
     local decay_installed, decay_plugin = pcall(require, "decay")
@@ -57,7 +59,14 @@ M.init = function()
         })
     end
 
-    local theme = "tokyonight"
+    local onedark_installed, onedark_plugin = pcall(require, "onedark")
+    if onedark_installed then
+        onedark_plugin.setup({
+            style = "deep", -- dark, darker, cool, deep, warm, warmer, light
+        })
+    end
+
+    local theme = "onedark"
     local success = pcall(vim.cmd, "colorscheme " .. theme)
     if not success then
         vim.cmd("colorscheme blue")
