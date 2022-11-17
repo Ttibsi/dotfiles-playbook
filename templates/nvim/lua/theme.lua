@@ -9,6 +9,7 @@ M.init = function()
 		{ "ellisonleao/gruvbox.nvim", as = "gruvbox" },
 		{ "folke/tokyonight.nvim", as = "tokyonight" },
 		{ "navarasu/onedark.nvim", as = "onedark" },
+		{ "rebelot/kanagawa.nvim", as = "kanagawa" },
 
 	}
 
@@ -66,7 +67,12 @@ M.init = function()
         })
     end
 
-    local theme = "onedark"
+    local kanagawa_installed, kanagawa_plugin = pcall(require, "kanagawa")
+    if kanagawa_installed then
+        kanagawa_plugin.setup({})
+    end
+
+    local theme = "kanagawa"
     local success = pcall(vim.cmd, "colorscheme " .. theme)
     if not success then
         vim.cmd("colorscheme blue")

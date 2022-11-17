@@ -31,7 +31,7 @@ local function init()
 
 		sources = cmp.config.sources({
 			{ name = "nvim_lsp" },
-			{ name = "luasnip" },
+			{ name = "luasnip" }, --TODO More luasnip stuff
 		}, {
 			{ name = "buffer" },
 		}),
