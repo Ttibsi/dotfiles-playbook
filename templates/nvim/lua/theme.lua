@@ -68,11 +68,8 @@ M.init = function()
     end
 
     local kanagawa_installed, kanagawa_plugin = pcall(require, "kanagawa")
-    if kanagawa_installed then
-        kanagawa_plugin.setup({})
-    end
 
-    local theme = "kanagawa"
+    local theme = "tokyonight"
     local success = pcall(vim.cmd, "colorscheme " .. theme)
     if not success then
         vim.cmd("colorscheme blue")
