@@ -8,6 +8,8 @@ local function basic_config()
 		encoding = "utf-8",
 		hlsearch = false,
 		wrap = false,
+		incsearch = true,
+		smartcase = true,
 
 		expandtab = true,
 		smartindent = true,
@@ -47,6 +49,10 @@ local function basic_config()
 	vim.g.netrw_winsize = 25
 end
 
+local function remap(mode, input, result)
+	vim.keymap.set(mode, input, result)
+end
+
 -- Set basic commands
 local function custom_commands()
 	vim.api.nvim_create_user_command("W", "w", {})
@@ -54,31 +60,30 @@ local function custom_commands()
 	vim.api.nvim_create_user_command("Wq", "wq", {})
 
 	-- Copy and Paste
-	vim.keymap.set("n", "<leader>y", '"+y')
-	vim.keymap.set("v", "<leader>y", '"+y')
-	vim.keymap.set("n", "<leader>p", ":put+<CR>", {})
+	remap("n", "<leader>y", '"+y')
+	remap("v", "<leader>y", '"+y')
+	remap("n", "<leader>p", ":put+<CR>", {})
 
 	-- Tabs
-	vim.keymap.set("n", "<leader>t", ":tabnew<CR>", {})
-	vim.keymap.set("n", "<leader>n", ":tabnext<CR>", {})
-	vim.keymap.set("n", "<leader>N", ":tabprev<CR>", {})
+	remap("n", "<leader>t", ":tabnew<CR>", {})
+	remap("n", "<leader>n", ":tabnext<CR>", {})
+	remap("n", "<leader>N", ":tabprev<CR>", {})
 
 	-- Splits
-	vim.keymap.set("n", "<leader>s", ":new<CR>")
-	vim.keymap.set("n", "<leader>v", ":vnew<CR>")
+	remap("n", "<leader>s", ":new<CR>")
+	remap("n", "<leader>v", ":vnew<CR>")
 
-	vim.keymap.set("n", "<leader>h", "<C-w>h")
-	vim.keymap.set("n", "<leader>j", "<C-w>j")
-	vim.keymap.set("n", "<leader>k", "<C-w>k")
-	vim.keymap.set("n", "<leader>l", "<C-w>l")
+	remap("n", "<leader>h", "<C-w>h")
+	remap("n", "<leader>j", "<C-w>j")
+	remap("n", "<leader>k", "<C-w>k")
+	remap("n", "<leader>l", "<C-w>l")
 
 	-- Navigation
-	vim.keymap.set("n", "<leader>e", ":Ex<CR>")
-	-- vim.keymap.set("n", "a", "$")
+	remap("n", "<leader>e", ":Ex<CR>")
 
 	-- Move selected lines up/down
-	vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-	vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+	remap("v", "J", ":m '>+1<CR>gv=gv")
+	remap("v", "K", ":m '<-2<CR>gv=gv")
 end
 
 -- Import files for plugin configs

@@ -10,15 +10,14 @@ M.init = function()
 		{ "folke/tokyonight.nvim", as = "tokyonight" },
 		{ "navarasu/onedark.nvim", as = "onedark" },
 		{ "rebelot/kanagawa.nvim", as = "kanagawa" },
-
 	}
 
-    local decay_installed, decay_plugin = pcall(require, "decay")
-    if decay_installed then
-        decay_plugin.setup({
-            nvim_tree = { contrast = true },
-        })
-    end
+	local decay_installed, decay_plugin = pcall(require, "decay")
+	if decay_installed then
+		decay_plugin.setup({
+			nvim_tree = { contrast = true },
+		})
+	end
 
 	local everblush_installed, everblush_plugin = pcall(require, "everblush")
 	if everblush_installed then
@@ -28,7 +27,7 @@ M.init = function()
 				LineNr = { fg = colors.color7 }, --This doesnt owrk
 				CursorLineNr = { fg = colors.normal },
 				TSComment = { fg = colors.color7 },
-            },
+			},
 		})
 	end
 
@@ -55,25 +54,25 @@ M.init = function()
 	local gruvbox_installed, gruvbox_plugin = pcall(require, "gruvbox")
 	local tokyonight_installed, tokyonight_plugin = pcall(require, "tokyonight")
 	if tokyonight_installed then
-        tokyonight_plugin.setup({
-            style = "moon" -- storm, night, moon, day
-        })
-    end
+		tokyonight_plugin.setup({
+			style = "moon", -- storm, night, moon, day
+		})
+	end
 
-    local onedark_installed, onedark_plugin = pcall(require, "onedark")
-    if onedark_installed then
-        onedark_plugin.setup({
-            style = "deep", -- dark, darker, cool, deep, warm, warmer, light
-        })
-    end
+	local onedark_installed, onedark_plugin = pcall(require, "onedark")
+	if onedark_installed then
+		onedark_plugin.setup({
+			style = "deep", -- dark, darker, cool, deep, warm, warmer, light
+		})
+	end
 
-    local kanagawa_installed, kanagawa_plugin = pcall(require, "kanagawa")
+	local kanagawa_installed, kanagawa_plugin = pcall(require, "kanagawa")
 
-    local theme = "tokyonight"
-    local success = pcall(vim.cmd, "colorscheme " .. theme)
-    if not success then
-        vim.cmd("colorscheme blue")
-    end
+	local theme = "tokyonight"
+	local success = pcall(vim.cmd, "colorscheme " .. theme)
+	if not success then
+		vim.cmd("colorscheme blue")
+	end
 
 	return themes_install
 end
