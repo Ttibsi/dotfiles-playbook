@@ -6,6 +6,7 @@ local function init()
 			"cpp",
 			"dockerfile",
 			"go",
+            "help",
 			"json",
 			"lua",
 			"python",
