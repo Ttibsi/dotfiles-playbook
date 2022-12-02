@@ -106,6 +106,8 @@ local function call_plugins()
 		"theHamsta/nvim-dap-virtual-text",
 
 		{ "nvim-treesitter/nvim-treesitter", run = TSUpdate },
+		--{ "nvim-treesitter/nvim-treesitter", run = TSUpdate, commit = "4cccb6f494eb255b32a290d37c35ca12584c74d0" },
+
 		"nvim-treesitter/nvim-treesitter-context",
 		"lukas-reineke/indent-blankline.nvim",
 		"nvim-lualine/lualine.nvim",
