@@ -14,6 +14,7 @@ local function init()
 			"json",
 			"lua",
 			"make",
+            "proto",
 			"python",
 			"sql",
 			"toml",
