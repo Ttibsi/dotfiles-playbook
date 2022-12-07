@@ -10,6 +10,7 @@ M.init = function()
 		{ "folke/tokyonight.nvim", as = "tokyonight" },
 		{ "navarasu/onedark.nvim", as = "onedark" },
 		{ "rebelot/kanagawa.nvim", as = "kanagawa" },
+		{ "rose-pine/neovim", as = "rose-pine" },
 	}
 
 	local decay_installed, decay_plugin = pcall(require, "decay")
@@ -69,7 +70,19 @@ M.init = function()
 
 	local kanagawa_installed, kanagawa_plugin = pcall(require, "kanagawa")
 
-	local theme = "tokyonight"
+	local rosepine_installed, rosepine_plugin = pcall(require, "rose-pine")
+	if rosepine_installed then
+		rosepine_plugin.setup({
+			dark_variant = "main", -- options: main, moon
+
+			-- -- Change specific vim highlight groups
+			highlight_groups = {
+				ColorColumn = { bg = "rose" },
+			},
+		})
+	end
+
+	local theme = "rose-pine"
 	local success = pcall(vim.cmd, "colorscheme " .. theme)
 	if not success then
 		vim.cmd("colorscheme blue")
