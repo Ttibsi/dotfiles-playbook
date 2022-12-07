@@ -8,7 +8,6 @@ local function init()
 			"diff",
 			"dockerfile",
 			"git_rebase",
-			"gitcommit",
 			"go",
 			"help",
 			"json",
