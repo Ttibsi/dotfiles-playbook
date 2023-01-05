@@ -82,7 +82,7 @@ M.init = function()
 		})
 	end
 
-	local theme = "rose-pine"
+	local theme = "catppuccin"
 	local success = pcall(vim.cmd, "colorscheme " .. theme)
 	if not success then
 		vim.cmd("colorscheme blue")
