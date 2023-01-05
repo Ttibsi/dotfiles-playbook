@@ -7,7 +7,8 @@ alias gbl="git branch --list"
 alias gss="git status -s"
 alias gst="git status"
 alias gau="git add -u"
-alias gph="git push origin HEAD"
+
+alias git-branch-prune="git branch --merged main | grep -v '^[ *]*main$' | xargs git branch -d"
 
 # Hardware 
 alias bt-airpods="bluetoothctl connect 5C:52:30:E2:F8:D1"
