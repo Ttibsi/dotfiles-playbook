@@ -11,6 +11,7 @@ M.init = function()
 		{ "navarasu/onedark.nvim", as = "onedark" },
 		{ "rebelot/kanagawa.nvim", as = "kanagawa" },
 		{ "rose-pine/neovim", as = "rose-pine" },
+		{ "EdenEast/nightfox.nvim", as = "nightfox"},
 	}
 
 	local decay_installed, decay_plugin = pcall(require, "decay")
@@ -82,7 +83,10 @@ M.init = function()
 		})
 	end
 
-	local theme = "catppuccin"
+	local nightfox_installed, nightfox_plugin = pcall(require, "nightfox")
+    -- Options: Carbonfox, dawnfox, dayfox, duskfox, nightfox, nordfox, terafox
+
+	local theme = "Carbonfox"
 	local success = pcall(vim.cmd, "colorscheme " .. theme)
 	if not success then
 		vim.cmd("colorscheme blue")
