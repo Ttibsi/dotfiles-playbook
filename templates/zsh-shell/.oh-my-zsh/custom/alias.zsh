@@ -15,7 +15,7 @@ alias bt-airpods="bluetoothctl connect 5C:52:30:E2:F8:D1"
 alias bt-crushers="bluetoothctl connect 38:F3:2E:76:47:5E"
 
 # Software
-alias btm="btm --battery --dot-marker"
+alias btm="btm --battery --dot_marker"
 alias ghstat="ghstats -u ttibsi"
 alias vim="nvim"
 alias nivm="nvim"
