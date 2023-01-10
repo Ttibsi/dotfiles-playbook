@@ -16,4 +16,17 @@ return {
 		top = 2,
 		bottom = 0
 	},
+    keys = {
+        {
+            key = ",",
+            mods = "CMD",
+            action = term.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
+        },
+        {
+            key = ".",
+            mods = "CMD",
+            action = term.action.SplitVertical { domain = 'CurrentPaneDomain' },
+        }
+
+    },
 }

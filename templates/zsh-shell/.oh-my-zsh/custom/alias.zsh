@@ -19,3 +19,4 @@ alias btm="btm --battery --dot_marker"
 alias ghstat="ghstats -u ttibsi"
 alias vim="nvim"
 alias nivm="nvim"
+
