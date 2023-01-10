@@ -215,7 +215,7 @@ local function init()
 		capabilities = capabilities,
 	})
 
-    -- Rust 
+	-- Rust
 	require("lspconfig").rust_analyzer.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,

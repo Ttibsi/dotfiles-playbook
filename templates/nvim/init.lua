@@ -6,6 +6,7 @@ local function basic_config()
 	local settings = {
 		background = dark,
 		encoding = "utf-8",
+		termguicolors = true,
 		hlsearch = false,
 		wrap = false,
 		incsearch = true,
