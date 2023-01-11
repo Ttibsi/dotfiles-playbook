@@ -107,14 +107,15 @@ local function call_plugins()
 		"theHamsta/nvim-dap-virtual-text",
 
 		{ "nvim-treesitter/nvim-treesitter", run = TSUpdate },
-		--{ "nvim-treesitter/nvim-treesitter", run = TSUpdate, commit = "4cccb6f494eb255b32a290d37c35ca12584c74d0" },
 
+		"nvim-lua/plenary.nvim",
 		"nvim-treesitter/nvim-treesitter-context",
 		"lukas-reineke/indent-blankline.nvim",
 		"nvim-lualine/lualine.nvim",
 		"lewis6991/gitsigns.nvim",
 
 		"numToStr/Comment.nvim",
+		"folke/todo-comments.nvim",
 		"ellisonleao/glow.nvim",
 		"ttibsi/pre-commit.nvim",
 	}
@@ -133,6 +134,7 @@ local function call_plugins()
 
 	require("Comment").setup()
 	require("gitsigns").setup()
+	require("todo-comments").setup()
 end
 
 local function init()
