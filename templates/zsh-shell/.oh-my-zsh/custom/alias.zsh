@@ -20,3 +20,14 @@ alias ghstat="ghstats -u ttibsi"
 alias vim="nvim"
 alias nivm="nvim"
 
+# Pomodoro - mac only
+# https://gist.github.com/bashbunni/f6b04fc4703903a71ce9f70c58345106
+alias pomo20="timer 20m && terminal-notifier -message 'Pomodoro'\
+    -title 'Work Timer is up! Take a Break 😊'\
+    -appIcon '~/Pictures/pumpkin.png'\
+    -sound Crystal"
+
+alias pomo30="timer 30m && terminal-notifier -message 'Pomodoro'\
+    -title 'Work Timer is up! Take a Break 😊'\
+    -appIcon '~/Pictures/pumpkin.png'\
+    -sound Crystal"
