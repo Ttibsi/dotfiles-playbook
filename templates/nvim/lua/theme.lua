@@ -86,7 +86,7 @@ M.init = function()
 	local nightfox_installed, nightfox_plugin = pcall(require, "nightfox")
 	-- Options: Carbonfox, dawnfox, dayfox, duskfox, nightfox, nordfox, terafox
 
-	local theme = "nightfox"
+	local theme = "dark-decay"
 	local success = pcall(vim.cmd, "colorscheme " .. theme)
 	if not success then
 		vim.cmd("colorscheme blue")

@@ -9,6 +9,7 @@ local function init()
 			"dockerfile",
 			"git_rebase",
 			"go",
+			"gomod",
 			"help",
 			"json",
 			"lua",
