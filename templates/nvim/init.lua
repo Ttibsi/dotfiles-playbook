@@ -24,7 +24,7 @@ local function basic_config()
 		ruler = true,
 		cursorline = true,
 		colorcolumn = "80",
-		mouse = "nv",
+		mouse = "",
 
 		splitbelow = true,
 		splitright = true,
