@@ -4,7 +4,6 @@ local M = {}
 M.init = function()
 	local themes_install = {
 		{ "decaycs/decay.nvim", as = "decay" },
-		{ "Everblush/everblush.nvim", as = "everblush" },
 		{ "catppuccin/nvim", as = "catppuccin" },
 		{ "ellisonleao/gruvbox.nvim", as = "gruvbox" },
 		{ "folke/tokyonight.nvim", as = "tokyonight" },
@@ -18,18 +17,6 @@ M.init = function()
 	if decay_installed then
 		decay_plugin.setup({
 			nvim_tree = { contrast = true },
-		})
-	end
-
-	local everblush_installed, everblush_plugin = pcall(require, "everblush")
-	if everblush_installed then
-		local colors = require("everblush.core").get_colors()
-		everblush_plugin.setup({
-			override = {
-				LineNr = { fg = colors.color7 }, --This doesnt owrk
-				CursorLineNr = { fg = colors.normal },
-				TSComment = { fg = colors.color7 },
-			},
 		})
 	end
 
