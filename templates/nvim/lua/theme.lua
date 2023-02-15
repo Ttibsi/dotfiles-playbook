@@ -11,6 +11,7 @@ M.init = function()
 		{ "rebelot/kanagawa.nvim", as = "kanagawa" },
 		{ "rose-pine/neovim", as = "rose-pine" },
 		{ "EdenEast/nightfox.nvim", as = "nightfox" },
+		{ "w3barsi/barstrata.nvim", as = "barstrata" },
 	}
 
 	local decay_installed, decay_plugin = pcall(require, "decay")
@@ -73,7 +74,9 @@ M.init = function()
 	local nightfox_installed, nightfox_plugin = pcall(require, "nightfox")
 	-- Options: Carbonfox, dawnfox, dayfox, duskfox, nightfox, nordfox, terafox
 
-	local theme = "kanagawa"
+	local barstrata_installed, barstrata_plugin = pcall(require, "barstrata")
+
+	local theme = "barstrata"
 	local success = pcall(vim.cmd, "colorscheme " .. theme)
 	if not success then
 		vim.cmd("colorscheme blue")
