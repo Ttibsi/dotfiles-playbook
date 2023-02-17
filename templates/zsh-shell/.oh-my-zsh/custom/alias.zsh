@@ -17,7 +17,6 @@ alias bt-crushers="bluetoothctl connect 38:F3:2E:76:47:5E"
 # Software
 alias btm="btm --battery --dot_marker"
 alias ghstat="ghstats -u ttibsi"
-alias go="go1.20"
 alias vim="nvim"
 alias nivm="nvim"
 
