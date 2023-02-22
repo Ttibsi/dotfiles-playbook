@@ -168,8 +168,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Custom commands
-bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
-bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec light -A 2 # increase screen brightness
+bindsym XF86MonBrightnessDown exec light -U 2 # decrease screen brightness
 
 exec --no-startup-id gnome-settings-daemon
 
