@@ -153,42 +153,41 @@ local function init()
 	})
 
 	-- lua
-
-	if vim.loop.os_uname().sysname == "Darwin" then
-		local sumneko_version =
-			scandir("/usr/local/Cellar/lua-language-server")[1]
-		sumneko_root_path = "/usr/local/Cellar/lua-language-server/"
-			.. sumneko_version
-		sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
-	else
-		sumneko_root_path = vim.fn.expand("$HOME")
-			.. "/.opt/lua-language-server"
-		sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
-	end
-
-	require("lspconfig").sumneko_lua.setup({
-		on_attach = on_attach,
-		capabilities = capabilities,
-		cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
-		settings = {
-			Lua = {
-				runtime = {
-					-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-					version = "LuaJIT",
-					-- Setup your lua path
-					path = vim.split(package.path, ";"),
-				},
-				-- Get the language server to recognize the `vim` global
-				diagnostics = { globals = { "vim" } },
-				-- Make the server aware of Neovim runtime files
-				workspace = {
-					library = vim.api.nvim_get_runtime_file("", true),
-				},
-				-- Do not send telemetry data containing a randomized but unique identifier
-				telemetry = { enable = false },
-			},
-		},
-	})
+	-- if vim.loop.os_uname().sysname == "Darwin" then
+	-- 	local sumneko_version =
+	-- 		scandir("/usr/local/Cellar/lua-language-server")[1]
+	-- 	sumneko_root_path = "/usr/local/Cellar/lua-language-server/"
+	-- 		.. sumneko_version
+	-- 	sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
+	-- else
+	-- 	sumneko_root_path = vim.fn.expand("$HOME")
+	-- 		.. "/.opt/lua-language-server"
+	-- 	sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
+	-- end
+	--
+	-- require("lspconfig").sumneko_lua.setup({
+	-- 	on_attach = on_attach,
+	-- 	capabilities = capabilities,
+	-- 	cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
+	-- 	settings = {
+	-- 		Lua = {
+	-- 			runtime = {
+	-- 				-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+	-- 				version = "LuaJIT",
+	-- 				-- Setup your lua path
+	-- 				path = vim.split(package.path, ";"),
+	-- 			},
+	-- 			-- Get the language server to recognize the `vim` global
+	-- 			diagnostics = { globals = { "vim" } },
+	-- 			-- Make the server aware of Neovim runtime files
+	-- 			workspace = {
+	-- 				library = vim.api.nvim_get_runtime_file("", true),
+	-- 			},
+	-- 			-- Do not send telemetry data containing a randomized but unique identifier
+	-- 			telemetry = { enable = false },
+	-- 		},
+	-- 	},
+	-- })
 
 	-- golang
 	require("lspconfig").gopls.setup({
