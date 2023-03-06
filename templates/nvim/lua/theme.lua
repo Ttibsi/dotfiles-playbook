@@ -76,7 +76,7 @@ M.init = function()
 
 	local barstrata_installed, barstrata_plugin = pcall(require, "barstrata")
 
-	local theme = "barstrata"
+	local theme = "gruvbox"
 	local success = pcall(vim.cmd, "colorscheme " .. theme)
 	if not success then
 		vim.cmd("colorscheme blue")
