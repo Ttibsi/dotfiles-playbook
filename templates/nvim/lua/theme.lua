@@ -4,6 +4,7 @@ local M = {}
 M.init = function()
 	local themes_install = {
 		{ "decaycs/decay.nvim", as = "decay" },
+		{ "Everblush/nvim", as = "everblush" },
 		{ "catppuccin/nvim", as = "catppuccin" },
 		{ "ellisonleao/gruvbox.nvim", as = "gruvbox" },
 		{ "folke/tokyonight.nvim", as = "tokyonight" },
@@ -20,6 +21,8 @@ M.init = function()
 			nvim_tree = { contrast = true },
 		})
 	end
+
+	local everblush_installed, everblush_plugin = pcall(require, "everblush")
 
 	local catppuccin_installed, catppuccin_plugin = pcall(require, "catppuccin")
 	if catppuccin_installed then
