@@ -13,6 +13,7 @@ M.init = function()
 		{ "rose-pine/neovim", as = "rose-pine" },
 		{ "EdenEast/nightfox.nvim", as = "nightfox" },
 		{ "w3barsi/barstrata.nvim", as = "barstrata" },
+		{ "Mofiqul/dracula.nvim", as = "dracula" },
 	}
 
 	local decay_installed, decay_plugin = pcall(require, "decay")
@@ -79,7 +80,14 @@ M.init = function()
 
 	local barstrata_installed, barstrata_plugin = pcall(require, "barstrata")
 
-	local theme = "gruvbox"
+	local dracula_installed, dracula_plugin = pcall(require, "dracula")
+	if dracula_installed then
+		dracula_plugin.setup({
+			lualine_bg_color = "#44475a",
+		})
+	end
+
+	local theme = "dracula"
 	local success = pcall(vim.cmd, "colorscheme " .. theme)
 	if not success then
 		vim.cmd("colorscheme blue")

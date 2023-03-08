@@ -2,7 +2,8 @@ local term = require("wezterm")
 
 return {
 	-- https://wezfurlong.org/wezterm/colorschemes/index.html
-	color_scheme = "CloneofUbuntu (Gogh)",
+	-- color_scheme = "CloneofUbuntu (Gogh)",
+	color_scheme = "Dracula (Gogh)",
 	font = term.font(
 		"Meslo LG M for Powerline",
 		{ weight = "Regular", stretch = "Normal", style = "Normal" }

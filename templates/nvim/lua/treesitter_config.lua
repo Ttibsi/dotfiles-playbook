@@ -17,7 +17,7 @@ local function init()
 			"proto",
 			"python",
 			"rust",
---			"sql",
+			--			"sql",
 			"toml",
 			"vim",
 			"yaml",

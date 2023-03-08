@@ -118,6 +118,7 @@ local function call_plugins()
 		"folke/todo-comments.nvim",
 		"ellisonleao/glow.nvim",
 		"ttibsi/pre-commit.nvim",
+		"levouh/tint.nvim",
 	}
 
 	for _, theme in ipairs(themes_list) do
@@ -135,6 +136,7 @@ local function call_plugins()
 	require("Comment").setup()
 	require("gitsigns").setup()
 	require("todo-comments").setup()
+	require("tint").setup()
 end
 
 local function init()
