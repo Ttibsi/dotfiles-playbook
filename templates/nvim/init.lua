@@ -76,6 +76,7 @@ local function custom_commands()
 	remap("n", "<leader>s", ":new<CR>")
 	remap("n", "<leader>v", ":vnew<CR>")
 
+	-- Split navigation
 	remap("n", "<leader>h", "<C-w>h")
 	remap("n", "<leader>j", "<C-w>j")
 	remap("n", "<leader>k", "<C-w>k")
@@ -105,6 +106,7 @@ local function call_plugins()
 		"mfussenegger/nvim-dap",
 		"rcarriga/nvim-dap-ui",
 		"theHamsta/nvim-dap-virtual-text",
+		{ "nvim-telescope/telescope.nvim", branch = "0.1.x" },
 
 		{ "nvim-treesitter/nvim-treesitter", run = TSUpdate },
 
@@ -131,12 +133,13 @@ local function call_plugins()
 	require("indent_blankline_config").init()
 	require("lsp_config").init()
 	require("lualine_config").init()
+	require("telescope_config").init()
 	require("treesitter_config").init()
 
 	require("Comment").setup()
 	require("gitsigns").setup()
-	require("todo-comments").setup()
 	require("tint").setup()
+	require("todo-comments").setup()
 end
 
 local function init()

@@ -87,7 +87,7 @@ M.init = function()
 		})
 	end
 
-	local theme = "dracula"
+	local theme = "gruvbox"
 	local success = pcall(vim.cmd, "colorscheme " .. theme)
 	if not success then
 		vim.cmd("colorscheme blue")
