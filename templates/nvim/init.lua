@@ -107,6 +107,7 @@ local function call_plugins()
 		"rcarriga/nvim-dap-ui",
 		"theHamsta/nvim-dap-virtual-text",
 		{ "nvim-telescope/telescope.nvim", branch = "0.1.x" },
+		"nvim-telescope/telescope-fzf-native.nvim",
 
 		{ "nvim-treesitter/nvim-treesitter", run = TSUpdate },
 

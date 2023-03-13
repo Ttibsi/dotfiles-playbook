@@ -57,7 +57,7 @@ M.init = function()
 	local onedark_installed, onedark_plugin = pcall(require, "onedark")
 	if onedark_installed then
 		onedark_plugin.setup({
-			style = "deep", -- dark, darker, cool, deep, warm, warmer, light
+			style = "darker", -- dark, darker, cool, deep, warm, warmer, light
 		})
 	end
 
@@ -87,7 +87,7 @@ M.init = function()
 		})
 	end
 
-	local theme = "gruvbox"
+	local theme = "onedark"
 	local success = pcall(vim.cmd, "colorscheme " .. theme)
 	if not success then
 		vim.cmd("colorscheme blue")
