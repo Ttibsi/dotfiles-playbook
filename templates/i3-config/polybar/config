@@ -20,6 +20,7 @@ separator-foreground = ${colors.foreground}
 
 font-0 = DroidSansMono Nerd Font Mono:style=Book:size=14;2
 
+# TODO: wifi signal indicator as a symbol
 modules-left = xworkspaces
 modules-center = time date
 modules-right = pulseaudio wlan battery lock logout poweroff

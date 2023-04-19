@@ -1,6 +1,5 @@
 ---
-# TODO: Build from source
-# https://ubuntuhandbook.org/index.php/2022/04/install-firefox-deb-ubuntu-22-04/
+#TODO: replace with apt install (but only on pop-os)
 
 - name: Install firefox
   apt:

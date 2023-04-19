@@ -17,5 +17,9 @@
     dest: "/usr/local/"
   become: True
 
+#TODO: Fix gopls
+# - name: Gopls - Install
+#   shell: /usr/local/go/bin/go install golang.org/x/tools/gopls@latest
+
 # Tests
 # Run `go version`

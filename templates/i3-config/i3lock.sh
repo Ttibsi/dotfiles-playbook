@@ -1,6 +1,9 @@
 #!/bin/sh
 # https://linuxcommandlibrary.com/man/i3lock
 
+#TODO: fix auto-lock on lid close not working
+#TODO: Logout time after inactivity
+
 WHITE='#ffffffff'
 LOCK_COL='#77777766'
 WRONG='#88000000'
