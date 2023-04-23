@@ -3,7 +3,8 @@ local M = {}
 --TODO: Random theme at launch
 M.init = function()
 	local themes_install = {
-		{ "decaycs/decay.nvim", as = "decay" },
+        -- Decay's not updated for 0.9 yet
+       -- { "decaycs/decay.nvim", as = "decay" },
 		{ "Everblush/nvim", as = "everblush" },
 		{ "catppuccin/nvim", as = "catppuccin" },
 		{ "ellisonleao/gruvbox.nvim", as = "gruvbox" },
@@ -87,7 +88,7 @@ M.init = function()
 		})
 	end
 
-	local theme = "onedark"
+	local theme = "dracula"
 	local success = pcall(vim.cmd, "colorscheme " .. theme)
 	if not success then
 		vim.cmd("colorscheme blue")
