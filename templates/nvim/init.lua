@@ -65,12 +65,12 @@ local function custom_commands()
 	-- Copy and Paste
 	remap("n", "<leader>y", '"+y')
 	remap("v", "<leader>y", '"+y')
-	remap("n", "<leader>p", ":put+<CR>", {})
+	remap("n", "<leader>p", ":put+<CR>")
 
 	-- Tabs
-	remap("n", "<leader>t", ":tabnew<CR>", {})
-	remap("n", "<leader>n", ":tabnext<CR>", {})
-	remap("n", "<leader>N", ":tabprev<CR>", {})
+	remap("n", "<leader>t", ":tabnew<CR>")
+	remap("n", "<leader>n", ":tabnext<CR>")
+	remap("n", "<leader>N", ":tabprev<CR>")
 
 	-- Splits
 	remap("n", "<leader>s", ":new<CR>")
