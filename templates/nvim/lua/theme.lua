@@ -3,8 +3,8 @@ local M = {}
 --TODO: Random theme at launch
 M.init = function()
 	local themes_install = {
-        -- Decay's not updated for 0.9 yet
-       -- { "decaycs/decay.nvim", as = "decay" },
+		-- Decay's not updated for 0.9 yet
+		-- { "decaycs/decay.nvim", as = "decay" },
 		{ "Everblush/nvim", as = "everblush" },
 		{ "catppuccin/nvim", as = "catppuccin" },
 		{ "ellisonleao/gruvbox.nvim", as = "gruvbox" },
@@ -15,6 +15,7 @@ M.init = function()
 		{ "EdenEast/nightfox.nvim", as = "nightfox" },
 		{ "w3barsi/barstrata.nvim", as = "barstrata" },
 		{ "Mofiqul/dracula.nvim", as = "dracula" },
+		{ "nyoom-engineering/oxocarbon.nvim", as = "oxocarbon" },
 	}
 
 	local decay_installed, decay_plugin = pcall(require, "decay")
@@ -87,6 +88,8 @@ M.init = function()
 			lualine_bg_color = "#44475a",
 		})
 	end
+
+	local oxocarbon_installed, oxocarbon_plugin = pcall(require, "oxocarbon")
 
 	local theme = "dracula"
 	local success = pcall(vim.cmd, "colorscheme " .. theme)
