@@ -3,6 +3,10 @@ local function init()
 	local builtin = require("telescope.builtin")
 	local telescopeConfig = require("telescope.config")
 
+	vim.keymap.set("n", "<leader>ps", function()
+		builtin.grep_string({ search = vim.fn.input("Grep > ") })
+	end)
+
 	vim.keymap.set("n", "<leader>f", builtin.find_files, {})
 	vim.keymap.set("n", "<leader>g", builtin.live_grep, {})
 	vim.keymap.set("n", "<leader>b", builtin.buffers, {})
