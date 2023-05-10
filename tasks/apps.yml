@@ -1,5 +1,6 @@
 ---
 
+# TODO: Replace with wezterm
 - name: Install Alacritty
   apt:
     name: alacritty
