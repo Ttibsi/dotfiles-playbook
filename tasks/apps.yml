@@ -12,6 +12,7 @@
     dest: "{{ home_dir }}/.config/alacritty/alacritty.yml"
     state: link
 
+#TODO: Remove
 - name: Add appimagelauncher PPA
   apt_repository:
     repo: ppa:appimagelauncher-team/stable

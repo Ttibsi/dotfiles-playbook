@@ -1,6 +1,9 @@
 ---
 
 # TODO: Replace file copies with symlinks
+# TODO: Create bash script to set gnome settings and other related features
+#   - wezterm launch command
+#   - Enable pop-os tiling
 - hosts: localhost
   vars:
     geekbench_version: 5.4.5
