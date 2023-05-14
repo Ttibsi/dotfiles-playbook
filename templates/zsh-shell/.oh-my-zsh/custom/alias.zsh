@@ -1,6 +1,7 @@
 #Terminal 
 alias la="ls -Alh"
 alias which_term="ps -aux | grep `ps -p $$ -o ppid=`"
+alias purge-mac-dots="find . -name \"._*\" -exec rm -rf {} \;"
 
 #Git 
 alias gbl="git branch --list"
@@ -19,6 +20,7 @@ alias btm="btm --battery --dot_marker"
 alias ghstat="ghstats -u ttibsi"
 alias vim="nvim"
 alias nivm="nvim"
+
 
 # Pomodoro - mac only
 # https://gist.github.com/bashbunni/f6b04fc4703903a71ce9f70c58345106

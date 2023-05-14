@@ -31,6 +31,8 @@
     state: link
   become: true
 
+  #TODO: Install pre-commit here too
+
 - name: Install gh-stats
   pip:
     name: git+https://github.com/ttibsi/gh-stats
