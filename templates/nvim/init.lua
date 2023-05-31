@@ -50,6 +50,7 @@ local function basic_config()
 	-- Global variables
 	vim.g.netrw_banner = 0
 	vim.g.netrw_winsize = 25
+	vim.g.netrw_liststyle = 3
 end
 
 local function remap(mode, input, result)
