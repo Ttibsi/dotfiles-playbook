@@ -97,6 +97,10 @@ M.init = function()
 		vim.cmd("colorscheme blue")
 	end
 
+	-- Translucency
+	vim.cmd("highlight Normal ctermbg=none guibg=none")
+	vim.cmd("highlight NonText ctermbg=none guibg=none")
+
 	return themes_install
 end
 
