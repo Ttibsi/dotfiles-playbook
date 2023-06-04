@@ -114,6 +114,7 @@ local function call_plugins()
 
 		"nvim-lua/plenary.nvim",
 		"nvim-treesitter/nvim-treesitter-context",
+		"nvim-treesitter/nvim-treesitter-textobjects",
 		"lukas-reineke/indent-blankline.nvim",
 		"nvim-lualine/lualine.nvim",
 		"lewis6991/gitsigns.nvim",
