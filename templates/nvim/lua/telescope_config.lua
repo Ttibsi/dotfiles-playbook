@@ -22,6 +22,9 @@ local function init()
 		defaults = {
 			-- `hidden = true` is not supported in text grep commands.
 			vimgrep_arguments = vimgrep_arguments,
+			layout_config = {
+				prompt_position = "top",
+			},
 		},
 		pickers = {
 			find_files = {

@@ -91,7 +91,7 @@ M.init = function()
 
 	local oxocarbon_installed, oxocarbon_plugin = pcall(require, "oxocarbon")
 
-	local theme = "gruvbox"
+	local theme = "tokyonight"
 	local success = pcall(vim.cmd, "colorscheme " .. theme)
 	if not success then
 		vim.cmd("colorscheme blue")
