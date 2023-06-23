@@ -53,8 +53,9 @@ local function basic_config()
 	vim.g.netrw_liststyle = 3
 end
 
-local function remap(mode, input, result)
-	vim.keymap.set(mode, input, result)
+local function remap(input, result)
+	vim.keymap.set("n", input, result)
+	vim.keymap.set("t", input, result)
 end
 
 -- Set basic commands
@@ -64,31 +65,31 @@ local function custom_commands()
 	vim.api.nvim_create_user_command("Wq", "wq", {})
 
 	-- Copy and Paste
-	remap("n", "<leader>y", '"+y')
-	remap("v", "<leader>y", '"+y')
-	remap("n", "<leader>p", ":put+<CR>")
+	remap("<leader>y", '"+y')
+	vim.keymap.set("v", "<leader>y", '"+y')
+	remap("<leader>p", ":put+<CR>")
 
 	-- Tabs
-	remap("n", "<leader>t", ":tabnew<CR>")
-	remap("n", "<leader>n", ":tabnext<CR>")
-	remap("n", "<leader>N", ":tabprev<CR>")
+	remap("<leader>t", ":tabnew<CR>")
+	remap("<leader>n", ":tabnext<CR>")
+	remap("<leader>N", ":tabprev<CR>")
 
 	-- Splits
-	remap("n", "<leader>s", ":new<CR>")
-	remap("n", "<leader>v", ":vnew<CR>")
+	remap("<leader>s", ":new<CR>")
+	remap("<leader>v", ":vnew<CR>")
 
 	-- Split navigation
-	remap("n", "<leader>h", "<C-w>h")
-	remap("n", "<leader>j", "<C-w>j")
-	remap("n", "<leader>k", "<C-w>k")
-	remap("n", "<leader>l", "<C-w>l")
+	remap("<leader>h", "<C-w>h")
+	remap("<leader>j", "<C-w>j")
+	remap("<leader>k", "<C-w>k")
+	remap("<leader>l", "<C-w>l")
 
 	-- Navigation
-	remap("n", "<leader>e", ":Ex<CR>")
+	remap("<leader>e", ":Ex<CR>")
 
 	-- Move selected lines up/down
-	remap("v", "J", ":m '>+1<CR>gv=gv")
-	remap("v", "K", ":m '<-2<CR>gv=gv")
+	vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+	vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 end
 
 -- Import files for plugin configs

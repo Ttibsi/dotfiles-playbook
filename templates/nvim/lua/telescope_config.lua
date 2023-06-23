@@ -29,6 +29,7 @@ local function init()
 		pickers = {
 			find_files = {
 				-- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
+				theme = "ivy",
 				find_command = {
 					"rg",
 					"--files",
@@ -36,6 +37,9 @@ local function init()
 					"--glob",
 					"!**/.git/*",
 				},
+			},
+			live_grep = {
+				theme = "dropdown",
 			},
 		},
 	})
