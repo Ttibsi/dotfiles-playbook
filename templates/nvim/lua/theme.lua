@@ -98,8 +98,8 @@ M.init = function()
 	end
 
 	-- Translucency
-	vim.cmd("highlight Normal ctermbg=none guibg=none")
-	vim.cmd("highlight NonText ctermbg=none guibg=none")
+	-- vim.cmd("highlight Normal ctermbg=none guibg=none")
+	-- vim.cmd("highlight NonText ctermbg=none guibg=none")
 
 	return themes_install
 end

@@ -219,6 +219,13 @@ local function init()
 		on_attach = on_attach,
 		capabilities = capabilities,
 	})
+
+	-- Typescript
+	require("lspconfig").tsserver.setup({
+		on_attach = on_attach,
+		capabilities = capabilities,
+		cmd = { "npx", "typescript-language-server", "--stdio" },
+	})
 end
 
 return {
