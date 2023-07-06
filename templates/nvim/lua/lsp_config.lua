@@ -143,6 +143,12 @@ function scandir(directory)
 	return t
 end
 
+local function cssCapabilities()
+	local capabilities = vim.lsp.protocol.make_client_capabilities()
+	capabilities.textDocument.completion.completionItem.snippetSupport = true
+	return capabilities
+end
+
 local function init()
 	capabilities = defaults()
 
@@ -221,10 +227,19 @@ local function init()
 	})
 
 	-- Typescript
+	-- requres `npm i typescript-language-server`
 	require("lspconfig").tsserver.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
 		cmd = { "npx", "typescript-language-server", "--stdio" },
+	})
+
+	-- Css
+	-- requires `npm i vscode-langservers-extracted`
+	require("lspconfig").cssls.setup({
+		on_attach = on_attach,
+		capabilities = cssCapabilities(),
+		cmd = { "npx", "vscode-css-language-server", "--stdio" },
 	})
 end
 
