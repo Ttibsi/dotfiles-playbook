@@ -91,15 +91,15 @@ M.init = function()
 
 	local oxocarbon_installed, oxocarbon_plugin = pcall(require, "oxocarbon")
 
-	local theme = "terafox"
+	local theme = "gruvbox"
 	local success = pcall(vim.cmd, "colorscheme " .. theme)
 	if not success then
 		vim.cmd("colorscheme blue")
 	end
 
 	-- Translucency
-	-- vim.cmd("highlight Normal ctermbg=none guibg=none")
-	-- vim.cmd("highlight NonText ctermbg=none guibg=none")
+	vim.cmd("highlight Normal ctermbg=none guibg=none")
+	vim.cmd("highlight NonText ctermbg=none guibg=none")
 
 	return themes_install
 end
