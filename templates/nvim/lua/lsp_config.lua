@@ -73,7 +73,7 @@ local on_attach = function(client, bufnr, opts)
 	vim.api.nvim_buf_set_keymap(
 		bufnr,
 		"n",
-		"<leader>R",
+		"<leader>r",
 		"<cmd>lua vim.lsp.buf.rename()<CR>",
 		opts
 	)
