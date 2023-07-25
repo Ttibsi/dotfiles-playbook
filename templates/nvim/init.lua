@@ -12,7 +12,7 @@ local function basic_config()
 		incsearch = true,
 		smartcase = true,
 
-		ttyfast = true, -- Faster in terminal.app
+		-- ttyfast = true, -- Faster in terminal.app
 
 		expandtab = true,
 		smartindent = true,

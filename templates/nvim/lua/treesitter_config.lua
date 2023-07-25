@@ -10,7 +10,6 @@ local function init()
 			"git_rebase",
 			"go",
 			"gomod",
-			"help",
 			"javascript",
 			"json",
 			"lua",
