@@ -143,10 +143,12 @@ local function call_plugins()
 
 	require("Comment").setup()
 	require("gitsigns").setup()
-	require("tint").setup()
+	require("tint").setup({})
 	require("todo-comments").setup()
 end
 
+-- TODO: Replace lualine
+-- https://github.com/tjdevries/config_manager/blob/357b61f2675f265f897a830fb22c1cbbbf109630/xdg_config/nvim/after/plugin/statusline.lua
 local function init()
 	basic_config()
 	custom_commands()
