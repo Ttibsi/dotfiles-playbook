@@ -12,7 +12,7 @@ return {
 	use_fancy_tab_bar = true,
 	hide_tab_bar_if_only_one_tab = true,
 	tab_bar_at_bottom = false,
-	window_background_opacity = 0.9,
+	-- window_background_opacity = 0.9,
 	cursor_blink_rate = 800,
 	window_padding = {
 		left = 4,
