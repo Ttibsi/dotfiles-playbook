@@ -241,6 +241,13 @@ local function init()
 		capabilities = cssCapabilities(),
 		cmd = { "npx", "vscode-css-language-server", "--stdio" },
 	})
+
+	--Ruby
+	-- gem install rubyls
+	require("lspconfig").ruby_ls.setup({
+		on_attach = on_attach,
+		capabilities = cssCapabilities(),
+	})
 end
 
 return {

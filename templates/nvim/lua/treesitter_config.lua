@@ -16,6 +16,7 @@ local function init()
 			"make",
 			"proto",
 			"python",
+			"ruby",
 			"rust",
 			"sql",
 			"toml",
