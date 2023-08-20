@@ -45,12 +45,6 @@
   when: clone.changed
   become: true
 
-- name: Set config folder rights
-  file:
-    path: "{{ home_dir }}/.config/nvim"
-    mode: "0755"
-    state: directory
-
 - name: Install paq package manager
   git:
     clone: true
@@ -73,7 +67,7 @@
 
 - name: Distribute nvim config
   file:
-    path: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/nvim"
+    src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/nvim"
     dest: "{{ home_dir }}/.config/nvim"
     state: link
     force: True

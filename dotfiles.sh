@@ -10,7 +10,7 @@ function gnome {
 
     curl https://raw.githubusercontent.com/Gogh-Co/Gogh/master/installs/clone-of-ubuntu.sh -o $HOME/Downloads/clone-of-ubuntu.sh
     chmod +x $HOME/Downloads/clone-of-ubuntu.sh
-    .$HOME/Downloads/clone-of-ubuntu.sh
+    . $HOME/Downloads/clone-of-ubuntu.sh
 }
 
 function i3 {
