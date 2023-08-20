@@ -1,8 +1,13 @@
 ---
 
 - name: Install Alacritty
-  apt:
-    name: alacritty
+  block:
+    - name: install Alacritty
+      apt:
+        name: alacritty
+
+    - name: Reset gnome default term
+      command: update-alternatives --set x-terminal-emulator /usr/bin/gnome-terminal.wrapper
   become: true
 
 - name: Move config file

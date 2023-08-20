@@ -2,11 +2,21 @@
 
 SSH_DIR="$HOME/.ssh"
 
-# Must be called after ansible
 function gnome {
     echo -e "Configuring Gnome"
     gsettings set org.gnome.desktop.interface show-battery-percentage true
     xdotool key super+y # Enable pop tiling
+
+    sudo apt install uuid-runtime
+
+    export TERMINAL=gnome-terminal
+
+    current_profile_id=$(gsettings get org.gnome.Terminal.ProfilesList default | tr -d "[]'")
+    new_profile_id=$(uuidgen)
+    gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$new_profile_id/ name "Default"
+    gsettings set org.gnome.Terminal.ProfilesList default $new_profile_id
+    gsettings reset-recursively org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$current_profile_id/
+    echo "Profile switched to 'Default' and old profile deleted."
 
     curl https://raw.githubusercontent.com/Gogh-Co/Gogh/master/installs/clone-of-ubuntu.sh -o $HOME/Downloads/clone-of-ubuntu.sh
     chmod +x $HOME/Downloads/clone-of-ubuntu.sh
