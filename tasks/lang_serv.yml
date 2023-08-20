@@ -27,10 +27,4 @@
       when: not ansible_check_mode
 
 - name: Gopls - Install
-  shell: /usr/local/bin/go install golang.org/x/tools/gopls@latest
-
-- name: Move Go directory
-  copy:
-    src: "{{ home_dir }}/go"
-    dest: "{{ home_dir }}/.go"
-  when: not ansible_check_mode
+  shell: /usr/local/.go/bin/go install golang.org/x/tools/gopls@latest

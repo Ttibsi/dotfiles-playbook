@@ -18,5 +18,12 @@
   become: True
   when: not ansible_check_mode
 
+- name: Move Go directory
+  move:
+    src: "{{ home_dir }}/go"
+    dest: "{{ home_dir }}/.go"
+    remote_src: yes
+  when: not ansible_check_mode
+
 # Tests
 # Run `go version`
