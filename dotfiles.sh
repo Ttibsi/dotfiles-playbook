@@ -8,7 +8,9 @@ function gnome {
     gsettings set org.gnome.desktop.interface show-battery-percentage true
     xdotool key super+y # Enable pop tiling
 
-    curl https://raw.githubusercontent.com/Gogh-Co/Gogh/master/installs/clone-of-ubuntu.sh | sh
+    curl https://raw.githubusercontent.com/Gogh-Co/Gogh/master/installs/clone-of-ubuntu.sh -o $HOME/Downloads/clone-of-ubuntu.sh
+    chmod +x $HOME/Downloads/clone-of-ubuntu.sh
+    .$HOME/Downloads/clone-of-ubuntu.sh
 }
 
 function i3 {
