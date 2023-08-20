@@ -19,10 +19,12 @@
   script:
     cmd: "{{ home_dir }}/Downloads/virtualenv.pyz {{ home_dir }}/.opt/venv"
     executable: python3
+  when: not ansible_check_mode
 
 - name: Create venv
   script:
     cmd: "{{ home_dir }}/.opt/venv/bin/pip install virtualenv"
+  when: not ansible_check_mode
 
 - name: Create symlink
   file:
@@ -31,7 +33,10 @@
     state: link
   become: true
 
-  #TODO: Install pre-commit here too
+- name: Install pre-commit
+  pip:
+    name: pre-commit
+    virtualenv: "{{ home_dir }}/.opt/venv"
 
 - name: Install gh-stats
   pip:

@@ -1,96 +1,101 @@
 ---
+- hosts: localhost
+  vars:
+    home_dir: "{{ lookup('env', 'HOME') }}"
+    i3lock_version: 2.13.c.5
 
-- name: Download wallpaper directory
-  git:
-    clone: true
-    repo: https://gitlab.com/dwt1/wallpapers.git
-    dest: "{{ home_dir }}/.wallpapers"
+  tasks:
+    - name: Download wallpaper directory
+      git:
+        clone: true
+        repo: https://gitlab.com/dwt1/wallpapers.git
+        dest: "{{ home_dir }}/.wallpapers"
 
-# Apparently it's better to overwrite standard i3 to avoid errors
-- name: Install i3
-  apt:
-    name: i3
-  become: true
+    # Apparently it's better to overwrite standard i3 to avoid errors
+    - name: Install i3
+      apt:
+        name: i3
+      become: true
 
-- name: Build i3-gaps
-  include_tasks: build_i3.yml
+    - name: Build i3-gaps
+      include_tasks: build_i3.yml
 
-- name: Distribute i3 config
-  file:
-    src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/i3-config/{{ item }}"
-    dest: "{{ home_dir }}/.config/i3/{{ item }}"
-    state: link
-  with_items:
-    - config
-    - i3lock.sh
+    - name: Distribute i3 config
+      file:
+        src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/i3-config/{{ item }}"
+        dest: "{{ home_dir }}/.config/i3/{{ item }}"
+        state: link
+      with_items:
+        - config
+        - i3lock.sh
 
-# For managing wallpapers in i3/config
-- name: Install feh
-  apt:
-    name: feh
-  become: true
+    # For managing wallpapers in i3/config
+    - name: Install feh
+      apt:
+        name: feh
+      become: true
 
-- name: Intall Rofi searchbar
-  apt:
-    name: rofi
-  become: true
+    - name: Intall Rofi searchbar
+      apt:
+        name: rofi
+      become: true
 
-- name: Distribute Rofi config
-  file:
-    src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/i3-config/rofi-config"
-    dest: "{{ home_dir }}/.config/rofi"
-    state: link
+    - name: Distribute Rofi config
+      file:
+        src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/i3-config/rofi-config"
+        dest: "{{ home_dir }}/.config/rofi"
+        state: link
 
-- name: Install polybar
-  apt:
-    name: polybar
-  become: true
+    - name: Install polybar
+      apt:
+        name: polybar
+      become: true
 
-- name: Distribute polybar config
-  file:
-    src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/i3-config/polybar/"
-    dest: "{{ home_dir }}/.config/polybar"
-    mode: +x
-    state: link
+    - name: Distribute polybar config
+      file:
+        src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/i3-config/polybar/"
+        dest: "{{ home_dir }}/.config/polybar"
+        mode: +x
+        state: link
 
-- name: Install picom
-  apt:
-    name: picom
-  become: true
+    - name: Install picom
+      apt:
+        name: picom
+      become: true
 
-- name: Distribute picom config
-  file:
-    src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/i3-config/picom/"
-    dest: "{{ home_dir }}/.config/picom"
-    mode: +x
-    state: link
+    - name: Distribute picom config
+      file:
+        src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/i3-config/picom/"
+        dest: "{{ home_dir }}/.config/picom"
+        mode: +x
+        state: link
 
-- name: Distribute dunstrc
-  file:
-    src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/i3-config/dunst/"
-    dest: "{{ home_dir }}/.config/dunst"
-    mode: +x
-    state: link
+    - name: Distribute dunstrc
+      file:
+        src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/i3-config/dunst/"
+        dest: "{{ home_dir }}/.config/dunst"
+        mode: +x
+        state: link
 
-# For brightness control
-- name: Install light
-  apt:
-    name: light
-  become: true
+    # For brightness control
+    - name: Install light
+      apt:
+        name: light
+      become: true
 
-- name: Give light perms to manage screen brightness
-  file:
-    path: /usr/bin/light
-    mode: +s
-  become: true
+    - name: Give light perms to manage screen brightness
+      file:
+        path: /usr/bin/light
+        mode: +s
+      become: true
 
-# https://cravencode.com/post/essentials/enable-tap-to-click-in-i3wm/
-- name: Enable tap-to-click for touchpad
-  file:
-    src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/internal-configs/90-touchpad.conf"
-    dest: /etc/X11/xorg.conf.d/90-touchpad.conf
-    state: link
-  become: true
+    # https://cravencode.com/post/essentials/enable-tap-to-click-in-i3wm/
+    - name: Enable tap-to-click for touchpad
+      file:
+        src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/internal-configs/90-touchpad.conf"
+        dest: /etc/X11/xorg.conf.d/90-touchpad.conf
+        state: link
+      become: true
 
 # TESTS
 # relog into i3-gaps

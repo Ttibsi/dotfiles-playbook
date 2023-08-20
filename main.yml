@@ -1,18 +1,13 @@
 ---
 
-# TODO: Replace file copies with symlinks
-# TODO: Create bash script to set gnome settings and other related features
-#   - wezterm launch command
-#   - Enable pop-os tiling
 - hosts: localhost
   vars:
-    geekbench_version: 5.4.5
-    go_version: 1.19.2
+    go_version: 1.21.0
     home_dir: "{{ lookup('env', 'HOME') }}"
 
     # These are git tags
-    nvim_version: v0.8.0
-    lua_lsp_version: 3.5.6
+    nvim_version: v0.9.1
+    lua_lsp_version: 3.6.25
     i3lock_version: 2.13.c.4
 
   tasks:
@@ -31,11 +26,11 @@
     - name: Configure GoLang
       include_tasks: tasks/go.yml
 
+    - name: Configure Javascript
+      include_tasks: tasks/javascript.yml
+
     - name: Set up zsh shell
       include_tasks: tasks/zsh.yml
-
-    - name: Set up i3 window manager
-      include_tasks: tasks/i3.yml
 
     - name: Set up Neovim
       include_tasks: tasks/nvim.yml

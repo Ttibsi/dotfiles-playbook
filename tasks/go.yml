@@ -16,10 +16,8 @@
     src: "{{ home_dir }}/Downloads/go.tar.gz"
     dest: "/usr/local/"
   become: True
+  when: not ansible_check_mode
 
-#TODO: Fix gopls
-# - name: Gopls - Install
-#   shell: /usr/local/go/bin/go install golang.org/x/tools/gopls@latest
 
 # Tests
 # Run `go version`

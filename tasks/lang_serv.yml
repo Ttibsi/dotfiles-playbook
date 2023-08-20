@@ -1,35 +1,38 @@
 ---
 
 - name: PythonLSP - pyright
-  community.general.npm:
-    name: pyright
-    global: true
-  become: true
+  pip:
+    name: python-language-server
+    virtualenv: "{{ home_dir }}/.opt/venv"
 
-- name: luaLSP - Sumneko - Create directory
-  file:
-    path: "{{ home_dir}}/.opt/lua-language-server/"
-    state: directory
-    mode: 0755
+- name: luaLSP
+  block:
+    - name: Create dir
+      file:
+        path: "{{ home_dir}}/.opt/lua-language-server/"
+        state: directory
+        mode: 0755
 
-- name: luaLSP - Sumneko - Download
-  get_url:
-    url: "https://github.com/sumneko/lua-language-server/releases/download/{{lua_lsp_version}}/lua-language-server-{{lua_lsp_version}}-linux-x64.tar.gz"
-    dest: "{{ home_dir }}/Downloads/lua-language-server.tar.gz"
+    - name: Download
+      get_url:
+        url: "https://github.com/LuaLS/lua-language-server/releases/download/{{lua_lsp_version}}/lua-language-server-{{lua_lsp_version}}-linux-x64.tar.gz"
+        dest: "{{ home_dir }}/Downloads/lua-language-server.tar.gz"
 
-- name: luaLSP - Sumneko - Install
-  unarchive:
-    src: "{{ home_dir }}/Downloads/lua-language-server.tar.gz"
-    dest: "{{ home_dir }}/.opt/lua-language-server"
-    mode: 0755
-  become: true
+    - name: Install
+      unarchive:
+        src: "{{ home_dir }}/Downloads/lua-language-server.tar.gz"
+        dest: "{{ home_dir }}/.opt/lua-language-server"
+        mode: 0755
+      become: true
+      when: not ansible_check_mode
 
-# TODO: This doesn't work - i think because go is installed in the same process
-# I also don't think that the second block is needed
-#- name: Gopls - Install
-#  shell: go install golang.org/x/tools/gopls@latest
+- name: Gopls - Install
+  shell: /usr/local/go/bin/go install golang.org/x/tools/gopls@latest
 
-#- name: Move Go directory
-#  copy:
-  #    src: "{{ home_dir }}/go"
-  #    dest: "{{ home_dir }}/.go"
+# This directory only exists after gopls is installed, can't be in tasks/go.yml
+- name: Move Go directory
+  copy:
+    src: "{{ home_dir }}/go"
+    dest: "{{ home_dir }}/.go"
+    remote_src: yes
+  when: not ansible_check_mode

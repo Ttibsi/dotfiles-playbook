@@ -11,6 +11,7 @@
     src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/git-config/gitconfig"
     dest: "{{ home_dir }}/.gitconfig"
     state: link
+  when: not ansible_check_mode
 
 # Tests
 # cat $HOME/.gitconfig

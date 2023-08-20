@@ -10,11 +10,6 @@
     deb: https://github.com/ClementTsang/bottom/releases/download/0.6.8/bottom_0.6.8_amd64.deb
   become: true
 
-- name: Cowsay
-  apt:
-    name: cowsay
-  become: true
-
 - name: Curl
   apt:
     name: curl
@@ -67,11 +62,6 @@
 - name: Tree
   apt:
     name: tree
-  become: true
-
-- name: unzip
-  apt:
-    name: unzip
   become: true
 
 - name: Video codecs

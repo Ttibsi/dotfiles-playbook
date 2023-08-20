@@ -27,18 +27,26 @@
     - ".local/share/fonts"
 
 - name: Install Font
-  get_url:
-    url: https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete%20Mono.otf
-    dest: "{{ home_dir }}/.local/share/fonts/"
+  block:
+    - name: Download
+      get_url:
+        url: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/DroidSansMono.tar.xz
+        dest: "{{ home_dir }}/Downloads//DroidSansMono.tar.xz"
+
+    - name: Install
+      unarchive:
+        src: "{{ home_dir }}/Downloads//DroidSansMono.tar.xz"
+        dest: "{{ home_dir }}/.local/share/fonts/"
+      become: true
 
 - name: reload fonts
   command: fc-cache -f -v
 
-- name: Clone this repo to correct location
+- name: Clone dotfiles repo to correct location
   git:
     repo: https://github.com/Ttibsi/dotfiles-playbook
     dest: "{{ home_dir }}/Workspace/dotfiles-playbook"
-    version: revision
+  when: not ansible_check_mode
 
 # Tests:
 # Check folders exist manually using ls
