@@ -1,6 +1,5 @@
 ---
 
-# TODO: Replace with wezterm
 - name: Install Alacritty
   apt:
     name: alacritty
@@ -11,17 +10,7 @@
     src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/alacritty-config/alacritty.yml"
     dest: "{{ home_dir }}/.config/alacritty/alacritty.yml"
     state: link
-
-#TODO: Remove
-- name: Add appimagelauncher PPA
-  apt_repository:
-    repo: ppa:appimagelauncher-team/stable
-  become: true
-
-- name: Install appimagelauncher
-  apt:
-    name: appimagelauncher
-  become: true
+  when: not ansible_check_mode
 
 - name: Install Cheese
   apt:
@@ -51,17 +40,17 @@
         name: com.discordapp.Discord
         state: present
 
+- name: Install docker
+  apt:
+    name: docker
+  become: true
+
 - name: Install firefox
   include_tasks: build_firefox.yml
 
 - name: Install flameshot
   apt:
     name: flameshot
-  become: true
-
-- name: Install gnome-boxes
-  apt:
-    name: gnome-boxes
   become: true
 
 - name: Install Libreoffice
@@ -80,15 +69,24 @@
   apt:
     name: rpi-imager
   become: true
-#
+
 - name: Install VLC
   apt:
     name: vlc
   become: true
 
+- name: Install virt-manager
+  block:
+    - name: install
+      apt:
+        name: virt-manager
+
+    - name: Enable libvirtd
+      command: sudo systemctl start libvirtd
+  become: true
+
 # Tests
 # firefox tests
 # Launch alacritty from terminal
-# Launch geekbench and check version
 # Launch discord
 # Launch notion

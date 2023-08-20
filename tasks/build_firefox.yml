@@ -1,6 +1,4 @@
 ---
-#TODO: replace with apt install (but only on pop-os)
-
 - name: Install firefox
   apt:
     name: firefox
@@ -19,6 +17,7 @@
     dest: "/etc/firefox/policies/policies.json"
     state: link
   become: true
+  when: not ansible_check_mode
 
 # TESTS
 # Launch firefox

@@ -65,9 +65,8 @@
       # gcc for Treesitter
       - gcc
       - build-essential
-      # LSPconfig
-      - npm
   become: true
+  when: not ansible_check_mode
 
 - name: Install language servers
   include_tasks: lang_serv.yml
