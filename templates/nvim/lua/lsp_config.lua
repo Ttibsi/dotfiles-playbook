@@ -207,11 +207,18 @@ local function init()
 		capabilities = capabilities,
 	})
 
+	if vim.loop.os_uname().sysname == "Linux" then
+		Cmd =
+			{ vim.fn.expand("$HOME") .. "/.opt/venv/bin/cmake-language-server" }
+	else
+		Cmd = { "cmake-language-server" }
+	end
 	--cmake
 	--pip install cmake-language-server
 	require("lspconfig").cmake.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
+		cmd = Cmd,
 	})
 
 	-- Docker
