@@ -36,3 +36,6 @@
     dest: "{{ home_dir }}/.go"
     remote_src: yes
   when: not ansible_check_mode
+
+- name: Install rust-analyzer
+  shell: "{{ home_dir }}/.cargo/bin/rustup component add rust-analyzer"

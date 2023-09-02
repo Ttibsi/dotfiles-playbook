@@ -1,0 +1,9 @@
+---
+
+- name: Get Rust installer
+  get_url:
+    url: "https://sh.rustup.rs"
+    dest: "{{ home_dir }}/Downloads/rustup.sh"
+
+- name: Run rust shell installer
+  shell: "{{ home_dir }}/Downloads/rustup.sh"

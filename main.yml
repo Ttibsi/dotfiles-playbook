@@ -26,6 +26,9 @@
     - name: Configure GoLang
       include_tasks: tasks/go.yml
 
+    - name: Configure Rust
+      include_tasks: tasks/rust.yml
+
     - name: Configure Javascript
       include_tasks: tasks/javascript.yml
 
