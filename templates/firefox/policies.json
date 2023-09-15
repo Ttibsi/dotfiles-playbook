@@ -30,6 +30,9 @@
             "Value": false,
             "Status": "locked"
         }
+    },
+    "SearchEngines": {
+            "Default": "DuckDuckGo"
     }
   },
 
