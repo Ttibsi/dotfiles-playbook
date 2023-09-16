@@ -3,7 +3,7 @@
 SSH_DIR="$HOME/.ssh"
 
 # 1- Install default version of ubuntu
-# 2- Switch to tty
+# 2- Switch to tty (CTRL+ALT+fn key)
 # 3- clone this repo and run this script
 
 function main {
@@ -42,6 +42,10 @@ function main {
     gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-right "['<Control><Alt>Right']"
     gsettings set org.gnome.desktop.peripherals.mouse natural-scroll false
     gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll false
+
+    echo -e "Configuring Bash"
+    ln -s ~/workspace/dotfiles-playbook/templates/bash/bashrc ~/.bashrc
+    ln -s ~/workspace/dotfiles-playbook/templates/bash/bash_aliases ~/.bash_aliases
 
     echo -e "\n----- Cleaning up apt -----"
     sudo apt autoclean -y
