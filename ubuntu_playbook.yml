@@ -1,0 +1,109 @@
+---
+
+- hosts: localhost
+  vars:
+    go_version: 1.21.0
+    home_dir: "{{ lookup('env', 'HOME') }}"
+
+    # These are git tags
+    nvim_version: v0.9.1
+    lua_lsp_version: 3.6.25
+
+  tasks:
+    - name: Remove unneeded folders
+      file:
+        state: absent
+        path: "{{ home_dir }}/{{ item }}"
+      with_items:
+        - "Desktop"
+        - "Documents"
+        - "Music"
+        - "Pictures"
+        - "Public"
+        - "Templates"
+        - "Videos"
+
+    - name: Create required directories
+      file:
+        state: directory
+        path: "{{ home_dir }}/{{ item }}"
+        mode: '0755'
+      with_items:
+        - "Workspace"
+
+    - name: Download wallpaper directory
+      git:
+        clone: true
+        repo: https://gitlab.com/dwt1/wallpapers.git
+        dest: "{{ home_dir }}/.wallpapers"
+
+    - name: Clone dotfiles repo to correct location
+      git:
+        repo: https://github.com/Ttibsi/dotfiles-playbook
+        dest: "{{ home_dir }}/Workspace/dotfiles-playbook"
+      when: not ansible_check_mode
+
+    - name: Terminal installs
+      apt: 
+        pkg:
+          - flameshot
+          - make 
+          - neofetch
+          - node-typescript 
+          - powertop
+          - tlp
+          - tree
+          - xclip
+        state: latest
+      become: true
+
+    - name: Setup Pop-Shell
+      block:
+        - name: Clone pop-shell
+          git:
+            repo: https://github.com/pop-os/shell.git
+            dest: "{{ home_dir }}/Downloads/shell"
+          when: not ansible_check_mode
+
+        - name: make install
+          make:
+            target: local-install
+            chdir: "{{ home_dir }}/Downloads/shell"
+
+    - name: Bottom
+      apt:
+        deb: https://github.com/ClementTsang/bottom/releases/download/0.6.8/bottom_0.6.8_amd64.deb
+      become: true
+
+    - name: Install virt-manager
+      block:
+        - name: install
+          apt:
+            name: virt-manager
+
+        - name: Enable libvirtd
+          command: sudo systemctl start libvirtd
+      become: true
+
+    - name: Configure Git
+      include_tasks: tasks/git.yml
+
+    - name: Configure python3
+      include_tasks: tasks/python.yml
+
+    - name: Configure GoLang
+      include_tasks: tasks/go.yml
+
+    - name: Set up Neovim
+      include_tasks: tasks/nvim.yml
+
+    - name: Install firefox
+      include_tasks: tasks/build_firefox.yml
+
+    - name: Clean up downloads
+      file:
+        path: "{{ home_dir }}/Downloads"
+        state: "{{ item }}"
+      with_items:
+        - absent
+        - directory

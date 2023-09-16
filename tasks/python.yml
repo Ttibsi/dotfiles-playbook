@@ -32,11 +32,19 @@
     dest: "/bin/virtualenv"
     state: link
   become: true
+  when: not ansible_check_mode
 
 - name: Install pre-commit
   pip:
     name: pre-commit
     virtualenv: "{{ home_dir }}/.opt/venv"
+
+- name: Symlink gh-stats
+  file:
+    src: "{{ home_dir }}/.opt/venv/bin/pre-commit"
+    dest: "/bin/pre-commit"
+    state: link
+  become: true
 
 - name: Install cmake-language-server
   pip:
