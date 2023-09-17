@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Change Desktop
-Exec=~/.opt/change_desktop
-Icon=system-run
-X-GNOME-Autostart-enabled=true
-
