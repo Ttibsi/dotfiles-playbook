@@ -30,7 +30,7 @@ function main {
     echo -e "\n----- Installing requirements -----"
     ansible-galaxy install -r requirements.yml
 
-    ansible-playbook -K ubuntu_playbook.yml
+    ansible-playbook -K tasks/ubuntu_playbook.yml
 
     echo -e "\n----- Removing ansible requirements -----"
     rm -rf $HOME/.ansible
@@ -42,14 +42,23 @@ function main {
     gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-right "['<Control><Alt>Right']"
     gsettings set org.gnome.desktop.peripherals.mouse natural-scroll false
     gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll false
+    xdotool key super+y # Enable pop tiling
 
     echo -e "Configuring Bash"
-    ln -s ~/workspace/dotfiles-playbook/templates/bash/bashrc ~/.bashrc
-    ln -s ~/workspace/dotfiles-playbook/templates/bash/bash_aliases ~/.bash_aliases
+    rm ~/.bashrc ~/.bash_aliases
+    ln -s ~/Workspace/dotfiles-playbook/templates/bash-shell/bashrc ~/.bashrc
+    ln -s ~/Workspace/dotfiles-playbook/templates/bash-shell/bash_aliases ~/.bash_aliases
+    sudo systemctl start libvirtd
+
+    echo -e "Configuring Firefox"
+    sudo mkdir /etc/firefox/policies
+    sudo ln -s ~/workspace/dotfiles-playbook/templates/firefox/policies.json \
+	    /etc/firefox/policies/policies.json
 
     echo -e "\n----- Cleaning up apt -----"
     sudo apt autoclean -y
     sudo apt autoremove -y
+    rm -rf $HOME/go
 
     echo -e "\n----- Copying SHH pub key to clipboard -----"
     cat "$SSH_DIR/id_rsa.pub" | xclip -selection c

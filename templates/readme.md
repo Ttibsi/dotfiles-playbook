@@ -3,6 +3,10 @@
 
 ### firefox
     - `policies.json` > `/usr/lib/firefox/distribution/policies.json`
+    
+    On ubuntu when using the snap version of firefox, use 
+    `/etc/firefox/policies/policies.json`
+	
 
 ### gitconfig
  - `gitconfig` > `$HOME/.gitconfig`

@@ -6,8 +6,7 @@
         "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi",
         "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi",
         "https://addons.mozilla.org/firefox/downloads/latest/youtube-high-definition/latest.xpi",
-        "https://addons.mozilla.org/firefox/downloads/latest/panorama-tab-groupslatest.xpi",
-        "https://addons.mozilla.org/firefox/downloads/latest/catppuccin-mocha-sky/latest.xpi"
+        "https://addons.mozilla.org/firefox/downloads/latest/panorama-tab-groupslatest.xpi"
       ]
     },
     "DisablePocket": true,

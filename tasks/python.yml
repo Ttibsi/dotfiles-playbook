@@ -39,17 +39,12 @@
     name: pre-commit
     virtualenv: "{{ home_dir }}/.opt/venv"
 
-- name: Symlink gh-stats
+- name: Symlink pre-commit
   file:
     src: "{{ home_dir }}/.opt/venv/bin/pre-commit"
-    dest: "/bin/pre-commit"
+    dest: "{{ home_dir }}/.opt/pre-commit"
     state: link
   become: true
-
-- name: Install cmake-language-server
-  pip:
-    name: cmake-language-server
-    virtualenv: "{{ home_dir }}/.opt/venv"
 
 - name: Install gh-stats
   pip:
@@ -59,7 +54,7 @@
 - name: Symlink gh-stats
   file:
     src: "{{ home_dir }}/.opt/venv/bin/ghstats"
-    dest: "/bin/ghstats"
+    dest: "{{ home_dir  }}/.opt/ghstats"
     state: link
   become: true
 

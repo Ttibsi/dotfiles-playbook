@@ -25,3 +25,11 @@ if [ -x /usr/bin/dircolors ]; then
     alias ls='ls --color=auto'
 fi
 
+export GOPATH=$HOME/.go
+
+export PATH=$PATH:~/.opt
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+
+

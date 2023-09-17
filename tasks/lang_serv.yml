@@ -5,6 +5,11 @@
     name: python-language-server
     virtualenv: "{{ home_dir }}/.opt/venv"
 
+- name: Install cmake-language-server
+  pip:
+    name: cmake-language-server
+    virtualenv: "{{ home_dir }}/.opt/venv"
+
 - name: luaLSP
   block:
     - name: Create dir
