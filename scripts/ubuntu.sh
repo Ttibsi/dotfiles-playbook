@@ -44,8 +44,8 @@ function main {
     gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-right "['<Super><shift>right']"
     gsettings set org.gnome.desktop.peripherals.mouse natural-scroll false
     gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll false
+
     xdotool key super+y # Enable pop tiling
-    sudo systemctl enable change_desktop.service
 
     echo -e "Configuring Bash"
     rm ~/.bashrc ~/.bash_aliases
@@ -57,6 +57,11 @@ function main {
     sudo mkdir /etc/firefox/policies
     sudo ln -s ~/workspace/dotfiles-playbook/templates/firefox/policies.json \
 	    /etc/firefox/policies/policies.json
+
+
+    echo -e "Access PiShare"
+    echo "//192.168.1.4/PiShare /mnt/PiShare cifs vers=3.0,credentials=/mnt/pishare_creds,iocharset=utf8,file_mode=0777,dir_mode=0777,sec=ntlmssp 0 0" | sudo tee -a /etc/fstab
+
 
     echo -e "\n----- Cleaning up apt -----"
     sudo apt autoclean -y

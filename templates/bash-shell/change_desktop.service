@@ -2,7 +2,6 @@
 Description=Change Desktop wallpaper
 
 [Service]
-User=/home/auri
 ExecStart=%h/.opt/change_desktop
 
 [Install]
