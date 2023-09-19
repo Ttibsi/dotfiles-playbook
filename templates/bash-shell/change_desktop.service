@@ -5,4 +5,4 @@ Description=Change Desktop wallpaper
 ExecStart=%h/.opt/change_desktop
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target

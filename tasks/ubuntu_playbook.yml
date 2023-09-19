@@ -4,6 +4,7 @@
   vars:
     go_version: 1.21.0
     home_dir: "{{ lookup('env', 'HOME') }}"
+    user: "{{ lookup('env', 'USER') }}"
 
     # These are git tags
     nvim_version: v0.9.1
@@ -48,25 +49,34 @@
           clone: true
           repo: https://gitlab.com/dwt1/wallpapers.git
           dest: "{{ home_dir }}/.wallpapers"
+          depth: 1
 
       - name: Download change script
         get_url:
           url: "https://raw.githubusercontent.com/Ttibsi/scratchpad/master/bash/change_desktop"
           dest: "{{ home_dir }}/.opt/change_desktop"
-          mode: 777
+          mode: 0777
+        become: true
 
       - name: Copy autorun script
         file:
           src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/bash-shell/change_desktop.service"
           dest: "{{ home_dir }}/.config/systemd/user/change_desktop.service"
           state: link
-          mode: 777
         become: true
 
       - name: Setup systemd commands
         systemd:
           name: change_desktop.service
-          state: enable
+          state: started
+          daemon_reload: true
+          enabled: true
+          scope: user
+
+      - name: Enable user lingering
+        command: "loginctl enable-linger {{ user }}"
+
+        # enable and loginctl?
 
     - name: Terminal installs
       apt: 

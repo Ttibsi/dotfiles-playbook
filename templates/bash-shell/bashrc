@@ -12,7 +12,7 @@ shopt -s histappend
 shopt -s checkwinsize
 bind 'set show-all-if-ambiguous on'
 
-PS1='\[\e[1;32m\]\w\[\e[1;36m\]$(__git_ps1 " (%s)")\[\e[0m\] > '
+PS1='\[\e[1;32m\]\w\[\e[1;36m\]$(__git_ps1 " (%s)")\[\e[0m\] -> '
 
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 [ -x /usr/bin/dircolors ] && eval "$(dircolors -b)"
