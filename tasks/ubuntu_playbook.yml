@@ -96,6 +96,12 @@
         state: latest
       become: true
 
+    - name: Start libvirtd
+      systemd:
+        name: libvirtd
+        state: started
+      become: true
+
     - name: Setup Pop-Shell
       block:
         - name: Clone pop-shell

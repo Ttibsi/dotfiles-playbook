@@ -66,7 +66,7 @@ function main {
     echo -e "\n----- Cleaning up apt -----"
     sudo apt autoclean -y
     sudo apt autoremove -y
-    rm -rf $HOME/go
+    sudo rm -rf $HOME/go
 
     echo -e "\n----- Copying SHH pub key to clipboard -----"
     cat "$SSH_DIR/id_rsa.pub" | xclip -selection c
