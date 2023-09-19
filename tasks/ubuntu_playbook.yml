@@ -58,7 +58,7 @@
       - name: Copy autorun script
         file:
           src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/bash-shell/change_desktop.service"
-          dest: "{{ home_dir }}.config/systemd/user/change_desktop.service"
+          dest: "{{ home_dir }}/.config/systemd/user/change_desktop.service"
           state: link
           mode: 777
         become: true
