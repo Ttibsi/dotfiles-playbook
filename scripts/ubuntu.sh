@@ -38,10 +38,10 @@ function main {
     echo -e "Configuring Gnome"
     gsettings set org.gnome.desktop.interface show-battery-percentage true
     gsettings set org.gnome.settings-daemon.plugins.power ambient-enabled false
-    gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-left "['<primary><Super>left']"
-    gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-right "['<primary><Super>right']"
-    gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-left "['<Super><shift>left']"
-    gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-right "['<Super><shift>right']"
+    gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-left "['<primary><Super>Left']"
+    gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-right "['<primary><Super>Right']"
+    gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-left "['<Shift><Super>Left']"
+    gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-right "['<Shift><Super>Right']"
     gsettings set org.gnome.desktop.peripherals.mouse natural-scroll false
     gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll false
 
