@@ -12,10 +12,12 @@ shopt -s histappend
 shopt -s checkwinsize
 bind 'set show-all-if-ambiguous on'
 
-source /usr/lib/git-core/git-sh-prompt
-GIT_PS1_SHOWDIRTYSTATE=1
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    source $HOME/git-prompt.sh
+else
+    source /usr/lib/git-core/git-sh-prompt
+fi
 GIT_PS1_DESCRIBE_STYLE='contains'
-GIT_PS1_SHOWCOLORHINTS='y'
 GIT_PS1_SHOWDIRTYSTATE='y'
 GIT_PS1_SHOWSTASHSTATE='y'
 GIT_PS1_SHOWUNTRACKEDFILES='y'
@@ -38,6 +40,3 @@ export GOPATH=$HOME/.go
 export PATH=$PATH:~/.opt
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-
-
-
