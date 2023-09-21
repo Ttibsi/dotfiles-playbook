@@ -7,8 +7,8 @@
     user: "{{ lookup('env', 'USER') }}"
 
     # These are git tags
-    nvim_version: v0.9.1
-    lua_lsp_version: 3.6.25
+    nvim_version: v0.9.2
+    lua_lsp_version: 3.7.0
 
   tasks:
     - name: Remove unneeded folders
@@ -30,7 +30,7 @@
         path: "{{ home_dir }}/{{ item }}"
         mode: '0755'
       with_items:
-        - "Workspace"
+        - "workspace"
         - ".opt"
         - ".config/autostart"
         - ".config/systemd/user"
@@ -38,8 +38,8 @@
     - name: Clone dotfiles repo to correct location
       git:
         repo: https://github.com/Ttibsi/dotfiles-playbook
-        dest: "{{ home_dir }}/Workspace/dotfiles-playbook"
-        version: ubuntu # Checkout ubuntu branch
+        dest: "{{ home_dir }}/workspace/dotfiles-playbook"
+        # version: ubuntu # Checkout ubuntu branch
       when: not ansible_check_mode
 
     - name: Change wallpaper on startup
@@ -60,7 +60,7 @@
 
         - name: Copy autorun script
           file:
-            src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/bash-shell/change_desktop.service"
+            src: "{{ home_dir }}/workspace/dotfiles-playbook/templates/bash-shell/change_desktop.service"
             dest: "{{ home_dir }}/.config/systemd/user/change_desktop.service"
             state: link
           become: true
@@ -76,13 +76,13 @@
         - name: Enable user lingering
           command: "loginctl enable-linger {{ user }}"
 
-          # enable and loginctl?
-
     - name: Terminal installs
       apt:
         pkg:
           - curl
+          - docker
           - flameshot
+          - libreoffice
           - make
           - neofetch
           - node-typescript

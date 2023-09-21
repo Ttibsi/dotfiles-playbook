@@ -29,12 +29,6 @@ PS1=' \[\e[1;32m\]\w\[\e[1;36m\]$(__git_ps1 " (%s)")\[\e[0m\] -> '
 [ -f ~/.bash_aliases ] && . ~/.bash_aliases
 [ -f /etc/bash_completion ] && . /etc/bash_completion
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-fi
-
 export GOPATH=$HOME/.go
 
 export PATH=$PATH:~/.opt

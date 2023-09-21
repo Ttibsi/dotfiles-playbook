@@ -49,8 +49,8 @@ function main {
 
     echo -e "Configuring Bash"
     rm ~/.bashrc ~/.bash_aliases
-    ln -s ~/Workspace/dotfiles-playbook/templates/bash-shell/bashrc ~/.bashrc
-    ln -s ~/Workspace/dotfiles-playbook/templates/bash-shell/bash_aliases ~/.bash_aliases
+    ln -s ~/workspace/dotfiles-playbook/templates/bash-shell/bashrc ~/.bashrc
+    ln -s ~/workspace/dotfiles-playbook/templates/bash-shell/bash_aliases ~/.bash_aliases
     sudo systemctl start libvirtd
 
     echo -e "Configuring Firefox"
