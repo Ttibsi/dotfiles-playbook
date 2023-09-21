@@ -13,7 +13,7 @@
 
 - name: Distribute firefox policy
   file:
-    src: "{{ home_dir }}/Workspace/dotfiles-playbook/templates/firefox/policies.json"
+    src: "{{ home_dir }}/workspace/dotfiles-playbook/templates/firefox/policies.json"
     dest: "/etc/firefox/policies/policies.json"
     state: link
   become: true

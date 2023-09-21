@@ -110,6 +110,10 @@
             dest: "{{ home_dir }}/Downloads/shell"
           when: not ansible_check_mode
 
+        - name: 5 Second pause
+          pause:
+            seconds: 5
+
         - name: make install
           make:
             target: local-install
