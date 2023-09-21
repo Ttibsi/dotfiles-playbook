@@ -1,0 +1,19 @@
+alias ls='ls --color=auto'
+
+alias la='ls --color=auto -Alh'
+alias which_term="ps -aux | grep `ps -p $$ -o ppid=`"
+alias purge-mac-dots="find . -name \"._*\" -exec rm -rf {} \;"
+
+#Git
+alias gbl="git branch --list"
+alias gss="git status -s"
+alias gau="git add -u"
+
+alias git-branch-prune="git branch --merged main | grep -v '^[ *]*main$' | xargs git branch -d"
+
+# Hardware
+alias bt-airpods="bluetoothctl connect 5C:52:30:E2:F8:D1"
+alias bt-crushers="bluetoothctl connect 38:F3:2E:76:47:5E"
+
+# Software
+alias btm="btm --battery --dot_marker"

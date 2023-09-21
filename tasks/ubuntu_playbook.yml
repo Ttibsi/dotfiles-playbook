@@ -1,0 +1,144 @@
+---
+
+- hosts: localhost
+  vars:
+    go_version: 1.21.0
+    home_dir: "{{ lookup('env', 'HOME') }}"
+    user: "{{ lookup('env', 'USER') }}"
+
+    # These are git tags
+    nvim_version: v0.9.2
+    lua_lsp_version: 3.7.0
+
+  tasks:
+    - name: Remove unneeded folders
+      file:
+        state: absent
+        path: "{{ home_dir }}/{{ item }}"
+      with_items:
+        - "Desktop"
+        - "Documents"
+        - "Music"
+        - "Pictures"
+        - "Public"
+        - "Templates"
+        - "Videos"
+
+    - name: Create required directories
+      file:
+        state: directory
+        path: "{{ home_dir }}/{{ item }}"
+        mode: '0755'
+      with_items:
+        - "workspace"
+        - ".opt"
+        - ".config/autostart"
+        - ".config/systemd/user"
+
+    - name: Clone dotfiles repo to correct location
+      git:
+        repo: https://github.com/Ttibsi/dotfiles-playbook
+        dest: "{{ home_dir }}/workspace/dotfiles-playbook"
+        # version: ubuntu # Checkout ubuntu branch
+      when: not ansible_check_mode
+
+    - name: Change wallpaper on startup
+      block:
+        - name: Download wallpaper directory
+          git:
+            clone: true
+            repo: https://gitlab.com/dwt1/wallpapers.git
+            dest: "{{ home_dir }}/.wallpapers"
+            depth: 1
+
+        - name: Download change script
+          get_url:
+            url: "https://raw.githubusercontent.com/Ttibsi/scratchpad/master/bash/change_desktop"
+            dest: "{{ home_dir }}/.opt/change_desktop"
+            mode: 0777
+          become: true
+
+        - name: Copy autorun script
+          file:
+            src: "{{ home_dir }}/workspace/dotfiles-playbook/templates/bash-shell/change_desktop.service"
+            dest: "{{ home_dir }}/.config/systemd/user/change_desktop.service"
+            state: link
+          become: true
+
+        - name: Setup systemd commands
+          systemd:
+            name: change_desktop.service
+            state: started
+            daemon_reload: true
+            enabled: true
+            scope: user
+
+        - name: Enable user lingering
+          command: "loginctl enable-linger {{ user }}"
+
+    - name: Terminal installs
+      apt:
+        pkg:
+          - curl
+          - docker
+          - flameshot
+          - libreoffice
+          - make
+          - neofetch
+          - node-typescript
+          - powertop
+          - ripgrep
+          - tlp
+          - tree
+          - virt-manager
+          - xclip
+          - xdotool
+        state: latest
+      become: true
+
+    - name: Start libvirtd
+      systemd:
+        name: libvirtd
+        state: started
+      become: true
+
+    - name: Setup Pop-Shell
+      block:
+        - name: Clone pop-shell
+          git:
+            repo: https://github.com/pop-os/shell.git
+            dest: "{{ home_dir }}/Downloads/shell"
+          when: not ansible_check_mode
+
+        - name: make install
+          make:
+            target: local-install
+            chdir: "{{ home_dir }}/Downloads/shell"
+
+    - name: Bottom
+      apt:
+        deb: https://github.com/ClementTsang/bottom/releases/download/0.6.8/bottom_0.6.8_amd64.deb
+      become: true
+
+    - name: Configure Git
+      include_tasks: git.yml
+
+    - name: Configure python3
+      include_tasks: python.yml
+
+    - name: Configure GoLang
+      include_tasks: go.yml
+
+    - name: Set up Neovim
+      include_tasks: nvim.yml
+
+    - name: Install firefox
+      include_tasks: build_firefox.yml
+
+    - name: Clean up downloads
+      file:
+        path: "{{ home_dir }}/Downloads"
+        state: "{{ item }}"
+      with_items:
+        - absent
+        - directory

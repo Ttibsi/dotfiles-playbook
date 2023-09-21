@@ -5,20 +5,25 @@
     name: python-language-server
     virtualenv: "{{ home_dir }}/.opt/venv"
 
+- name: Install cmake-language-server
+  pip:
+    name: cmake-language-server
+    virtualenv: "{{ home_dir }}/.opt/venv"
+
 - name: luaLSP
   block:
-    - name: Create dir
+    - name: luaLSP - Create dir
       file:
         path: "{{ home_dir}}/.opt/lua-language-server/"
         state: directory
         mode: 0755
 
-    - name: Download
+    - name: luaLSP - Download
       get_url:
         url: "https://github.com/LuaLS/lua-language-server/releases/download/{{lua_lsp_version}}/lua-language-server-{{lua_lsp_version}}-linux-x64.tar.gz"
         dest: "{{ home_dir }}/Downloads/lua-language-server.tar.gz"
 
-    - name: Install
+    - name: luaLSP - Install
       unarchive:
         src: "{{ home_dir }}/Downloads/lua-language-server.tar.gz"
         dest: "{{ home_dir }}/.opt/lua-language-server"
