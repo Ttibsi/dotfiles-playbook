@@ -156,6 +156,7 @@ local function init()
 	require("lspconfig").pylsp.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
+        cmd = {vim.fn.expand("$HOME") .. "/.opt/venv/bin/pyls"}
 	})
 
 	-- lua

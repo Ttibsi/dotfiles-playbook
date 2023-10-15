@@ -60,7 +60,10 @@ function main {
 
 
     echo -e "Access PiShare"
-    echo "//192.168.1.4/PiShare /mnt/PiShare cifs vers=3.0,credentials=/mnt/pishare_creds,iocharset=utf8,file_mode=0777,dir_mode=0777,sec=ntlmssp 0 0" | sudo tee -a /etc/fstab
+    echo "//192.168.1.4/PiShare /mnt/PiShare cifs vers=3.0,credentials=$HOME/.pishare_creds,iocharset=utf8,file_mode=0777,dir_mode=0777,sec=ntlmssp 0 0" | sudo tee -a /etc/fstab
+    touch $HOME/.pishare_creds
+    echo "username=\npassword=" > $HOME/.pishare_creds
+    echo -e "TODO - SETUP PI LOGIN AT $HOME/.pishare_creds"
 
 
     echo -e "\n----- Cleaning up apt -----"

@@ -79,6 +79,7 @@
     - name: Terminal installs
       apt:
         pkg:
+          - cifs-utils # needed for smb mounting
           - curl
           - docker
           - flameshot
