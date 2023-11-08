@@ -16,6 +16,7 @@ M.init = function()
 		{ "w3barsi/barstrata.nvim", as = "barstrata" },
 		{ "Mofiqul/dracula.nvim", as = "dracula" },
 		{ "nyoom-engineering/oxocarbon.nvim", as = "oxocarbon" },
+		{ "loctvl842/monokai-pro.nvim", as = "monokai" },
 	}
 
 	local decay_installed, decay_plugin = pcall(require, "decay")
@@ -90,8 +91,9 @@ M.init = function()
 	end
 
 	local oxocarbon_installed, oxocarbon_plugin = pcall(require, "oxocarbon")
+	local monokai_installed, monokai_plugin = pcall(require, "monokai")
 
-	local theme = "terafox"
+	local theme = "everblush"
 	local success = pcall(vim.cmd, "colorscheme " .. theme)
 	if not success then
 		vim.cmd("colorscheme blue")

@@ -54,6 +54,15 @@ local function init()
 			},
 		},
 	})
+
+	require("treesitter-context").setup({
+		multiline_threshold = 2,
+		trim_scope = "inner",
+	})
+
+	vim.keymap.set("n", "<leader>x", function()
+		require("treesitter-context").go_to_context()
+	end, { silent = true })
 end
 
 return {
