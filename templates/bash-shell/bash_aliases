@@ -17,3 +17,4 @@ alias bt-crushers="bluetoothctl connect 38:F3:2E:76:47:5E"
 
 # Software
 alias btm="btm --battery --dot_marker"
+alias iris="~/workspace/iris/build/src/iris"

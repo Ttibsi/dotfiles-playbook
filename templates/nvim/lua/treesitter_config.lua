@@ -23,6 +23,7 @@ local function init()
 			"typescript",
 			"vim",
 			"yaml",
+            "zig",
 		},
 
 		sync_install = false,

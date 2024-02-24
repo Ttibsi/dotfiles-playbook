@@ -32,5 +32,8 @@ PS1=' \[\e[1;32m\]\w\[\e[1;36m\]$(__git_ps1 " (%s)")\[\e[0m\] -> '
 export GOPATH=$HOME/.go
 
 export PATH=$PATH:~/.opt
+export PATH=$PATH:~/.opt/zig-lang
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+. "$HOME/.cargo/env"
+

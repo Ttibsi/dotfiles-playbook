@@ -256,6 +256,12 @@ local function init()
 		on_attach = on_attach,
 		capabilities = cssCapabilities(),
 	})
+
+    -- zig - build from source
+	require("lspconfig").zls.setup({
+		on_attach = on_attach,
+		capabilities = cssCapabilities(),
+	})
 end
 
 return {

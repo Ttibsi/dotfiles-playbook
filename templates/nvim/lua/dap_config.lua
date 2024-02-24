@@ -4,7 +4,8 @@ local function adapters()
 	-- C++/C/Rust
 	dap.adapters.lldb = {
 		type = "executable",
-		command = "/usr/local/opt/llvm/bin/lldb-vscode", -- adjust as needed, must be absolute path
+		-- command = "/usr/local/opt/llvm/bin/lldb-vscode", -- adjust as needed, must be absolute path
+		command = "/usr/bin/lldb-vscode-11", -- adjust as needed, must be absolute path
 	}
 
 	--Python
