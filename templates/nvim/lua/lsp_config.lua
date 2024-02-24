@@ -254,13 +254,13 @@ local function init()
 	-- gem install rubyls
 	require("lspconfig").ruby_ls.setup({
 		on_attach = on_attach,
-		capabilities = cssCapabilities(),
+		capabilities = capabilities,
 	})
 
     -- zig - build from source
 	require("lspconfig").zls.setup({
 		on_attach = on_attach,
-		capabilities = cssCapabilities(),
+		capabilities = capabilities,
 	})
 end
 
