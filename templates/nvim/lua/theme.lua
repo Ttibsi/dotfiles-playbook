@@ -49,6 +49,11 @@ M.init = function()
 	end
 
 	local gruvbox_installed, gruvbox_plugin = pcall(require, "gruvbox")
+    if gruvbox_installed then
+        gruvbox_plugin.setup({
+            italic = { strings = false }
+        })
+    end
 
 	local tokyonight_installed, tokyonight_plugin = pcall(require, "tokyonight")
 	if tokyonight_installed then
