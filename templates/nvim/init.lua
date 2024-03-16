@@ -114,7 +114,6 @@ local function call_plugins()
 		{ "nvim-treesitter/nvim-treesitter", run = TSUpdate },
 
 		"nvim-lua/plenary.nvim",
-		"nvim-treesitter/nvim-treesitter-context",
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		"nvim-treesitter/playground",
 		"lukas-reineke/indent-blankline.nvim",
