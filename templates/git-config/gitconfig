@@ -8,6 +8,6 @@
     new-orphan = "!f() { git checkout --orphan \"$1\" && git reset * && git clean -fxfd; }; f"
     undo = reset --soft HEAD^   # Unstages the last commit while keeping its changes
 [core]
-    editor = ~/workspace/iris/build/src/iris
+    #editor = ~/workspace/iris/build/src/iris
 [init]
     defaultBranch = main

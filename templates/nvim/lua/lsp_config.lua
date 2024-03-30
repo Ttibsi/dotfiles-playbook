@@ -257,7 +257,7 @@ local function init()
 		capabilities = capabilities,
 	})
 
-    -- zig - build from source
+ --    -- zig - build from source
 	require("lspconfig").zls.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,

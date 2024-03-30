@@ -22,8 +22,8 @@ local function basic_config()
 
 		number = true,
 		ruler = true,
-		cursorline = true,
-		colorcolumn = "80",
+		-- cursorline = true,
+		-- colorcolumn = "80",
 		mouse = "",
 
 		splitbelow = true,
@@ -106,7 +106,7 @@ local function call_plugins()
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
 		"mfussenegger/nvim-dap",
-		"rcarriga/nvim-dap-ui",
+		--"rcarriga/nvim-dap-ui",
 		"theHamsta/nvim-dap-virtual-text",
 		{ "nvim-telescope/telescope.nvim", branch = "0.1.x" },
 		"nvim-telescope/telescope-fzf-native.nvim",
@@ -116,15 +116,15 @@ local function call_plugins()
 		"nvim-lua/plenary.nvim",
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		"nvim-treesitter/playground",
-		"lukas-reineke/indent-blankline.nvim",
+		-- "lukas-reineke/indent-blankline.nvim",
 		"nvim-lualine/lualine.nvim",
-		"lewis6991/gitsigns.nvim",
+		-- "lewis6991/gitsigns.nvim",
 
 		"numToStr/Comment.nvim",
 		"folke/todo-comments.nvim",
-		"ellisonleao/glow.nvim",
+		-- "ellisonleao/glow.nvim",
 		"ttibsi/pre-commit.nvim",
-		"levouh/tint.nvim",
+		-- "levouh/tint.nvim",
 	}
 
 	for _, theme in ipairs(themes_list) do
@@ -133,16 +133,16 @@ local function call_plugins()
 
 	require("paq"):setup({})(plugins_list)
 	require("cmp_config").init()
-	require("dap_config").init()
-	require("indent_blankline_config").init()
+	--require("dap_config").init()
+	-- require("indent_blankline_config").init()
 	require("lsp_config").init()
 	require("lualine_config").init()
 	require("telescope_config").init()
 	require("treesitter_config").init()
 
 	require("Comment").setup()
-	require("gitsigns").setup()
-	require("tint").setup({})
+	-- require("gitsigns").setup()
+	-- require("tint").setup({})
 	require("todo-comments").setup()
 end
 
