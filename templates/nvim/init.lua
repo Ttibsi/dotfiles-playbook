@@ -10,6 +10,7 @@ local function basic_config()
 		hlsearch = false,
 		wrap = false,
 		incsearch = true,
+		inccommand = split,
 		smartcase = true,
 
 		-- ttyfast = true, -- Faster in terminal.app
