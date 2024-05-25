@@ -156,7 +156,7 @@ local function init()
 	require("lspconfig").pylsp.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
-        cmd = {vim.fn.expand("$HOME") .. "/.opt/venv/bin/pyls"}
+		cmd = { vim.fn.expand("$HOME") .. "/.opt/venv/bin/pyls" },
 	})
 
 	-- lua
@@ -168,7 +168,6 @@ local function init()
 			.. "/libexec"
 		Sumneko_binary = Sumneko_root_path .. "/bin/lua-language-server"
 	else
-		print("May need to fix path")
 		Sumneko_root_path = vim.fn.expand("$HOME")
 			.. "/.opt/lua-language-server"
 		Sumneko_binary = Sumneko_root_path .. "/bin/lua-language-server"
@@ -250,14 +249,7 @@ local function init()
 		cmd = { "npx", "vscode-css-language-server", "--stdio" },
 	})
 
-	--Ruby
-	-- gem install rubyls
-	require("lspconfig").ruby_ls.setup({
-		on_attach = on_attach,
-		capabilities = capabilities,
-	})
-
- --    -- zig - build from source
+	--    -- zig - build from source
 	require("lspconfig").zls.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
