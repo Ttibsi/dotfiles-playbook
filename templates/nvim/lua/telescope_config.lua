@@ -39,7 +39,10 @@ local function init()
 				},
 			},
 			live_grep = {
-				theme = "dropdown",
+				theme = "ivy",
+			},
+			buffers = {
+				theme = "ivy",
 			},
 		},
 	})
