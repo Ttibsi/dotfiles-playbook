@@ -17,7 +17,7 @@ local function basic_config()
 
 		expandtab = true,
 		smartindent = true,
-		scrolloff = 5,
+		-- scrolloff = 3,
 		shiftwidth = 4,
 		tabstop = 4,
 
