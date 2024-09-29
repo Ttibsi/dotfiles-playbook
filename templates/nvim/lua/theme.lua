@@ -17,7 +17,7 @@ M.init = function()
 		{ "Mofiqul/dracula.nvim", as = "dracula" },
 		{ "nyoom-engineering/oxocarbon.nvim", as = "oxocarbon" },
 		{ "loctvl842/monokai-pro.nvim", as = "monokai" },
-        { "blazkowolf/gruber-darker.nvim" },
+		{ "blazkowolf/gruber-darker.nvim" },
 	}
 
 	local decay_installed, decay_plugin = pcall(require, "decay")
@@ -98,7 +98,7 @@ M.init = function()
 
 	local oxocarbon_installed, oxocarbon_plugin = pcall(require, "oxocarbon")
 	local monokai_installed, monokai_plugin = pcall(require, "monokai")
-    local gruber_installed, gruber_plugin = pcall(require, "gruber-darker")
+	local gruber_installed, gruber_plugin = pcall(require, "gruber-darker")
 	if gruber_installed then
 		gruber_plugin.opts = {
 			italic = { strings = false },
