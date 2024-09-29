@@ -14,6 +14,8 @@ bind 'set show-all-if-ambiguous on'
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     source $HOME/git-prompt.sh
+elif grep -qi 'fedora' /etc/os-release; then
+    source /usr/share/git-core/contrib/completion/git-prompt.sh
 else
     source /usr/lib/git-core/git-sh-prompt
 fi
@@ -35,5 +37,5 @@ export PATH=~/.opt:$PATH
 export PATH=$PATH:~/.opt/zig-lang
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-. "$HOME/.cargo/env"
+# . "$HOME/.cargo/env"
 

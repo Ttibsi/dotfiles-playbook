@@ -19,3 +19,4 @@ alias bt-sony="bluetoothctl connect 74:B7:E6:18:A0:2C"
 # Software
 alias btm="btm --battery --dot_marker"
 alias iris="~/workspace/iris/build/src/iris"
+alias rg="rg --vimgrep"
