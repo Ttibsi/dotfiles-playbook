@@ -31,36 +31,8 @@ local on_attach = function(client, bufnr, opts)
 	vim.api.nvim_buf_set_keymap(
 		bufnr,
 		"n",
-		"gi",
-		"<cmd>lua vim.lsp.buf.implementation()<CR>",
-		opts
-	)
-	vim.api.nvim_buf_set_keymap(
-		bufnr,
-		"n",
 		"<C-k>",
 		"<cmd>lua vim.lsp.buf.signature_help()<CR>",
-		opts
-	)
-	vim.api.nvim_buf_set_keymap(
-		bufnr,
-		"n",
-		"<leader>wa",
-		"<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>",
-		opts
-	)
-	vim.api.nvim_buf_set_keymap(
-		bufnr,
-		"n",
-		"<leader>wr",
-		"<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>",
-		opts
-	)
-	vim.api.nvim_buf_set_keymap(
-		bufnr,
-		"n",
-		"<leader>wl",
-		"<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>",
 		opts
 	)
 	vim.api.nvim_buf_set_keymap(
@@ -84,14 +56,6 @@ local on_attach = function(client, bufnr, opts)
 		"<cmd>lua vim.lsp.buf.code_action()<CR>",
 		opts
 	)
-	vim.api.nvim_buf_set_keymap(
-		bufnr,
-		"n",
-		"gr",
-		"<cmd>lua vim.lsp.buf.references()<CR>",
-		opts
-	)
-	--vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
 local function defaults()
@@ -132,46 +96,27 @@ local function defaults()
 	return capabilities
 end
 
-function scandir(directory)
-	local i, t, popen = 0, {}, io.popen
-	local pfile = popen('ls -A "' .. directory .. '"')
-	for filename in pfile:lines() do
-		i = i + 1
-		t[i] = filename
-	end
-	pfile:close()
-	return t
-end
-
-local function cssCapabilities()
-	local capabilities = vim.lsp.protocol.make_client_capabilities()
-	capabilities.textDocument.completion.completionItem.snippetSupport = true
-	return capabilities
-end
-
 local function init()
-	capabilities = defaults()
+	local capabilities = defaults()
 
 	-- python
-	require("lspconfig").pylsp.setup({
+	-- require("lspconfig").pylsp.setup({
+	-- 	on_attach = on_attach,
+	-- 	capabilities = capabilities,
+	-- 	cmd = { vim.fn.expand("$HOME") .. "/.opt/venv/bin/pyls" },
+	-- })
+	require("lspconfig").jedi_language_server.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
-		cmd = { vim.fn.expand("$HOME") .. "/.opt/venv/bin/pyls" },
+		cmd = {
+			vim.fn.expand("$HOME") .. "/.opt/venv/bin/jedi-language-server",
+		},
 	})
 
 	-- lua
-	if vim.loop.os_uname().sysname == "Darwin" then
-		local sumneko_version =
-			scandir("/usr/local/Cellar/lua-language-server")[1]
-		Sumneko_root_path = "/usr/local/Cellar/lua-language-server/"
-			.. sumneko_version
-			.. "/libexec"
-		Sumneko_binary = Sumneko_root_path .. "/bin/lua-language-server"
-	else
-		Sumneko_root_path = vim.fn.expand("$HOME")
-			.. "/.opt/lua-language-server"
-		Sumneko_binary = Sumneko_root_path .. "/bin/lua-language-server"
-	end
+	local Sumneko_root_path = vim.fn.expand("$HOME")
+		.. "/.opt/lua-language-server"
+	local Sumneko_binary = Sumneko_root_path .. "/bin/lua-language-server"
 
 	require("lspconfig").lua_ls.setup({
 		on_attach = on_attach,
@@ -213,6 +158,7 @@ local function init()
 	else
 		Cmd = { "cmake-language-server" }
 	end
+
 	--cmake
 	--pip install cmake-language-server
 	require("lspconfig").cmake.setup({
@@ -233,23 +179,7 @@ local function init()
 		capabilities = capabilities,
 	})
 
-	-- Typescript
-	-- requres `npm i typescript-language-server`
-	require("lspconfig").tsserver.setup({
-		on_attach = on_attach,
-		capabilities = capabilities,
-		cmd = { "npx", "typescript-language-server", "--stdio" },
-	})
-
-	-- Css
-	-- requires `npm i vscode-langservers-extracted`
-	require("lspconfig").cssls.setup({
-		on_attach = on_attach,
-		capabilities = cssCapabilities(),
-		cmd = { "npx", "vscode-css-language-server", "--stdio" },
-	})
-
-	--    -- zig - build from source
+	-- zig - build from source
 	require("lspconfig").zls.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
