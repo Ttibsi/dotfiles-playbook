@@ -1,11 +1,11 @@
 local function active_layout()
 	local mode, mode_hl =
-		require("mini.statusline").section_mode({ trunc_width = 120 })
+		require("mini.statusline").section_mode({ trunc_width = 65 })
 	local filename =
-		require("mini.statusline").section_filename({ trunc_width = 140 })
+		require("mini.statusline").section_filename({ trunc_width = 65 })
 	local fileinfo = require("mini.statusline").section_fileinfo({})
 	local location =
-		require("mini.statusline").section_location({ trunc_width = 5 })
+		require("mini.statusline").section_location({ trunc_width = 500 })
 
 	return require("mini.statusline").combine_groups({
 		{ hl = mode_hl, strings = { "" } },
@@ -20,9 +20,9 @@ end
 
 local function inactive_layout()
 	local mode, mode_hl =
-		require("mini.statusline").section_mode({ trunc_width = 120 })
+		require("mini.statusline").section_mode({ trunc_width = 65 })
 	local filename =
-		require("mini.statusline").section_filename({ trunc_width = 140 })
+		require("mini.statusline").section_filename({ trunc_width = 65 })
 	local fileinfo = require("mini.statusline").section_fileinfo({})
 
 	return require("mini.statusline").combine_groups({
