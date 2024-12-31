@@ -12,9 +12,7 @@ alias gau="git add -u"
 alias git-branch-prune="git branch --merged main | grep -v '^[ *]*main$' | xargs git branch -d"
 
 # Hardware
-alias bt-airpods="bluetoothctl connect 5C:52:30:E2:F8:D1"
 alias bt-crushers="bluetoothctl connect 38:F3:2E:76:47:5E"
-alias bt-sony="bluetoothctl connect 74:B7:E6:18:A0:2C"
 
 # Software
 alias btm="btm --battery --dot_marker"
