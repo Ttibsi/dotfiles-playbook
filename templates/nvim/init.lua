@@ -69,9 +69,9 @@ local function custom_commands()
 	remap("<leader>p", ":put+<CR>")
 
 	-- Tabs
-	remap("<leader>t", ":tabnew<CR>")
-	remap("<leader>n", ":tabnext<CR>")
-	remap("<leader>N", ":tabprev<CR>")
+	remap("tt", ":tabnew<CR>")
+	remap("tn", ":tabnext<CR>")
+	remap("tp", ":tabprev<CR>")
 
 	-- Splits
 	remap("<leader>s", ":new<CR>")
