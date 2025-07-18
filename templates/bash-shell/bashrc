@@ -19,12 +19,25 @@ elif grep -qi 'fedora' /etc/os-release; then
 else
     source /usr/lib/git-core/git-sh-prompt
 fi
+
 GIT_PS1_DESCRIBE_STYLE='contains'
 GIT_PS1_SHOWDIRTYSTATE='y'
 GIT_PS1_SHOWSTASHSTATE='y'
 GIT_PS1_SHOWUNTRACKEDFILES='y'
 GIT_PS1_SHOWUPSTREAM='verbose'
-PS1=' \[\e[1;32m\]\w\[\e[1;36m\]$(__git_ps1 " (%s)")\[\e[0m\] -> '
+
+function update_ps1 { 
+    # Job count
+    jc="$(jobs | wc -l)"
+    jc_out=""
+    if (( jc > 0 )); then
+        jc_out="\[\e[1;31m\]($jc) "
+    fi
+
+    git_branch=$(__git_ps1 " (%s)") 
+    PS1=" \[\e[1;32m\]\w\[\e[1;36m\]${git_branch} ${jc_out}\[\e[0m\]-> "
+}
+PROMPT_COMMAND=update_ps1
 
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 [ -x /usr/bin/dircolors ] && eval "$(dircolors -b)"
@@ -37,5 +50,7 @@ export PATH=~/.opt:$PATH
 export PATH=$PATH:~/.opt/zig-lang
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-# . "$HOME/.cargo/env"
+. "$HOME/.cargo/env"
 
+change_desktop 2>&1 > /dev/null 
+peasant
