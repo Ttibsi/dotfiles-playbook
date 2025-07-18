@@ -89,6 +89,8 @@ local function custom_commands()
 	-- Move selected lines up/down
 	vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 	vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+	require("user_cmds")
 end
 
 -- Import files for plugin configs
@@ -114,11 +116,13 @@ local function call_plugins()
 		"nvim-treesitter/playground",
 		-- "nvim-lualine/lualine.nvim",
 		"echasnovski/mini.statusline",
+		"HallerPatrick/py_lsp.nvim",
 
 		"numToStr/Comment.nvim",
 		"folke/todo-comments.nvim",
 		"ttibsi/pre-commit.nvim",
 		"FabijanZulj/blame.nvim",
+		"vidocqh/data-viewer.nvim",
 	}
 
 	for _, theme in ipairs(themes_list) do

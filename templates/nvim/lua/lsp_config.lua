@@ -100,18 +100,18 @@ local function init()
 	local capabilities = defaults()
 
 	-- python
-	-- require("lspconfig").pylsp.setup({
-	-- 	on_attach = on_attach,
-	-- 	capabilities = capabilities,
-	-- 	cmd = { vim.fn.expand("$HOME") .. "/.opt/venv/bin/pyls" },
-	-- })
+	-- Check if there's a local venv directory and use it
+	local venv_path = vim.fn.getcwd() .. "/venv/bin/python"
+	if vim.fn.executable(venv_path) == 1 then
+		vim.g.python3_host_prog = venv_path
+		print("Using local venv at: " .. venv_path)
+	end
+
 	require("lspconfig").jedi_language_server.setup({
 		on_attach = on_attach,
-		capabilities = capabilities,
-		cmd = {
-			vim.fn.expand("$HOME") .. "/.opt/venv/bin/jedi-language-server",
-		},
+		capabilities = defaults()
 	})
+
 
 	-- lua
 	local Sumneko_root_path = vim.fn.expand("$HOME")
@@ -138,12 +138,6 @@ local function init()
 				},
 			},
 		},
-	})
-
-	-- golang
-	require("lspconfig").gopls.setup({
-		on_attach = on_attach,
-		capabilities = capabilities,
 	})
 
 	-- C++
@@ -175,12 +169,6 @@ local function init()
 
 	-- Rust
 	require("lspconfig").rust_analyzer.setup({
-		on_attach = on_attach,
-		capabilities = capabilities,
-	})
-
-	-- zig - build from source
-	require("lspconfig").zls.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
 	})
