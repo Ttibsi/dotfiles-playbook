@@ -34,8 +34,14 @@ function update_ps1 {
         jc_out="\[\e[1;31m\]($jc) "
     fi
 
+    # Preserve virtualenv name if present
+    venv_name=""
+    if [[ -n "$VIRTUAL_ENV" ]]; then
+        venv_name="($(basename "$VIRTUAL_ENV")) "
+    fi
+
     git_branch=$(__git_ps1 " (%s)") 
-    PS1=" \[\e[1;32m\]\w\[\e[1;36m\]${git_branch} ${jc_out}\[\e[0m\]-> "
+    PS1="${venv_name} \[\e[1;32m\]\w\[\e[1;36m\]${git_branch} ${jc_out}\[\e[0m\]-> "
 }
 PROMPT_COMMAND=update_ps1
 
