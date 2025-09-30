@@ -3,6 +3,7 @@ alias ls='ls --color=auto'
 alias la='ls --color=auto -Alh'
 alias which_term="ps -aux | grep `ps -p $$ -o ppid=`"
 alias purge-mac-dots="find . -name \"._*\" -exec rm -rf {} \;"
+alias pre-commit-list='grep "id: " .pre-commit-config.yaml | cut -d'\'':'\'' -f2 | cut -c2-'
 
 #Git
 alias gbl="git branch --list"

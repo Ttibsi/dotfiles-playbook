@@ -53,7 +53,6 @@ PROMPT_COMMAND=update_ps1
 export GOPATH=$HOME/.go
 
 export PATH=~/.opt:$PATH
-export PATH=$PATH:~/.opt/zig-lang
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 . "$HOME/.cargo/env"
