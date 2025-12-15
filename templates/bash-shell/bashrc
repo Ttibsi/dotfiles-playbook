@@ -57,5 +57,5 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 . "$HOME/.cargo/env"
 
-change_desktop 2>&1 > /dev/null 
+# change_desktop 2>&1 > /dev/null 
 peasant
